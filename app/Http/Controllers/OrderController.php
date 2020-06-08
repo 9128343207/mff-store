@@ -16,7 +16,7 @@ class OrderController extends Controller
                 'user_id' => Auth::id(),
                 'status' => 'ORDERED',
                 'invoice_id' => '-',
-                'shipping_id' => $orderDetail['shipping_address'],
+                'shipping_a_d_id' => $orderDetail['shipping_address'],
                 'billing_id' => $orderDetail['billing_address'],
                 'a_payment_methods_id' => $orderDetail['payment_method'],
                 'order_number' => $orderNumber,
@@ -26,6 +26,7 @@ class OrderController extends Controller
     public function insertAllOrder($item, $order)
     {
         OrderProduct::create([
+            'user_id' => Auth::id(),
             'order_id' => $order->id,
             'store_id' => $item->store,
             'product_id' => $item->itemDetail->id,
@@ -64,4 +65,6 @@ class OrderController extends Controller
         }
         return $total;
     }
+
+    
 }

@@ -12,7 +12,9 @@
 	<script type='text/javascript' src='js/example.js'></script>
 
 </head>
-<body>
+<body> 
+
+
 	<style type="text/css">
 		#hiderow,
 		.delete {
@@ -39,7 +41,7 @@ table td, table th { border: 1px solid black; padding: 5px; }
 
 #logo { text-align: right; float: right; position: relative; margin-top: 25px; border: 1px solid #fff; max-width: 540px; max-height: 100px; overflow: hidden; }
 #logo:hover, #logo.edit { border: 1px solid #000; margin-top: 0px; max-height: 125px; }
-#logoctr { display: none; }
+#logoctr { display: block; }
 #logo:hover #logoctr, #logo.edit #logoctr { display: block; text-align: right; line-height: 25px; background: #eee; padding: 0 5px; }
 #logohelp { text-align: left; display: none; font-style: italic; padding: 10px 5px;}
 #logohelp input { margin-bottom: 5px; }
@@ -78,36 +80,37 @@ textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.
 
 	<div id="page-wrap">
 		<h2 id="header">INVOICE</h2>
+		<div id="logo">
+
+              <div id="logoctr">
+                
+              <img id="image" src="https://www.osiltec.com/wp-content/uploads/2019/01/Final_Logo_FullColored_with_tagline.png" alt="logo" /> 
+              
+            </div>
+                          <h4><strong>Payment Method :</strong>{{$data->paymentType}}</h4>
+
 		
+		</div>
 		<div id="">
-		
+			<h3>Shipping Address</h3>
             <p id="address"><b>{{$data->user_detail->name}}</b><br>
 				{{$data->shipping->street}}
 				{{$data->shipping->city}}{{$data->shipping->state}}
 				{{$data->shipping->zip_code}}{{$data->shipping->country}}
 			</p>
 
-            <div id="logo">
-
-              <div id="logoctr">
-                
-              <img id="image" src="images/logo.png" alt="logo" /> // TODO LOGO URL
-              <h4><b>Payment Method :</b>{{$data->paymentType}}</h4>
-            </div>
-                          <h4><b>Payment Method</b>{{$data->paymentType}}</h4>
-
-		
-		</div>
+            
 		
 		<div style="clear:both"></div>
 		
 		<div id="customer">
+			<h3>Billing Address</h3>
 			<div style="width: 50%;float:left;">
 				<p id="customer-title">{{$data->user_detail->name}}</p><br>
             <p id="">{{$data->user_detail->email}}</p>
             <p>{{$data->billing->street}}
-{{$data->billing->city}}{{$data->billing->state}}
-{{$data->billing->zip_code}}{{$data->billing->country}}</p>
+				{{$data->billing->city}}{{$data->billing->state}}
+				{{$data->billing->zip_code}}{{$data->billing->country}}</p>
 			</div>
 			<div style="width: 50%;float:right;">
 				<table id="meta">
@@ -122,7 +125,7 @@ textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.
                 </tr>
                 <tr>
                     <td class="meta-head">Amount Due</td>
-                    <td><div class="due">${{$data->invoice->amount}}</div></td>
+                    <td><div class="due">${{$orderedItem->amount}}</div></td>
                 </tr>
 
             </table>
@@ -139,17 +142,26 @@ textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.
 		      <th>Quantity</th>
 		      <th>Price</th>
 		  </tr>
-		  
-		  @foreach($data->item_detail as $item)
-		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><textarea>{{$item->name}}</textarea></div></td>
-		      <td class="description"><textarea>Monthly web updates for http://widgetcorp.com (Nov. 1 - Nov. 30, 2009)</textarea></td>
-		      <td><textarea class="cost">${{$item->price}}</textarea></td>
-		      <td><textarea class="qty">{{$item->pivot->qty}}</textarea></td>
-		      <td><span class="price">${{$item->pivot->amount}}</span></td>
-		  </tr>
-		  @endforeach
-		  
+
+		  @if(is_array($data->item_detail) > 1)
+			  @foreach($data->item_detail as $item)
+			  <tr class="item-row">
+			      <td class="item-name"><div class="delete-wpr"><textarea>{{$item->name}}</textarea></div></td>
+			      <td class="description"><textarea>Monthly web updates for http://widgetcorp.com (Nov. 1 - Nov. 30, 2009)</textarea></td>
+			      <td><textarea class="cost">${{$item->price}}</textarea></td>
+			      <td><textarea class="qty">{{$item->pivot->qty}}</textarea></td>
+			      <td><span class="price">${{$item->pivot->amount}}</span></td>
+			  </tr>
+			  @endforeach
+			@else
+				<tr class="item-row">
+			      <td class="item-name"><div class="delete-wpr"><textarea>{{$data->item_detail->name}}</textarea></div></td>
+			      <td class="description"><textarea>Monthly web updates for http://widgetcorp.com (Nov. 1 - Nov. 30, 2009)</textarea></td>
+			      <td><textarea class="cost">${{$data->item_detail->price}}</textarea></td>
+			      <td><textarea class="qty">{{$orderedItem->qty}}</textarea></td>
+			      <td><span class="price">${{$orderedItem->amount}}</span></td>
+			  </tr>
+		  	@endif
 		  
 		  <tr id="hiderow">
 		    <td colspan="5"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
@@ -158,14 +170,14 @@ textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line">Subtotal</td>
-		      <td class="total-value"><div id="subtotal">${{$data->invoice->amount}}</div></td>
+		      <td class="total-value"><div id="subtotal">${{$orderedItem->amount}}</div></td>
 		  </tr>
 		 
 		  
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line balance">Total</td>
-		      <td class="total-value balance"><div class="due">${{$data->invoice->amount}}</div></td>
+		      <td class="total-value balance"><div class="due">${{$orderedItem->amount}}</div></td>
 		  </tr>
 		
 		</table>

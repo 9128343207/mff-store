@@ -10,6 +10,8 @@ use App\Http\Controllers\BillingController as CBilling;
 use App\Http\Controllers\InvoiceController as CInvoice;
 use App\Http\Controllers\OrderController as COrder;
 use App\Http\Controllers\TransactionController as Payment;
+use App\CartM;
+use Auth;
 
 class CheckoutController extends Controller
 {
@@ -74,8 +76,13 @@ class CheckoutController extends Controller
         }
         $data['total'] = $this->COrder->orderTotal($data);
         $data['invoice'] = $this->CInvoice->insertToDatabase($order, $data);
+        // CartM::where('user_id', '=', Auth::user()->id)->delete();
+        // if(session()->get('cart')){
+        //     session()->forget('cart');
+        // }
         $response = $this->proceedToPayment($data, $request);
-        return redirect($response['paypal_link']);
+
+        return redirect($response);
                 // dd($data);
         // return $data;
     }
@@ -96,13 +103,16 @@ class CheckoutController extends Controller
 
     public function proceedToPaypal($data, $order)
     {
-        return $this->CPayment->makePayment($data, $order);
+        $response = $this->CPayment->makePayment($data, $order);
+        return $response['paypal_link'];
         
     }
 
     public function proceedToWireTransfer($data, $order)
     {
-        dd($data);
+        // dd($data);
+        $url = 'invoice/'.$data['order_number'];
+        return $url;
     }
 
 }

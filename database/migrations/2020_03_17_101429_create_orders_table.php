@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_number');
             $table->string('invoice_number')->nullable();
             $table->integer('invoice_id');
-            $table->integer('shipping_id');
+            $table->integer('shipping_a_d_id');
             $table->integer('billing_id');
             $table->integer('a_payment_methods_id');
             $table->integer('transaction_id')->nullable();

@@ -46,6 +46,7 @@
     </style>
 
     <title>@yield('title')</title>
+    @yield('style')
 </head>
 <body>
     <div class="wrapper">
@@ -331,18 +332,21 @@
                     dataType: 'json',
                     success: function(data)
                     {
+                        console.log(data);
+                        $('#cart-item').empty();
                         data.items.forEach(renderCartItem);
                     }
                 });
         }
 
         function renderCartItem(item) {
+
             html = '<tr class="cart-item">';
             html += '<td></td>'; //TODO ajax get image
             html += '<td class="tb-product"><div class="product-name"><a href="'+item.itemDetail.id+'">'+item.itemDetail.name+'</a></div></td>';
             html += '<td class="tb-price"><span class="price">$'+item.itemDetail.price+'</span></td>';
             html += '<td class="tb-qty"><div class="quantity"><div class="buttons-added"><input type="text" value="'+item.qty+'" data-item="'+item.itemDetail.id+'" id="qty" onchange="quantity(this)" title="Qty" class="input-text qty text" size="1"><a href="#" class="sign plus"><i class="fa fa-plus"></i></a><a href="#" class="sign minus"><i class="fa fa-minus"></i></a></div></div></td>';
-            html += '<td class="tb-total"><span class="price">$229.00</span></td>'; //TODO calculate price according to quantity
+            html += '<td class="tb-total"><span class="price">'+item.qty*item.itemDetail.price+'</span></td>'; //TODO calculate price according to quantity
             html += '<td class="tb-remove"><a href="cart/remove/'+item.itemDetail.id+'" data-id="" class="action-remove"><span><i class="fa fa-times" aria-hidden="true"></i></span></a></td>';
                 $('#cart-item').append(html);
         }

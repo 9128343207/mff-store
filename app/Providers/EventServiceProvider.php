@@ -21,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\OrderPlaced' => [
             'App\Listeners\NotifyToStore',
         ],
+        'App\Events\OrderPrepared' => [
+            'App\Listeners\ShipProduct'
+        ],
     ];
 
     /**

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{Shipping, User};
+use App\{ShippingAD, User};
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests\BillingRequest;
@@ -11,7 +11,7 @@ class ShippingController extends Controller
 {
     public function addAddress(BillingRequest $request)
     {
-        Shipping::create([
+        ShippingAD::create([
             'user_id' => Auth::id(),
             'address' => json_encode($request->post()),
         ]);

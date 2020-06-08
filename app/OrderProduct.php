@@ -9,7 +9,7 @@ class OrderProduct extends Model
     protected $table = 'order_product';
 
     protected $fillable = [
-    	'order_id', 'product_id', 'store_id', 'qty', 'billing_id', 'shipping_id', 'amount'
+        'user_id', 'order_id', 'product_id', 'store_id', 'qty', 'billing_id', 'shipping_id', 'amount'
     ];
 
     public function item()
@@ -26,4 +26,6 @@ class OrderProduct extends Model
     {
     	return $this->belongsTo('App\order', 'order_id');
     }
+
+    
 }

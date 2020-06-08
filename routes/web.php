@@ -33,6 +33,8 @@ Route::post('/update-cart', 'CartMController@updateCart')->name('cart.update');
 
 // Route::post('/payment', 'TransactionController@makePayment');
 
+Route::get('/get-ordered-items', 'UserController@OrderedItems');
+Route::get('/my-orders', 'UserController@orderPage');
 
 Route::post('/add-billaddress', 'BillingController@addAddress');
 Route::post('/add-shipaddress', 'ShippingController@addAddress');
@@ -43,6 +45,8 @@ Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 Route::post('/checkout', 'CheckoutController@PlaceOrder')->name('checkout');
 
 Route::get('/invoice/{number}', 'InvoiceController@getInvoice');
+
+Route::get('/invoice/s/{number}', 'InvoiceController@getSInvoice');
 
 Route::prefix('/payment')->name('payment.')->group(function(){
 //     Route::get('/get', '')->name('get');
@@ -59,7 +63,7 @@ Route::prefix('/payment')->name('payment.')->group(function(){
 
 Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function(){
     //All the vendor routes will be defined here...
-    Route::get('/dashboard','HomeController@index')->name('home');
+    Route::get('/dashboard','HomeController@index')->name('home.dashboard');
     Route::get('/','HomeController@index')->name('home');
 
 
@@ -98,6 +102,8 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
        Route::get('/', 'OrderController@index')->name('all');
        Route::post('/get-order-details', 'OrderController@getSingleOrder');
 
+        Route::post('/status', 'OrderController@status')->name('status');
+
 
        // Edit item
    });
@@ -107,3 +113,10 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
     Route::post('/upload', 'Additional\UploadController@uploadSubmit');
 
   });
+
+
+Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
+  Route::get('/dashboard','HomeController@index')->name('home.dashboard');
+  Route::get('/','HomeController@index')->name('home');
+
+});

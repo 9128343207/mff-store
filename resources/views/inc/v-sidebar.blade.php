@@ -42,6 +42,17 @@
                                 
                             </ul>
                         </li>
+                        <li class="">
+                            <a class="has-arrow" href="index.html">
+                                   <span class="educate-icon educate-home icon-wrap"></span>
+                                   <span class="mini-click-non">Shipment</span>
+                                </a>
+                            <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Dashboard v.1" href="{{ Route('vendor.order.all')}}"><span class="mini-sub-pro">All</span></a></li>
+                            <li><a title="Dashboard v.2" href="{{ Route('vendor.payment.methods') }}"><span class="mini-sub-pro">Methods</span></a></li>
+                                
+                            </ul>
+                        </li>
 
                     </ul>
                 </nav>
