@@ -11,70 +11,63 @@ class OrderController extends Controller
 {
     public function index()
     {
-    	$orders = OrderProduct::where('store_id', 6)->simplePaginate(10);
+    	$orders = OrderProduct::where('store_id', 6)->where('vn_status', 'NEW')->simplePaginate(10); // TODO CHANGED LOGGEDIN STOREID
+        
     	return view('vendor.orders.all')->with('orders', $orders);
     }
 
-    public function getSingleOrder(Request $req)
+    public function getSingleOrder($id)
     {
-    	$details = OrderProduct::find((int) $req->id);
+    	$details = OrderProduct::find((int) $id)->first();
 
-    	$data = [
+    	$data = (object) [
     		'orderDetail' => $details,
     		'user' => $details->order->user,
-            'payment' =>  [
+            'payment' => (object)  [
                 'method' => $details->order->Method,
                 'transaction' => '',
             ],
     		'item' => $details->item,
     		'order' => $details->order,
     	];
-    	return response()->json($data);
+    	return view('vendor.orders.summary')->with('ordersSummary', $data);
     }
 
-    public function status(Request $req)
+    public function statusUpdate(Request $req)
     {
-        // dd((int) $req->item);
-        $item = OrderProduct::find($req->item);
-        switch ($req->orderstatus) {
-            case 1:
-                # onhold
-                $item->status = 'onhold';
-                $item->save();
-                break;
-// 
-            case 2:
-                # processing
-                $item->status = 'processing';
-                $item->save();
+
+        switch ($req->paystatus) {
+            case 'HOLD':
+                $this->updateToDB($req->item, 'HOLD');
                 break;
 
-            case 3:
-                # shipping
-
-            // Event::fire(new OrderPrepared($req->item));
-
-            // Add to shipping
-                Shipping::create([
-                    'order_product_id' => (int) $req->item,
-                    'status' => 'processing',
-                    'store_id' => '',
-                ]);
-                
-                $item->status = 'shipping';
-                $item->save();
-
-                break;
-
-            case 4:
-                # complete
-                $item->status = 'complete';
-                $item->save();
+            case 'PROCESSING':
+                 $this->updateToDB($req->item, 'PROCESSING');
                 break;
             
+            case 'COMPLETED':
+                $this->updateToDB($req->item, 'COMPLETED');
+                break;
+
+           
+            case 'SHIPPING':
+                 $this->updateToDB($req->item, 'SHIPPING');
+                break;
             default:
                 # code...
                 break;
         }
+
+        
+        return response()->json(true);
+    }
+
+    public function updateToDB($id, $vn_status)
+    {
+        $order = OrderProduct::find($id)->first();
+        $order->vn_status = ($vn_status) ? $vn_status : $order->vn_status ;
+        if ($order->save()) {
+           return true;
+        } else { return false;}
     }
 }

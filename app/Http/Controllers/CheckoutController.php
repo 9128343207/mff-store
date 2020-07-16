@@ -74,6 +74,7 @@ class CheckoutController extends Controller
             $ddata['item']['orderId'] = $order->id;
             array_push($data['items'], $ddata['item']);
         }
+
         $data['total'] = $this->COrder->orderTotal($data);
         $data['invoice'] = $this->CInvoice->insertToDatabase($order, $data);
         // CartM::where('user_id', '=', Auth::user()->id)->delete();

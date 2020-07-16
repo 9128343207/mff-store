@@ -21,7 +21,9 @@ class CreateOrderProductTable extends Migration
             $table->integer('product_id');
             $table->integer('qty');
             $table->integer('amount');
-            $table->string('status');
+            $table->string('ad_status');
+            $table->string('vn_status');
+            $table->string('tag');
             $table->timestamps();
         });
     }

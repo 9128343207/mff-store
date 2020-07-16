@@ -8,11 +8,11 @@ use App\Http\Controllers\OrderController as COrder;
 use Srmklive\PayPal\Services\ExpressCheckout;
 use Srmklive\PayPal\Services\AdaptivePayments;
 use App\Http\Controllers\CartMController as cart;
-use App\{invoice, order, Product, Store};
+use App\{invoice, order, Product, Store, transaction};
 
 class TransactionController extends Controller
 {
-    public $returnURL = '/payment/success';
+    public $returnURL = 'payment/success';
     public $cancelURL = '/cart';
     public $provider;
     public $expressCheckout;
@@ -56,9 +56,7 @@ class TransactionController extends Controller
         $data['return_url'] = url($this->returnURL);
         $data['cancel_url'] = url($this->cancelURL);
         // dd($data);
-        $total = 0;
-        
-
+        // $total = 0;
         // $data['shipping_discount'] = round((10 / 100) * $total, 2);
         $response = $this->provider->addOptions($this->setOptions())->setExpressCheckout($data);
 
@@ -67,10 +65,10 @@ class TransactionController extends Controller
         return $response;
     }
 
-    public function expresscheckout()
-    {
+    // public function expresscheckout()
+    // {
 
-    }
+    // }
 
     public function adaptiveCheckout()
     {
@@ -139,6 +137,59 @@ class TransactionController extends Controller
     public function getPaypalId($attributes)
     {
         return $attributes->emailid;
+    }
+
+    public function CreateTrasaction($data)
+    {
+       return  transaction::create([
+            'order_id' => $data['order_id'],
+            'trans_id' => $data['trans_id'],
+            'status' => $data['status'],
+        ]);
+    }
+
+    public function wtpaid($id)
+    {
+        $orderDetail = order::where('order_number', $id)->first();
+        $data = [
+            'order_id' => $orderDetail->id,
+            'trans_id' => 'N',
+            'status' => 'PYMNTDN',
+        ];
+        if($this->CreateTrasaction($data) && $this->updateOrder($orderDetail->id)){
+            return view('myorders')->with('success', 'Status Updated');
+        } else {return false;};
+
+    }
+
+    public function updateOrder($id)
+    {
+        $orderedItems = order::find($id)->oitems;
+        foreach ($orderedItems as $item) {
+            $item->ad_status = 'PAYDN';
+            $item->save();
+        }
+        return true;
+    }
+
+    public function success(Request $request)
+
+    {
+
+        $response = $provider->getExpressCheckoutDetails($request->token);
+
+  
+
+        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
+
+            dd('Your payment was successfully. You can create success page here.');
+
+        }
+
+  
+
+        dd('Something is wrong.');
+
     }
 
 }

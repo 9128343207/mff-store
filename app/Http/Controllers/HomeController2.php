@@ -26,6 +26,15 @@ class HomeController2 extends Controller
         return view('list-product')->with($data);
     }
 
+    public function productByCategory($id)
+    {
+        
+        $data = [
+            'items' => Product::where('category_id', $id)->with('productPhoto')->paginate($this->perPage),
+        ];
+        return view('list-product')->with($data);
+    }
+
     public function Sort(Request $request)
     {
         // dd((int) $request->value);
@@ -45,6 +54,15 @@ class HomeController2 extends Controller
         return redirect()->back();
     }
 
+    public function ProductSearch(Request $req)
+    {
+        $data =  [
+            'items' => (object) $this->search($req),
+        ];
+
+        return view('list-product')->with($data);
+    }
+
     public function getItems($request)
     {
         switch ($request->type) {
@@ -52,7 +70,7 @@ class HomeController2 extends Controller
                 return $this->NewArrivals();
                 break;
             case 'search':
-                return $this->search($request->keyword);
+                return $this->search($request);
                 break;
             case 'filter':
                 return $this->filter($request);
@@ -74,12 +92,12 @@ class HomeController2 extends Controller
                     ->paginate($this->perPage);
     }
 
-    public function search($keyword)
+    public function search($request)
     {
-        return Product::search($keyword)
+        return Product::search($request->keyword)
                 ->with('productPhoto')
                 ->with('category')
-                ->simplePaginate($this->perPage);
+                ->Paginate($this->perPage);
     }
 
     public function filter($request)

@@ -186,8 +186,12 @@ textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.
 		  <h5>Terms</h5>
 		  <textarea>NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</textarea>
 		</div>
-	
+	<form> 
+        <input type="button" value="Print" 
+               onclick="window.print()" /> 
+    </form> 
 	</div>
+	
 	
 </body>
 

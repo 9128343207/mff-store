@@ -1,7 +1,11 @@
 {{-- <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
+        @php
+                            $header = App\Header::where('status', 1)->first();
+                            
+                        @endphp
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            {{ $header->title }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -212,12 +216,14 @@
                 <div class="col-md-8 nav-mind">
 
                     <!-- block search -->
+                    <form method="post" id="search" action="{{route('product.search')}}">
+                    @csrf 
                     <div class="block-search">
                         <div class="block-content">
                             <div class="categori-search  ">
-                                <select data-placeholder="All Categories" class="chosen-select categori-search-option">
+                                <select data-placeholder="All Categories" class="chosen-select categori-search-option" name="cat">
                                     <option value="">All Categories</option>
-                                    <optgroup label="- Electronics">
+                                    <!-- <optgroup label="- Electronics">
                                       <option>Batteries & Chargens</option>
                                       <option>Headphone & Headsets</option>
                                       <option>Mp3 Player & Acessories</option>
@@ -236,19 +242,22 @@
                                       <option>Batteries & Chargens</option>
                                       <option>Headphone & Headsets</option>
                                       <option>Mp3 Player & Acessories</option>
-                                    </optgroup>
+                                    </optgroup> -->
+                                     @foreach (App\Category::where('parent_id', 1)->get() as $category)
+                                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                            @endforeach
                                 </select>
+                               
                             </div>
                             <div class="form-search">
-                                <form>
                                     <div class="box-group">
-                                        <input type="text" class="form-control" placeholder="Searh entire store here...">
-                                        <button class="btn btn-search" type="button"><span>search</span></button>
+                                        <input type="text" class="form-control" placeholder="Searh entire store here..." name="keyword">
+                                        <button class="btn btn-search" type="submit"><span>search</span></button>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div><!-- block search -->
+                </form>
                 </div>
                 <div class="col-md-2 nav-right">
 
@@ -406,7 +415,7 @@
                 <div class="header-menu-nav-inner ">
                     <div class="header-menu header-menu-resize">
                         <ul class="header-nav krystal-nav">
-                            <li class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></li>
+                           <!--  <li class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></li>
                             <li class="menu-item-has-children arrow">
                                 <a href="index.html">Cameras</a>
 
@@ -434,7 +443,23 @@
                             <li class="menu-item-has-children arrow">
                                 <a href="#">Video Games & Consoles</a>
 
-                            </li>
+                            </li> -->
+                            
+                            @foreach(App\Category::where('parent_id', '=', 1)->get() as $category)
+                            
+                            <li class="menu-item-has-children arrow">
+                                <a href="#">{{$category->title}}</a>
+                                 @if(count($category->childs))
+                                    <ul class="submenu parent-megamenu">
+                                        @foreach($category->childs as $child)
+                                            <li class="switcher-option">
+                                                <a href="grid-product.html" class="switcher-flag icon">{{$child->title}}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </li> 
+                            @endforeach
                         </ul>
                     </div>
 

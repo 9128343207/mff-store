@@ -14,7 +14,7 @@
             <li>{{ Session::get('success') }}</li>
         </ul>
     </div>
-@endif
+    @endif
     <main class="site-main shopping-cart">
         <div class="container">
             <ol class="breadcrumb-page">
@@ -39,12 +39,11 @@
                                         <th class="tb-remove"></th>
                                     </tr>
                                 </thead>
-                                <tbody id='cart-item'>
+                                <tbody id='recent-orders'>
                                             {{-- //TODO LOOP THIS IN JAVASCRIPT --}}
 
                                 </tbody>
                             </table>
-
                         </div>
                         <!-- <div class="cart-actions">
                             <a href="" type="submit" class="btn-continue">
@@ -264,6 +263,26 @@
             </div>
         </div>
     </main><!-- end MAIN -->
+    <!--  MODAL-->
+    <div class="modal fade" id="viewOrder" tabindex="1" role="dialog" aria-labelledby="viewOrder" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLabel">Order Summary</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+
+                         
+
+                       
+            </div>
+
+        </div>
+        </div>
+    </div>
 
 @endsection
 
@@ -303,7 +322,7 @@
                     success: function(data)
                     {
                         console.log(data);
-                        $('#cart-item').empty();
+                        $('#recent-orders').empty();
                         data.forEach(renderOrderItem);
                     }
                 });
@@ -319,8 +338,64 @@
             html += '<td class="tb-qty"><div class="quantity"><div class="buttons-added"><span class=" qty">'+item.orderDetail.qty+' </span></div></div></td>';
             // html += '<td class="tb-total"><span class="price">'+item.qty*item.itemDetail.price+'</span></td>'; //TODO calculate price according to quantity
             html += '<td class=""><span>'+item.orderDetail.status+'</span></a></td>';
+            html += '<td><button type="button" onclick="orderDetail(this)" class="btn btn-primary" data-id="'+item.orderDetail.id+'" data-toggle="modal" >View</button><td>'
             html += '</tr>';
-                $('#cart-item').append(html);
+                $('#recent-orders').append(html);
         }
+
+        function orderDetail(e) {
+            var id = $(e).attr('data-id');
+            $.ajax({
+                url: '/vendor/orders/get-order-details',
+                dataType: 'json',
+                type: 'post',
+                data: {id: id},
+                headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+                success: function(res) {
+                    // get the ajax response data
+                    // var data = res.body;
+                    var payst = '';
+                    if (res.payment.method.id == 2) {
+                        payst = '<td><a href="/payment/wt/paid/'+res.order.order_number+'">click here after making wire transfer</a></td>';
+                    } 
+                    console.log(res);
+                    $('.modal-body').empty();
+                         html = '<div>';
+                        html += '<table class="modaltable">';
+                        html += '<tr><td>'+res.user.name+'</td><td>'+res.user.email+'</td></tr>';
+                        
+                        html += '</tr>';
+                        html += '<tr><td><b>Payment Method</b></td><td>'+res.payment.method.title+'</td>'+payst+'</tr><tr></tr>';
+                        html += '<tr><td><b>Order Number</b></td><td>'+res.order.order_number+'</td><td></tr>';
+                        html += '<tr ><td>'+res.item.name+'</td><td></tr><tr><td><b>Quantity</b></td><td>'+res.orderDetail.qty+'</td><td><b>Total Amount</b></td><td>'+res.orderDetail.amount+'</td></tr>';
+                        html += '<tr><td><b>Status</b></td><td>'+res.order.status+'</td><td></tr>';
+                        // html += '<tr><td><form id="orderstatus" method="post" onsubmit="event.preventDefault(); changeStatus(this);" action="#"  >';
+                        // html += '<input type="hidden" name="item" value="'+res.orderDetail.id+'">';
+                        // html += '<input type="hidden" name="store" value="'+res.orderDetail.id+'">' 
+                        // html += '<select name="orderstatus">';
+                        // html += '<option value="1">Onhold</option>';
+                        // html += '<option value="2">Processing</option>';
+                        // html += '<option value="3">Shipping</option>';
+                        // html += '<option value="4">Complete</option>';
+                        // html += '</select >';
+                        // html += '<button type="submit" class="btn btn-primary">Update</button>';
+                        html += '<tr><td><a href="/invoice/s/'+res.orderDetail.id+'">view invoice</a><td><tr>'
+                        html += '</table>';
+                        html += '</div>';
+                    // // update modal content here
+                    // // you may want to format data or 
+                    // // update other modal elements here too
+                    $('.modal-body').append(html);
+
+                    // // show modal
+                    $('#viewOrder').modal('show');
+
+                },
+                error:function(request, status, error) {
+                    console.log("ajax call went wrong:" + request.responseText);
+                }
+            });
+        }
+        
     </script>
 @endsection

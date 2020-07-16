@@ -32,6 +32,9 @@ class OrderController extends Controller
             'product_id' => $item->itemDetail->id,
             'qty' => $item->qty,
             'amount' => $this->priceOfQty($item),
+            'tag' => 'NEW',
+            'ad_status' => 'ORCRTD',
+            'vn_status' => '--',
         ]);
     }
 

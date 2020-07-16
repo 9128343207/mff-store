@@ -85,13 +85,17 @@
         <div class="footer-column equal-container">
             <div class="container">
                 <div class="row">
+                    @php
+                            $footer = App\Footer::where('status', 1)->first();
+                            
+                        @endphp
                     <div class="col-md-4 col-sm-6 equal-elem">
                         <h3 class="title-of-section">About Us</h3>
                         <div class="contacts">
-                            <p class="contacts-info">Nullam tristique tortor nibh, in viverra libero sollicitudin ac. Suspendisse quis lacinia ipsum. Etiam scelerisque sit amet lectus quis lacinia. Sed condimentum auctor.</p>
-                            <span class="contacts-info info-address ">218 Fifth Avenue, HeavenTower NewYork City</span>
-                            <span class="contacts-info info-phone">(+68) 123 456 7890</span>
-                            <span class="contacts-info info-support">Hot-Support@Krystal.com</span>
+                            <p class="contacts-info">{{ $footer->about}}</p>
+                            <span class="contacts-info info-address ">{{ $footer->address}}</span>
+                            <span class="contacts-info info-phone">{{ $footer->support_number}}</span>
+                            <span class="contacts-info info-support">{{ $footer->support_mail}}</span>
                             <div class="socials">
                                 <a href="" class="social"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                                 <a href="" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -106,12 +110,11 @@
                         <div class="links">
                         <h3 class="title-of-section">My account</h3>
                         <ul>
-                            <li><a href="">Sign In</a></li>
-                            <li><a href="">View Cart</a></li>
-                            <li><a href="">My Wishlist</a></li>
+                            <li><a href="{{url('login')}}">Sign In</a></li>
+                            <li><a href="{{route('cart.view')}}">View Cart</a></li>
                             <li><a href="">Terms & Conditions</a></li>
                             <li><a href="">Contact us</a></li>
-                            <li><a href="">Track My Order</a></li>
+                            <li><a href="{{route('myorders')}}">Track My Order</a></li>
                             <li><a href="{{ route('start-selling') }}">Start Selling</a></li>
                             <li><a href="">Help</a></li>
                         </ul>
@@ -156,7 +159,7 @@
         <div class="copyright full-width">
              <div class="container">
                  <div class="copyright-right">
-                    © Copyright 2017<span> Krystal</span>. All Rights Reserved.
+                    © Copyright {{now()->format('Y')}}<span> <a href="https://osiltec.com">Osiltec</a></span>. All Rights Reserved.
                 </div>
                 <div class="pay-men">
                     <a href=""><img src="images/home1/pay1.jpg" alt="pay1"></a>

@@ -30,4 +30,9 @@ class order extends Model
     {
         return $this->belongsTo('App\APaymentMethods', 'a_payment_methods_id');
     }
+
+    public function oitems()
+    {
+        return $this->hasMany('App\OrderProduct');
+    }
 }

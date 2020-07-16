@@ -57,9 +57,9 @@
                                     <td>{{$order->amount}}</td>
                                     <td>{{$order->order->user->name}}</td>
                                     <td>{{$order->order->order_number}}</td>
-                                    <td><button type="button" onclick="orderDetail(this)" class="btn btn-primary" data-id='{{$order->id}}' data-toggle="modal" >
+                                    <td><a href="/vendor/orders/summary/{{$order->id}}"><button onclick="orderDetail(this)" class="btn btn-primary"  >
                                     View
-                                    </button><td>
+                                    </button></a><td>
                                 </tr>
                                 @endforeach
 

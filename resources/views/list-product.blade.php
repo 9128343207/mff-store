@@ -130,7 +130,7 @@
                                     <div class="filter-options-title">Categories</div>
                                     <div class="filter-options-content">
                                         <ul>
-                                            @foreach (App\ProductCategory::get() as $category)
+                                            @foreach (App\Category::where('parent_id', 1)->get() as $category)
                                                 <li><label class="inline" ><input type="checkbox" name="category[]" value="{{ $category->id}}"><span class="input"></span>{{ $category->title}}</label></li>
                                             @endforeach
                                         </ul>
