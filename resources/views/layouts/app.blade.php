@@ -49,6 +49,9 @@
     @yield('style')
 </head>
 <body>
+    @php
+        $accept_payment = 1;
+    @endphp
     <div class="wrapper">
 
         @yield('header')
@@ -62,12 +65,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="newsletter-title">
+                        {{-- <div class="newsletter-title">
                             <h3 class="h3-newsletter">Sign up to Newsletter</h3>
                             <span class="span-newsletter">Recevie $50 Coupon for fist Shopping.</span>
-                        </div>
+                        </div> --}}
                     </div>
-                    <div class="col-md-6">
+                    {{-- <div class="col-md-6">
                         <div class="newsletter-form">
                             <form id="newsletter-validate-detail" class="form subscribe">
                                 <div class="control">
@@ -78,7 +81,7 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -87,9 +90,9 @@
                 <div class="row">
                     @php
                             $footer = App\Footer::where('status', 1)->first();
-                            
+
                         @endphp
-                    <div class="col-md-4 col-sm-6 equal-elem">
+                    <div class="col-md-6 col-sm-6 equal-elem">
                         <h3 class="title-of-section">About Us</h3>
                         <div class="contacts">
                             <p class="contacts-info">{{ $footer->about}}</p>
@@ -106,21 +109,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6 equal-elem">
+                    <div class="col-md-4 col-sm-6 equal-elem">
                         <div class="links">
                         <h3 class="title-of-section">My account</h3>
                         <ul>
                             <li><a href="{{url('login')}}">Sign In</a></li>
                             <li><a href="{{route('cart.view')}}">View Cart</a></li>
-                            <li><a href="">Terms & Conditions</a></li>
-                            <li><a href="">Contact us</a></li>
+                            {{-- <li><a href="">Terms & Conditions</a></li> --}}
+                            {{-- <li><a href="">Contact us</a></li> --}}
+                            <li><a href="{{ route('ticket.create')}}">support</a></li>
                             <li><a href="{{route('myorders')}}">Track My Order</a></li>
                             <li><a href="{{ route('start-selling') }}">Start Selling</a></li>
-                            <li><a href="">Help</a></li>
+                            {{-- <li><a href="">Help</a></li> --}}
                         </ul>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-6 equal-elem">
+                    {{-- <div class="col-md-2 col-sm-6 equal-elem">
                         <div class="links">
                         <h3 class="title-of-section">Information</h3>
                         <ul>
@@ -133,8 +137,8 @@
                             <li><a href="">Blog</a></li>
                         </ul>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 equal-elem">
+                    </div> --}}
+                    {{-- <div class="col-md-4 col-sm-6 equal-elem">
                         <div class="links links-ins">
                             <h3 class="title-of-section">Instagram</h3>
                             <div class="content-ins">
@@ -151,7 +155,7 @@
                             </div>
                             <a href="" class="view-more">View More<!-- <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> --></a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

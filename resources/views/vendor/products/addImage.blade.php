@@ -10,10 +10,12 @@
 @section('content')
     <h1>Add New Product - </h1>
     {{-- <hr>{{ dd($product)}} --}}
-    {{-- {{ dd($productImages)}} --}}
-    @foreach ($productImages as $image )
-<img height="300px" width="300px" src="{{ asset('files/',$image)}}">
+    @if($productImages)
+     @foreach ($productImages as $image )
+     <img height="300px" width="300px" src="{{ asset('files/',$image)}}">
     @endforeach
+    @endif
+
     <form action="/vendor/upload" enctype="multipart/form-data" method="post">
         {{ csrf_field() }}
         <div class="input-group control-group increment" >

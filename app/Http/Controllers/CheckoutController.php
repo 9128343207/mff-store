@@ -12,6 +12,7 @@ use App\Http\Controllers\OrderController as COrder;
 use App\Http\Controllers\TransactionController as Payment;
 use App\CartM;
 use Auth;
+use Illuminate\Routing\Route;
 
 class CheckoutController extends Controller
 {
@@ -31,7 +32,7 @@ class CheckoutController extends Controller
         $this->COrder = new COrder;
         $this->CInvoice = new CInvoice;
         $this->CPayment = new Payment;
-        
+
     }
 
     public function index()
@@ -56,7 +57,7 @@ class CheckoutController extends Controller
         $data['order_number'] = $this->COrder->createOrderNumber();
         $cartItems = (object) json_decode($this->cart->CartItems());
         $order = $this->COrder->createOrder($request->post(), $data['order_number']);
-        
+
         foreach ($cartItems->items as $item) {
             // create invoice of this item
             // $invoice = $this->CInvoice->createSingleInvoice($item, $order);
@@ -65,24 +66,29 @@ class CheckoutController extends Controller
 
             // TODO NOTIFY TO STORE (NEW ORDER)
             // TODO NOTIFY TO ADMINISTRATOR (NEW ORDER AND PAYMENT STATUS`)
-            
+
             $ddata['item']['name'] = $item->itemDetail->name;
             $ddata['item']['price'] = $item->itemDetail->price;
             $ddata['item']['desc'] = '';
             $ddata['item']['qty'] = $item->qty;
             $ddata['item']['total'] = $this->COrder->priceOfQty($item);
             $ddata['item']['orderId'] = $order->id;
+            $ddata['item']['order_type'] = $request->order_type;
             array_push($data['items'], $ddata['item']);
         }
 
-        $data['total'] = $this->COrder->orderTotal($data);
-        $data['invoice'] = $this->CInvoice->insertToDatabase($order, $data);
-        // CartM::where('user_id', '=', Auth::user()->id)->delete();
-        // if(session()->get('cart')){
-        //     session()->forget('cart');
-        // }
-        $response = $this->proceedToPayment($data, $request);
+        if ($request->order_type == "checkout") {
 
+            $data['total'] = $this->COrder->orderTotal($data);
+            $data['invoice'] = $this->CInvoice->insertToDatabase($order, $data);
+            // CartM::where('user_id', '=', Auth::user()->id)->delete();
+            // if(session()->get('cart')){
+            //     session()->forget('cart');
+            // }
+            $response = $this->proceedToPayment($data, $request);
+        } else {
+            $response = Route('proposal');
+        }
         return redirect($response);
                 // dd($data);
         // return $data;
@@ -95,7 +101,7 @@ class CheckoutController extends Controller
             case 1: // 1 = paypal
                 return $this->proceedToPaypal($data, $order);
                 break;
-            
+
            case 2: // 2 = wire transfer
                 return $this->proceedToWireTransfer($data, $order);
                 break;
@@ -106,7 +112,7 @@ class CheckoutController extends Controller
     {
         $response = $this->CPayment->makePayment($data, $order);
         return $response['paypal_link'];
-        
+
     }
 
     public function proceedToWireTransfer($data, $order)
@@ -114,6 +120,11 @@ class CheckoutController extends Controller
         // dd($data);
         $url = 'invoice/'.$data['order_number'];
         return $url;
+    }
+
+    public function proposalview()
+    {
+        return view('checkoutSuccess');
     }
 
 }

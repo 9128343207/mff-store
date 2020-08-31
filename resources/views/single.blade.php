@@ -14,8 +14,10 @@
 </script>
 <div class="container">
         <ol class="breadcrumb-page">
-            <li><a href="#">Home </a></li>
-            <li class="active"><a href="#">Detail</a></li>
+            <li><a href="{{ route('home') }}">Home </a></li>
+            <li class="active"><a href="">Product</a></li>
+            <li class="active"><a href="">{{ $item->name}}</a></li>
+
         </ol>
     </div>
     <div class="container">
@@ -42,16 +44,16 @@
                 <div class="col-md-5 col-sm-6">
                     <div class="product-info-main">
                     <div class="product-name"><a href="">{{ $item->name.' - '.$item->bname}}</a><br>
-                        <small>Sold by - {{$item->store->store_name}}
+                        {{-- <small>Sold by - {{$item->store->store_name}}</small> --}}
                     </div>
-                        <span class="star-rating">
+                        {{-- <span class="star-rating">
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <span class="review">5 Review(s)</span>
-                        </span>
+                        </span> --}}
                         <div class="product-infomation">
                             {{ $item->s_desc}}
                         </div>
@@ -61,9 +63,9 @@
                             <a href="#"><img src="images/detail/btn3.png" alt="btn1"></a>
                             <a href="#"><img src="images/detail/btn4.png" alt="btn1"></a>
                         </div>
-                        <div class="product-description">
+                        {{-- <div class="product-description">
                             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 making it over 2000 years old.
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -73,17 +75,17 @@
                                 <span class="label-stock">Availability: </span>{{ ($item->in_stock != 0) ? 'In stock' : 'Unavailable'}}
                             </div>
                         </div>
-                        <div class="transportation">
+                        {{-- <div class="transportation">
                             <span>item with Free Delivery</span>
-                        </div>
+                        </div> --}}
 
                             <span class="price">
                                 @if (!$item->discount_price)
                                     <ins>${{ $item->price}}</ins>
                                 @else
-                                    <ins>${{ $item->discount_price}}</ins>
+                                    <ins>${{ ($item->price * $item->discount_price)/100}}</ins>
                                     <del>${{ $item->price}}</del>
-                                    <span class="onsale">-50%</span> {{-- // TODO add calculation for persantage --}}
+                                    {{-- <span class="onsale">-50%</span> // TODO add calculation for persantage --}}
                                 @endif
                             </span>
                         <div class="quantity">
@@ -101,8 +103,8 @@
                                 <input type="submit" data-btn-id-add="{{ $item->id}}" class="btn-add-to-cart" value="Add To Cart">
                                 <button class="btn-added" data-btn-id-added="{{ $item->id}}"  style="display:none" class="btn-add-to-cart" value="Added">Added</button>
                             </form>
-                            <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                            <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
+                            {{-- <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
+                            <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a> --}}
                         </div>
                     </div>
                 </div>
@@ -114,7 +116,7 @@
             <ul class="box-tab nav-tab">
                 <li class="active"><a data-toggle="tab" href="#tab-1">Description</a></li>
                 <li><a data-toggle="tab" href="#tab-2">Addtional Infomation</a></li>
-                <li><a data-toggle="tab" href="#tab-3">Reviews</a></li>
+                {{-- <li><a data-toggle="tab" href="#tab-3">Reviews</a></li> --}}
             </ul>
             <div class="tab-container">
                 <div id="tab-1" class="tab-panel active">

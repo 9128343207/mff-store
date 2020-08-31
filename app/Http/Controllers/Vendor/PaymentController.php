@@ -45,4 +45,6 @@ class PaymentController extends Controller
         ]);
         return json_encode(1);
     }
+
+
 }

@@ -12,50 +12,25 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
         <!-- Bootstrap CSS
             ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/bootstrap.min.css")  }}">
-        <!-- Bootstrap CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/font-awesome.min.css") }}">
-        <!-- owl.carousel CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/owl.carousel.css") }}">
-        <link rel="stylesheet" href="{{ asset("vendor/css/owl.theme.css") }}">
-        <link rel="stylesheet" href="{{ asset("vendor/css/owl.transitions.css") }}">
-        <!-- animate CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/animate.css") }}">
-        <!-- normalize CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/normalize.css") }}">
-        <!-- meanmenu icon CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/meanmenu.min.css") }}">
-        <!-- main CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/main.css") }}">
-        <!-- educate icon CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/educate-custon-icon.css") }}">
-        <!-- morrisjs CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/morrisjs/morris.css") }}">
-        <!-- mCustomScrollbar CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/scrollbar/jquery.mCustomScrollbar.min.css") }}">
-        <!-- metisMenu CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/metisMenu/metisMenu.min.css") }}">
-        <link rel="stylesheet" href="{{ asset("vendor/css/metisMenu/metisMenu-vertical.css") }}">
-        <!-- calendar CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/calendar/fullcalendar.min.css") }}">
-        <link rel="stylesheet" href="{{ asset("vendor/css/calendar/fullcalendar.print.min.css") }}">
-        <!-- style CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/style.css") }}">
-        <!-- responsive CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{ asset("vendor/css/responsive.css") }}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('vendor/css/bootstrap.min.css')  }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/owl.theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/owl.transitions.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/meanmenu.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/educate-custon-icon.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/morrisjs/morris.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/metisMenu/metisMenu.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/metisMenu/metisMenu-vertical.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/calendar/fullcalendar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/calendar/fullcalendar.print.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/responsive.css') }}">
         <!-- modernizr JS
             ============================================ -->
         <script src="{{ asset('vendor/js/vendor/modernizr-2.8.3.min.js') }}"></script>

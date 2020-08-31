@@ -66,20 +66,30 @@ Cart
                     <div class="order-summary">
                         <h4 class="title-shopping-cart">Order Summary</h4>
                         <div class="checkout-element-content">
-                            <span class="order-left">Subtotal:<span>$458.00</span></span>
+                            {{-- <span class="order-left">Subtotal:<span>$458.00</span></span>
                             <span class="order-left">Shipping:<span>Free Shipping</span></span>
                             <span class="order-left">Total:<span>$458.00</span></span>
                             <ul>
                                 <li><label class="inline" ><input type="checkbox"><span class="input"></span>I have promo code</label></li>
-                            </ul>
-                        <button  type="submit" class="btn-checkout" >
-                               <a href="{{ route('checkout')}}"> <span>Check Out</span></a>
-                            </button>
+                            </ul> --}}
+                            @php
+                            $accept_payment = 0;
+                        @endphp
+                            @if ($accept_payment == 1)
+                                <button  type="submit" class="btn-checkout" >
+                                    <a href="{{ route('checkout')}}"> <span>Check Out</span></a>
+                                </button>
+                            @else
+                                <button  type="submit" class="btn-checkout" >
+                                    <a href=""> <span>Request Quotes</span></a>
+                                </button>
+                            @endif
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="block-recent-view">
+            {{-- <div class="block-recent-view">
                 <div class="container">
                 <div class="title-of-section">You may be also interested</div>
                 <div class="owl-carousel nav-style2 border-background equal-container" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":3},"1000":{"items":6}}'>
@@ -262,7 +272,7 @@ Cart
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </main><!-- end MAIN -->
 
 @endsection

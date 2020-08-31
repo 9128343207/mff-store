@@ -61,6 +61,18 @@ class Product extends Model
                     ->orWhere('bname', 'like', '%'.$product->name.'%');
     }
 
+    // public function scopeSimilarByCategory($query, $id)
+    // {
+    //     $productTitle = explode(' ', $product->name, 4);
+    //     return $query->where(function ($query) use ($productTitle) {
+    //                     foreach ($productTitle as $value) {
+    //                         $query->orWhere('name', 'like', '%'.$value.'%');
+    //                     }
+    //                 })
+    //                 ->orWhere('name', 'like', '%'.$product->bname.'%')
+    //                 ->orWhere('bname', 'like', '%'.$product->name.'%');
+    // }
+
     public function scopeSearch($query, $string)
     {
         $productTitle = str_split($string, 3);

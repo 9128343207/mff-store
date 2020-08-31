@@ -51,6 +51,9 @@ Route::post('/checkout', 'CheckoutController@PlaceOrder')->name('checkout');
 Route::get('/invoice/{number}', 'InvoiceController@getInvoice');
 
 Route::get('/invoice/s/{number}', 'InvoiceController@getSInvoice');
+Route::get('/proposal/success', 'CheckoutController@proposalview')->name('proposal');
+
+Route::get('/ticket/create', 'TicketController@index')->name('ticket.create');
 
 Route::prefix('/payment')->name('payment.')->group(function(){
 //     Route::get('/get', '')->name('get');
@@ -62,15 +65,16 @@ Route::prefix('/payment')->name('payment.')->group(function(){
 
    Route::get('/wire-transfer', 'PaymentController@methods')->name('wiretransfer');
 
+
 });
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//          VENDOR TOUTES
+//          VENDOR TOUTES 
 //____________________________________________________________________
 
 Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function(){
     //All the vendor routes will be defined here...
-    Route::get('/dashboard','HomeController@index')->name('home.dashboard');
+    Route::get('/dashboard','HomeController@index')->name('dashboard');
     Route::get('/','HomeController@index')->name('home');
 
 
@@ -90,6 +94,13 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
         Route::get('/edit/{item}', 'ProductController@EditItem')->name('product.edit');
     });
 
+    Route::prefix('/support')->group(function(){
+         //  Product Listing
+        Route::get('/all', 'SupportController@index')->name('support.list');
+
+       
+    });
+
     Route::prefix('/payments')->name('payment.')->group(function(){
         //  Product Listing
        Route::get('/', 'PaymentController@index')->name('index');
@@ -107,6 +118,7 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
     Route::prefix('/orders')->name('order.')->group(function(){
         //  Product Listing
        Route::get('/', 'OrderController@index')->name('all');
+       Route::get('/proposal', 'OrderController@proposal')->name('proposal');
        Route::get('summary/{id}', 'OrderController@getSingleOrder')->name('summary');
 
        Route::post('/get-order-details', 'OrderController@getSingleOrder');
@@ -157,11 +169,11 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
           Route::get('footer', 'CMSController@footer')->name('footer');
 
-          //UPDATE 
+          //UPDATE
           Route::post('footer', 'CMSController@updateFooter')->name('footer.update');
           Route::post('header', 'CMSController@updateHeader')->name('header.update');
          });
-  //Auth 
+  //Auth
   /**
  * Login Route(s)
  */
@@ -193,12 +205,12 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
   Route::post('searchByOrderId','OrderSearchController@searchByOrderID')->name('search.byid');
   Route::post('searchByInvoice','OrderSearchController@searchByInvoice')->name('search.byid');
 
-  
+
   Route::post('get-order-details','OrderSearchController@orderDetails')->name('order.detail');
     Route::get('order/preview/{id}','OrderSearchController@orderDetails')->name('order.detail');
     Route::get('item/preview/{id}','OrderController@itemPreview')->name('item.preview');
     Route::get('orders/get/{id}','OrderController@refine')->name('order.refine');
       Route::post('order/status/update','OrderController@updateStatus')->name('order.status.update');
 
-    
+
 });

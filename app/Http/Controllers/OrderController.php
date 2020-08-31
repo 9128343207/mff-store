@@ -11,7 +11,20 @@ class OrderController extends Controller
     public function createOrder($orderDetail, $orderNumber)
     {
         // dd($orderDetail);
-        
+        $note = isset($orderDetail['proposal_note']) ? $orderDetail['proposal_note'] : null ;
+         if ($orderDetail['order_type'] == 'proposal') {
+            return order::create([
+                'user_id' => Auth::id(),
+                'status' => 'ORDERED',
+                'invoice_id' => '-',
+                'shipping_a_d_id' => $orderDetail['shipping_address'],
+                'billing_id' => $orderDetail['billing_address'],
+                'a_payment_methods_id' => 0,
+                'order_number' => $orderNumber,
+                'order_type' => $orderDetail['order_type'],
+                'note' => $note,
+            ]);
+        } else {
         return order::create([
                 'user_id' => Auth::id(),
                 'status' => 'ORDERED',
@@ -20,11 +33,15 @@ class OrderController extends Controller
                 'billing_id' => $orderDetail['billing_address'],
                 'a_payment_methods_id' => $orderDetail['payment_method'],
                 'order_number' => $orderNumber,
+                'order_type' => $orderDetail['order_type'],
+                'note' => $note,
             ]);
+        }
     }
 
     public function insertAllOrder($item, $order)
     {
+        $note = isset($order->note) ? $order->note : null ;
         OrderProduct::create([
             'user_id' => Auth::id(),
             'order_id' => $order->id,
@@ -34,7 +51,9 @@ class OrderController extends Controller
             'amount' => $this->priceOfQty($item),
             'tag' => 'NEW',
             'ad_status' => 'ORCRTD',
-            'vn_status' => '--',
+            'vn_status' => 'NEW',
+            'order_type' =>  $order->order_type,
+            'note' => $note,
         ]);
     }
 
@@ -69,5 +88,5 @@ class OrderController extends Controller
         return $total;
     }
 
-    
+
 }

@@ -7,131 +7,6 @@
     @include('inc.vendor-nav')
 @endsection
 
-@section('contnt')
-    <h1>Add New Product - Step 1</h1>
-    {{-- <hr>{{ dd($product)}} --}}
-    @if ($errors->any())
-            <div class="alert alert-danger">
-
-                @foreach ($errors->all() as $message) {
-                    <span>{{ $message }}</span>
-                @endforeach
-            </div>
-        @endif
-
-    <form action="/vendor/products/create-step1" method="post">
-        {{ csrf_field() }}
-        <div class="form-group">
-            <label for="title">Item Name</label>
-            <input type="text" value="{{{ isset($product->name) ? $product->name : '' }}}" class="form-control" id="taskTitle"  name="name">
-            @error('name')
-                <span class="alert-danger" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="description">Brand Name</label>
-            <input type="text" value="{{{ isset($product->bname) ? $product->bname : '' }}}" class="form-control" id="taskTitle"  name="bname">
-            @error('bname')
-                <span class="alert-danger" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="description">Manufacturer</label>
-            <input type="text" value="{{{ isset($product->manufacturer) ? $product->manufacturer : '' }}}" class="form-control" id="taskTitle"  name="manufacturer">
-            @error('manufacturer')
-                <span class="alert-danger" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="description">Short Description</label>
-            <textarea type="text"  class="form-control" id="taskDescription" name="s_desc">{{{ isset($product->s_desc) ? $product->s_desc : '' }}}</textarea>
-            @error('s_desc')
-                <span class="alert-danger" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-        <div class="form-group">
-                <label for="title">Item Weight</label>
-                <input type="text" value="{{{ isset($product->item_weight) ? $product->item_weight : '' }}}" class="form-control" id="taskTitle"  name="item_weight">
-            </div>
-            <div class="form-group">
-                <label for="description">Weight measure unit</label>
-                <select class="form-control" name="weight_measure_unit">
-                    <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'OZ') ? "selected=\"selected\"" : "" }}}>OZ</option>
-                    <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'KG') ? "selected=\"selected\"" : "" }}}>KG</option>
-                    <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'GR') ? "selected=\"selected\"" : "" }}}>GR</option>
-                    <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'LB') ? "selected=\"selected\"" : "" }}}>LB</option>
-                </select>
-            </div>
-            <div class="form-group">
-                    <label for="title">Item Volume</label>
-                    <input type="text" value="{{{ isset($product->volume) ? $product->volume : '' }}}" class="form-control" id="taskTitle"  name="volume">
-                </div>
-                <div class="form-group">
-                    <label for="description">Weight measure unit</label>
-                    <select class="form-control" name="volume_measure_unit">
-                        <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'cubic-ft') ? "selected=\"selected\"" : "" }}}>cubic-ft</option>
-                        <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'ounce') ? "selected=\"selected\"" : "" }}}>ounce</option>
-                        <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'cubic-m') ? "selected=\"selected\"" : "" }}}>cubic-m</option>
-                        <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'liters') ? "selected=\"selected\"" : "" }}}>liters</option>
-                        <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'grams') ? "selected=\"selected\"" : "" }}}>grams</option>
-                    </select>
-                </div>
-            <div class="form-group">
-                <label for="description">Warranty Descriptions</label>
-                <textarea type="text"  class="form-control" id="taskDescription" name="warranty_desc">{{{ isset($product->warranty_desc) ? $product->warranty_desc : '' }}}</textarea>
-            </div>
-            <div class="form-group">
-                    <label for="description">Product Descriptions</label>
-                    <textarea type="text"  class="form-control" id="taskDescription" name="description">{{{ isset($product->description) ? $product->description : '' }}}</textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Product Attribute Bullet Points</label>
-                    <textarea type="text"  class="form-control" id="taskDescription" name="description2">{{{ isset($product->description2) ? $product->description2 : '' }}}</textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Legal Disclaimer</label>
-                    <textarea type="text"  class="form-control" id="taskDescription" name="description3">{{{ isset($product->description3) ? $product->description3 : '' }}}</textarea>
-                </div>
-                <div class="form-group">
-                        <label for="title">Item Price</label>
-                        <input type="number" value="{{{ isset($product->price) ? $product->price : '' }}}" class="form-control" id="taskTitle"  name="price">
-                        @error('price')
-                        <span class="alert-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                    <div class="form-group">
-                        <label for="description">Currency</label>  {{-- // TODO add currency units --}}
-                        <select class="form-control" name="currency">
-                            <option {{{ (isset($product->currency) && $product->currency == 'OZ') ? "selected=\"selected\"" : "" }}}>OZ</option>
-                            <option {{{ (isset($product->currency) && $product->currency == 'KG') ? "selected=\"selected\"" : "" }}}>KG</option>
-                            <option {{{ (isset($product->currency) && $product->currency == 'GR') ? "selected=\"selected\"" : "" }}}>GR</option>
-                            <option {{{ (isset($product->currency) && $product->currency == 'LB') ? "selected=\"selected\"" : "" }}}>LB</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                            <label for="title">Stock</label>
-                            <input type="number" value="{{{ isset($product->in_stock) ? $product->in_stock : '' }}}" class="form-control" id="taskTitle"  name="in_stock">
-                            @error('in_stock')
-                            <span class="alert-danger" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                        </div>
-        <button type="submit" class="btn btn-primary">Add Product Image</button>
-    </form>
-@endsection
 
 @section('content')
 <div class="single-pro-review-area mt-t-30 mg-b-15">
@@ -168,6 +43,18 @@
                                                                 </span>
                                                             @enderror
                                                         </div>
+
+                                                        <div class="form-group res-mg-t-15">
+
+                                                            {{-- <label for="description">Product Category</label> --}}
+                                                           <select name="p-category" class="form-control">
+                                                               <option>Choose category</option>
+                                                               @foreach ($allCategories as $category)
+                                                                <option value="{{ $category['id'] }}">{{  $category['title'] }}</option>
+                                                               @endforeach
+                                                           </select>
+                                                        </div>
+
                                                         <div class="form-group">
                                                             <input type="text" placeholder="Item's Brand Name" value="{{{ isset($product->bname) ? $product->bname : '' }}}" class="form-control" id="taskTitle"  name="bname">
                                                             @error('bname')

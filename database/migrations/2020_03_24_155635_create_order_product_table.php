@@ -23,6 +23,8 @@ class CreateOrderProductTable extends Migration
             $table->integer('amount');
             $table->string('ad_status');
             $table->string('vn_status');
+            $table->string('order_type')->nullable();
+            $table->text('note')->nullable();
             $table->string('tag');
             $table->timestamps();
         });

@@ -8,7 +8,14 @@
 @section('content')
 
 <!-- MAIN -->
-
+<style>
+    .box{
+        /* color: #fff; */
+        padding: 20px;
+        display: none;
+        margin-top: 20px;
+    }
+</style>
     <main class="site-main checkout">
         <div class="container">
             <ol class="breadcrumb-page">
@@ -16,7 +23,7 @@
                 <li class="active"><a href="#">checkout</a></li>
             </ol>
         </div>
-        <div class="container">
+    <div class="container">
         <form action="/checkout" class="checkout" method="post" name="checkout">
             @csrf
                 <div class="row">
@@ -30,7 +37,9 @@
                                 </ul>
                             </div>
                         @endif
+                        {{-- @if ($accept_payment == 1)
 
+                        @endif --}}
                             <h4 class="title-checkout">Billing Address</h4>
                         @if (count(App\User::find(Auth::id())->billing) != 0)
                             @foreach (App\User::find(Auth::id())->billing as $address)
@@ -64,31 +73,34 @@
                                 </button>
                             @endif
                     </div>
-                        {{-- <ul>
-                            <li><label class="inline" ><input type="checkbox"><span class="input"></span>Create an account?</label></li>
-                            <li><label class="inline" ><input type="checkbox"><span class="input"></span>Ship to a different address?</label></li>
-                        </ul> --}}
 
-                        {{-- <div class="form-group shipping col-md-6">
-+                    <p>Flat Rate</p>
-                        <p>Fixed $50.00</p>
-                        <h4 class="discount">Discount Codes</h4>
-                        <label class="title">Enter Your Coupon code:</label>
-                        <input type="text" class="form-control">
-                        <button type="submit" class="btn-apply">Apply</button>
-                    </div> --}}
-                    <div class="form-group payment col-md-6">
-                        <h4 class="title-checkout">Payment Method</h4>
-                        <ul>
-                            <li><label class="" ><input type="radio" name='payment_method' value='2'>Wire Tranfer</label></li>
-                            <li><label class="" ><input type="radio" name='payment_method' value='1'>Pay using paypal</label></li>
-                            {{-- <li><label class="inline" ><input type="checkbox"><span class="input"></span>Paypal</label></li> --}}
-                        </ul>
-                        <p class="credit">You can pay with your credit<br> card if you don't have a paypal account</p>
-                        <span class="grand-total">Grand Total<span>${{$cart->cartTotal}}</span></span>
-                        <button type="submit" class="btn-order">Place Order Now</button>
-                        <!-- Button trigger modal -->
-                    </form>
+                        <div class="form-group payment col-md-12">
+                            <input type="radio" name="order_type" value="checkout" required>
+                            <label for="choice-animals-dogs">Proceed to payment</label>
+
+                            <div class="form-group checkout box col-md-6">
+                                <h4 class="title-checkout">Payment Method</h4>
+                                <ul style="list-style-type:none">
+                                    <li><label class="" ><input type="radio" name='payment_method' value='2'>Wire Tranfer</label></li>
+                                    <li><label class="" ><input type="radio" name='payment_method' value='1'>Pay using paypal</label></li>
+                                </ul>
+                                <p class="credit">You can pay with your credit<br> card if you don't have a paypal account</p>
+                                <span class="grand-total">Grand Total<span>${{$cart->cartTotal}}</span></span><br>
+                                <button type="submit" class="btn-order">Place Order Now</button>
+                            </div>
+
+                            <input type="radio" name="order_type" value="proposal">
+                            <label for="choice-animals-cats">Send only proposal</label>
+
+                            <div class="reveal-if-active proposal box">
+                                <label for="">Proposal enquery :</label><br>
+                                <textarea name="proposal_note" id="" cols="40" rows="5"></textarea>
+                                <button type="submit" class="btn-order">Send proposal</button>
+                            </div>
+                        </div>
+                </div>
+        </form>
+    </div>
 
       <!--  BILLING -->
             <div class="modal fade" id="billingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -225,5 +237,16 @@
                 });
             });
         });
+
+
+        $(document).ready(function(){
+            $('input[name="order_type"]').click(function(){
+                var inputValue = $(this).attr("value");
+                var targetBox = $("." + inputValue);
+                $(".box").not(targetBox).hide();
+                $(targetBox).show();
+            });
+        });
+
         </script>
 @endsection

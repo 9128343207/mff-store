@@ -26,7 +26,7 @@ class CheckoutRequest extends FormRequest
         return [
             'billing_address' => 'required',
             'shipping_address' => 'required',
-            'payment_method' => 'required',
+            // 'payment_method' => 'required',
         ];
     }
 }

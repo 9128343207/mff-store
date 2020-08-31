@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Vendor;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductListingRequest;
@@ -26,7 +27,8 @@ class ProductController extends Controller
     public function createStep1(Request $request)
     {
         $product = $request->session()->get('product');
-        return view('vendor.products.addProduct1',compact('product', $product));
+        $allCategories = Category::where('parent_id', '=', 1)->get();
+        return view('vendor.products.addProduct1')->with(['product' => $product, 'allCategories' => $allCategories]);
     }
 
     public function postCreateStep1(ProductListingRequest $request)
@@ -41,7 +43,7 @@ class ProductController extends Controller
             $request->session()->put('product', $product);
         }
         $productImages = (empty($request->session()->get('productImages'))) ? '' : session()->get('productImages');
-        return view('vendor.products.addImage',compact('productImages', $productImages));
+        return view('vendor.products.addImage')->with('productImages', $productImages);
     }
 
     /**
@@ -109,4 +111,6 @@ class ProductController extends Controller
                     ->select(Product::BasicColumn())
                     ->get();
     }
+
+
 }

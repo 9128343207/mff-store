@@ -28,7 +28,7 @@
                             <ul class="submenu-angle" aria-expanded="true">
                             <li><a title="Dashboard v.1" href="{{ Route('vendor.product.all')}}"><span class="mini-sub-pro">All</span></a></li>
                             <li><a title="Dashboard v.2" href="{{ Route('vendor.payment.methods') }}"><span class="mini-sub-pro">Methods</span></a></li>
-                                
+
                             </ul>
                         </li>
                         <li class="">
@@ -38,8 +38,9 @@
                                 </a>
                             <ul class="submenu-angle" aria-expanded="true">
                             <li><a title="Dashboard v.1" href="{{ Route('vendor.order.all')}}"><span class="mini-sub-pro">All</span></a></li>
+                            <li><a title="Dashboard v.1" href="{{ Route('vendor.order.proposal')}}"><span class="mini-sub-pro">Proposal</span></a></li>
                             <li><a title="Dashboard v.2" href="{{ Route('vendor.payment.methods') }}"><span class="mini-sub-pro">Methods</span></a></li>
-                                
+
                             </ul>
                         </li>
                         <li class="">
@@ -50,7 +51,18 @@
                             <ul class="submenu-angle" aria-expanded="true">
                             <li><a title="Dashboard v.1" href="{{ Route('vendor.order.all')}}"><span class="mini-sub-pro">All</span></a></li>
                             <li><a title="Dashboard v.2" href="{{ Route('vendor.payment.methods') }}"><span class="mini-sub-pro">Methods</span></a></li>
-                                
+
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a class="has-arrow" href="index.html">
+                                   <span class="educate-icon educate-home icon-wrap"></span>
+                                   <span class="mini-click-non">Support</span>
+                                </a>
+                            <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Dashboard v.1" href="{{ Route('vendor.support.list')}}"><span class="mini-sub-pro">All</span></a></li>
+                            <!-- <li><a title="Dashboard v.2" href="{{ Route('vendor.payment.methods') }}"><span class="mini-sub-pro">Methods</span></a></li> -->
+
                             </ul>
                         </li>
 
