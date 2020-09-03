@@ -18,7 +18,7 @@ class CreateVPayAccountsTable extends Migration
             $table->integer('store_id');
             $table->string('title');
             $table->integer('a_payment_methods_id');
-            $table->json('attributes');
+            $table->text('attributes');
             $table->integer('priority')->nullable();
             $table->boolean('status')->nullable();
             $table->timestamps();

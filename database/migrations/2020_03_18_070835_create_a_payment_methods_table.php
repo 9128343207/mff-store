@@ -16,7 +16,7 @@ class CreateAPaymentMethodsTable extends Migration
         Schema::create('a_payment_methods', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->json('attributes')->nullable();
+            $table->text('attributes')->nullable();
             $table->string('redirect_url');
             $table->timestamps();
         });

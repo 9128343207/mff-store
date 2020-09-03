@@ -18,12 +18,12 @@ class CreateStoresTable extends Migration
             $table->string('store_name');
             $table->integer('user_id');
             $table->text('description')->nullable();
-            $table->json('payment_information')->nullable();
-            $table->json('business_information')->nullable();
-            $table->json('shipping_information')->nullable();
-            $table->json('tax_information')->nullable();
-            $table->json('info')->nullable();
-            $table->json('security')->nullable();
+            $table->text('payment_information')->nullable();
+            $table->text('business_information')->nullable();
+            $table->text('shipping_information')->nullable();
+            $table->text('tax_information')->nullable();
+            $table->text('info')->nullable();
+            $table->text('security')->nullable();
             $table->timestamps();
         });
     }

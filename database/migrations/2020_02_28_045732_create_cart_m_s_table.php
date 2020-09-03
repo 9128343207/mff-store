@@ -18,7 +18,7 @@ class CreateCartMSTable extends Migration
             $table->integer('product_id');
             $table->integer('user_id');
             $table->integer('quantity');
-            $table->json('attributes');
+            $table->text('attributes');
             $table->timestamps();
         });
     }

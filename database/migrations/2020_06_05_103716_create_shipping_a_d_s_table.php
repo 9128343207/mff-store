@@ -16,7 +16,7 @@ class CreateShippingADSTable extends Migration
         Schema::create('shipping_a_d_s', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->json('address');
+            $table->text('address');
             $table->timestamps();
         });
     }

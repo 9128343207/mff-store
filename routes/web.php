@@ -101,6 +101,13 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
        
     });
 
+    Route::prefix('/account')->group(function(){
+         //  Product Listing
+        Route::get('/main', 'AccountController@index')->name('account.main');
+
+       
+    });
+
     Route::prefix('/payments')->name('payment.')->group(function(){
         //  Product Listing
        Route::get('/', 'PaymentController@index')->name('index');
