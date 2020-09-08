@@ -10,7 +10,6 @@ use App\ProductsPhoto;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Intervention\Image\Image;
 
 class UploadController extends Controller
 {
@@ -41,14 +40,8 @@ class UploadController extends Controller
          {
             foreach($request->file('filename') as $file)
             {
-                 $name = time().'-'.$file->getClientOriginalExtension();
-                 $img = Image::make($file->getRealPath());
-                 $img->resize(320, 320, function ($constraint) {
-                    $constraint->aspectRatio();                 
-                });
-                // dd($file->move(public_path().'/files/', $name)); // TODO add function for temp directory
-                $file->stream();
-                 dd(Storage::disk('local')->put('products'.'/'.$name,  $img, 'public'));
+                $name = time().$file->getClientOriginalName();
+                dd($file->move(public_path().'/files/', $name)); // TODO add function for temp directory
                 $data[] = $name;
             }
          }
