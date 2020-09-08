@@ -41,7 +41,7 @@ class UploadController extends Controller
             foreach($request->file('filename') as $file)
             {
                 $name = time().$file->getClientOriginalName();
-                $file->move(public_path().'/files/', $name); // TODO add function for temp directory
+                dd($file->move(public_path().'/files/', $name)); // TODO add function for temp directory
                 $data[] = $name;
             }
          }
