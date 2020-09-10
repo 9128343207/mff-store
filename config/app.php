@@ -180,6 +180,7 @@ return [
 
         App\Providers\ComposerServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -234,6 +235,8 @@ return [
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Image' => Intervention\Image\ImageManagerStatic::class,
+
 
     ],
 
