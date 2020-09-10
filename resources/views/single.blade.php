@@ -26,15 +26,15 @@
                 <div class="col-md-4 col-sm-12 padding-right">
                     <div class="product-media">
                         <div class="image-preview-container image-thick-box image_preview_container">
-                            <img id="img_zoom" data-zoom-image="images/detail/thick-box-1.jpg" src="{{ asset('files/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}" alt="{{$item->name}}">
+                            <img id="img_zoom" data-zoom-image="images/detail/thick-box-1.jpg" src="{{ url('storage/products/img/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}" alt="{{$item->name}}">
                             <a href="#" class="btn-zoom open_qv"><i class="fa fa-search" aria-hidden="true"></i></a>
                         </div>
                         <div class="product-preview image-small product_preview">
                             <div id="thumbnails" class="thumbnails_carousel owl-carousel nav-style4" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="10" data-responsive='{"0":{"items":3},"480":{"items":5},"600":{"items":5},"1000":{"items":5}}'>
 
                                 @foreach ($item->productPhoto as $image )
-                                    <a href="#" data-image="images/detail/thick-box-1.jpg" data-zoom-image="{{ asset('files/'.$image->filename)}}">
-                                        <img src="{{ asset('files/'.$image->filename)}}" alt="{{$item->name}}" data-large-image="{{ asset('files/'.$image->filename)}}" alt="{{$item->name}}">
+                                    <a href="#" data-image="images/detail/thick-box-1.jpg" data-zoom-image="{{ url('storage/products/img/'.$image->filename)}}">
+                                        <img src="{{ url('storage/products/img/'.$image->filename)}}" alt="{{$item->name}}" data-large-image="{{ url('storage/products/img/'.$image->filename)}}" alt="{{$item->name}}">
                                     </a>
                                 @endforeach
                             </div>
@@ -171,7 +171,7 @@
                     <div class="product-inner equal-elem">
                         <div class="product-thumb">
                             <div class="thumb-inner">
-                                <a href="{{ $similar->id}}"><img src="{{ asset('files/'.$similar->productPhoto[0]->filename)}}" alt="{{$similar->name}}"></a>
+                                <a href="{{ $similar->id}}"><img src="{{ url('storage/products/img/'.$similar->productPhoto[0]->filename)}}" alt="{{$similar->name}}"></a>
                             </div>
                             {{-- <span class="onsale">-50%</span> --}}
                             <a href="" class="quick-view">Quick View</a>

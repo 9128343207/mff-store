@@ -29,7 +29,7 @@
                 <div class="deal-of-day equal-elem">
                     <div class="product-thumb style1">
                         <div class="thumb-inner">
-                        <a href="{{ url('product/'.$deal->id)}}"><img src="{{ asset('files/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}"></a>
+                        <a href="{{ url('product/'.$deal->id)}}"><img src="{{ url('storage/products/img/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}"></a>
                         </div>
                     </div>
                     <div class="product-innfo">
@@ -105,7 +105,7 @@
                                                 <div class="product-inner equal-elem">
                                                     <div class="product-thumb">
                                                         <div class="thumb-inner">
-                                                            <a href="{{ url('product/'.$singleProduct->id)}}"><img src="{{ asset('files/'.$singleProduct->productPhoto[0]->filename)}}" alt="{{$singleProduct->name}}"></a>
+                                                            <a href="{{ url('product/'.$singleProduct->id)}}"><img src="{{ url('storage/products/img/'.$singleProduct->productPhoto[0]->filename)}}" alt="{{$singleProduct->name}}"></a>
                                                         </div>
 
                                                         <a href="" class="quick-view">Quick View</a>
@@ -173,7 +173,7 @@
                                                     <div class="product-inner equal-elem">
                                                         <div class="product-thumb">
                                                             <div class="thumb-inner">
-                                                                <a href="{{ url('product/'.$singleProduct->id)}}"><img src="{{ asset('files/'.$singleProduct->productPhoto[0]->filename)}}" alt="{{$singleProduct->name}}"></a>
+                                                                <a href="{{ url('product/'.$singleProduct->id)}}"><img src="{{ url('storage/products/img/'.$singleProduct->productPhoto[0]->filename)}}" alt="{{$singleProduct->name}}"></a>
                                                             </div>
 
                                                             <a href="" class="quick-view">Quick View</a>
