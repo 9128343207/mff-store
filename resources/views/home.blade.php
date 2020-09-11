@@ -20,6 +20,7 @@
         </div>
     </div>
 </div>
+@if ($products->WeeklyDeals) {
 <div class="block-daily-deals style1">
     <div class="container">
         <div class="title-of-section">Weekly deals</div>
@@ -66,7 +67,8 @@
         </div>
     </div>
 </div>
-<div class="block-section-3">
+@endif
+<!-- <div class="block-section-3">
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-5">
@@ -82,7 +84,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <div class="block-section-4">
     <div class="container">
         <div class="title-of-section">Featured Products</div>

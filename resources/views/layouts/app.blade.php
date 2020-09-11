@@ -93,7 +93,7 @@
 
                         @endphp
                     <div class="col-md-6 col-sm-6 equal-elem">
-                        <h3 class="title-of-section">About Us</h3>
+                        <h3 class="title-of-section" style="color: white;">About Us</h3>
                         <div class="contacts">
                             <p class="contacts-info">{{ $footer->about}}</p>
                             <span class="contacts-info info-address ">{{ $footer->address}}</span>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="col-md-4 col-sm-6 equal-elem">
                         <div class="links">
-                        <h3 class="title-of-section">My account</h3>
+                        <h3 class="title-of-section" style="color: white;">My account</h3>
                         <ul>
                             <li><a href="{{url('login')}}">Sign In</a></li>
                             <li><a href="{{route('cart.view')}}">View Cart</a></li>

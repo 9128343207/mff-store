@@ -13,11 +13,9 @@
 								   <span class="mini-click-non">Products</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                            <li><a title="Dashboard v.1" href="{{ Route('vendor.product.all')}}"><span class="mini-sub-pro">All</span></a></li>
+                            <li><a title="Dashboard v.1" href="{{ Route('vendor.product.all')}}"><span class="mini-sub-pro">Inventory</span></a></li>
                             <li><a title="Dashboard v.2" href="{{ Route('vendor.product.listing') }}"><span class="mini-sub-pro">Add New</span></a></li>
-                                <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li>
-                                <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
-                                <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a></li>
+                                
                             </ul>
                         </li>
                         <li class="">
@@ -54,7 +52,7 @@
 
                             </ul>
                         </li>
-                        <li class="">
+                        <!-- <li class="">
                             <a class="has-arrow" href="index.html">
                                    <span class="educate-icon educate-home icon-wrap"></span>
                                    <span class="mini-click-non">Support</span>
@@ -64,7 +62,7 @@
                             <!-- <li><a title="Dashboard v.2" href="{{ Route('vendor.payment.methods') }}"><span class="mini-sub-pro">Methods</span></a></li> -->
 
                             </ul>
-                        </li>
+                        </li> -->
 
                     </ul>
                 </nav>

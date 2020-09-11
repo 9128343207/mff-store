@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <h1>Add New Product - </h1>
+    <h1>Add products images - </h1>
     {{-- <hr>{{ dd($product)}} --}}
     @if($productImages)
      @foreach ($productImages as $image )

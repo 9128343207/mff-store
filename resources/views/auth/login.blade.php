@@ -1,6 +1,7 @@
-@extends('layouts.app-min')
+@extends('layouts.app')
+
 @section('header')
-    @include('inc.navbar-min')
+     @include('inc.navbar')
 @endsection
 @section('contnt')
 <div class="container">

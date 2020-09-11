@@ -27,6 +27,7 @@ class StoreController extends Controller
         $store->description = $request->description;
         $store->save();
         DB::table('users')->update(['is_seller' => 1]);
-            dd($store->id); // TODO redirect to dashboard
+            // dd($store->id); // TODO redirect to dashboard
+        return redirect()->route('vendor.dashboard');
     }
 }

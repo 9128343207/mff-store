@@ -92,7 +92,8 @@ class ProductController extends Controller
                         'product' => $product,
                         'productImages' => $product->productPhoto
                     ]);
-        return view('vendor.products.addProduct1', compact('product', $product));
+        $allCategories = Category::where('parent_id', '=', 1)->get();
+        return view('vendor.products.addProduct1')->with(['product' => $product, 'allCategories' => $allCategories]);
     }
 
     public function SingleProduct(int $id)

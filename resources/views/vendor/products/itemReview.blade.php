@@ -46,8 +46,8 @@
         @endforeach
         </tr>
     </table>
-    <a type="button" href="/products/create-step1" class="btn btn-warning">Back to Step 1</a>
-    <a type="button" href="/products/create-step2" class="btn btn-warning">Back to Step 2</a>
+    <a type="button" href="{{ Route('vendor.product.listing') }}" class="btn btn-warning">Back to Products details</a>
+    <!-- <a type="button" href="/products/create-step2" class="btn btn-warning">Back to Step 2</a> -->
     <button type="submit" class="btn btn-primary">Create Product</button>
 </form>
 @endsection

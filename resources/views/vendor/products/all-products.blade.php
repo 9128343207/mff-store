@@ -37,20 +37,26 @@
                             </tr>
                             <tr>
                                 @if (!$products == null)
+                                    @php $count = 1; @endphp
                                     @foreach ($products as $product)
+                                    
+                                    @php $category = optional($product->category)->title @endphp
                                     <tr>
-                                        <td></td>
+                                        <td>{{  $count }}</td>
                                         <td>
                                             @foreach ($product->productPhoto as $photos )
-                                                <img height="60px" width="60px" src="{{ asset('files/'.$photos->filename)}}">
+                                                <img height="60px" width="60px" src="{{ url('storage/products/img/'.$photos->filename)}}">
                                             @endforeach
                                         </td>
-                                        <td>{{ $product->name }}<td>
-                                        <td>{{ $product->bname }}</td>
-                                        <td>{{ $product->manufacturer }}</td>
+                                        <td>{{ $product->name }}</td>
+                                            <td>{{ ($product->status != null) ?  $product->status : 'Not Verified'}}</td>
+                                        <td>{{ $category }}</td>
+                                        <!-- <td>{{ $product->manufacturer }}</td> -->
                                         <td>{{ $product->in_stock }}</td>
                                         <td>{{ $product->price }}</td>
-                                        <tr>
+                                        <td><a href="{{ Route('vendor.product.edit', ['item' => $product->id]) }}">Edit</a>&nbsp;<a href="">Delete</a></td>
+                                        </tr>
+                                            @php $count++; @endphp 
                                     @endforeach
                                 @else
                                     <tr><td colspan="5"> You do not have added any products. <a href="{{route('vendor.product.listing')}}">Add now</a><td></tr>
@@ -61,13 +67,13 @@
                         </table>
                     </div>
                     <div class="custom-pagination">
-                        <ul class="pagination">
+                        <!-- <ul class="pagination">
                             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
             </div>

@@ -88,14 +88,16 @@
                                                                     <option {{{ (isset($product->weight_measure_unit) && $product->weight_measure_unit == 'LB') ? "selected=\"selected\"" : "" }}}>LB</option>
                                                                 </select>                                                        </div>
                                                         <div class="form-group">
-                                                                <input type="number" placeholder="Price" value="{{{ isset($product->price) ? $product->price : '' }}}" class="form-control" id="taskTitle"  name="price">
+                                                                <lable>Price in (USD)</lable>
+                                                                <input type="number" placeholder="Price (in USD)" value="{{{ isset($product->price) ? $product->price : '' }}}" class="form-control" id="taskTitle"  name="price">
                                                                 @error('price')
                                                                 <span class="alert-danger" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
                                                                 @enderror
                                                             </div>
-                                                            <div class="form-group">
+                                                            <input type="hidden" name="currency" value="USD">
+                                                            <!-- <div class="form-group">
                                                                 <select class="form-control" name="currency">
                                                                     <option selected>Choose Currency</option>
                                                                     <option {{{ (isset($product->currency) && $product->currency == 'OZ') ? "selected=\"selected\"" : "" }}}>OZ</option>
@@ -103,8 +105,9 @@
                                                                     <option {{{ (isset($product->currency) && $product->currency == 'GR') ? "selected=\"selected\"" : "" }}}>GR</option>
                                                                     <option {{{ (isset($product->currency) && $product->currency == 'LB') ? "selected=\"selected\"" : "" }}}>LB</option>
                                                                 </select>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="form-group">
+                                                                <lable>Available Product Quantity</lable>
                                                                 <input type="number" placeholder="Available Product Quantity" value="{{{ isset($product->in_stock) ? $product->in_stock : '' }}}" class="form-control" id="taskTitle"  name="in_stock">
                                                                 @error('in_stock')
                                                                 <span class="alert-danger" role="alert">
