@@ -8,6 +8,13 @@ use App\{User,Store, Product};
 
 class dashboardController extends Controller
 {
+
+    public function __construct()
+        {
+            // $this->middleware('guest')->except('logout');
+            // $this->middleware('auth:admin');
+        }
+
     public function index()
     {
     	return view('admin.dashboard1');

@@ -9,8 +9,8 @@ Login
 <div class="error-pagewrap">
     <div class="error-page-int">
         <div class="text-center m-b-md custom-login">
-            <h3>PLEASE LOGIN TO APP</h3>
-            <p>This is the best app ever!</p>
+            <h3>PLEASE LOGIN </h3>
+            <p>Industrialsupplycart administrator panel</p>
         </div>
         <div class="content-error">
             <div class="hpanel">
@@ -45,12 +45,7 @@ Login
                                     </label>
                         </div>
                         <button type="submit" class="btn btn-success btn-block loginbtn">{{ __('Login') }}</button>
-                        <a class="btn btn-default btn-block" href="{{ route('admin.register') }}">{{ __('Register') }}</a>
-                        @if (Route::has('password.request'))
-                                    <a class="" href="{{ route('admin.password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                        
                     </form>
                 </div>
             </div>

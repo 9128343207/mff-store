@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -28,6 +29,13 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/admin/home';
 
+
+    protected function authenticated(Request $request, $user)
+    {
+   
+     return redirect('/admin/dashboard');
+    }
+
     /**
      * Create a new controller instance.
      *
@@ -43,8 +51,17 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
+    protected function attemptLogin(Request $request)
+    {
+        return $this->guard('admin')->attempt(
+            $this->credentials($request), $request->filled('remember')
+        );
+    }
+
     public function logout(){
         Auth::guard('admin')->logout();
-        return redirect('/')->with('status','User has been logged out!');
+        return redirect()
+                ->route('admin.auth.login')
+                ->with('status','User has been logged out!');
     }
 }

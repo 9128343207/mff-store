@@ -595,8 +595,10 @@ input[type=password]{
 }
 .parent-megamenu{
    position: absolute;
+   display: none;
   left: 0;
   z-index: 1000;
+  width: 100%;
   float: left;
   text-align: left;
   list-style: none;
@@ -622,7 +624,7 @@ input[type=password]{
 .block-minicart .parent-megamenu{
     min-width: 307px;
     right: 0;
-    left: inherit;
+    /*left: inherit;*/
 
   border-top-right-radius: 0;
     border-top-left-radius: 0;
@@ -651,7 +653,7 @@ input[type=password]{
     border-right: 8px solid transparent;
     position: absolute;
     top: 0;
-    right: 21px;
+    /*right: 21px;*/
     margin-top: -11px;
 }
 .block-minicart:hover .parent-megamenu{
@@ -819,7 +821,7 @@ input[type=password]{
   border-top-left-radius: 0;
 }
 .block-minicart{
-  float: right;
+  float: left;
   padding: 12px 0 15px 0;
 }
 .wishlist-minicart,

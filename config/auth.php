@@ -86,7 +86,7 @@ return [
             'model' => App\Vendor::class,
         ],
 
-        'admmins' => [
+        'admins' => [
             'driver' => 'eloquent',
             'model' =>  App\Admin::class,
         ],

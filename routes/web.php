@@ -63,7 +63,7 @@ Route::prefix('/payment')->name('payment.')->group(function(){
      Route::get('/success', 'TransactionController@CreateTrasaction')->name('success');
           Route::get('/wt/paid/{id}', 'TransactionController@wtpaid');
 
-   Route::get('/wire-transfer', 'PaymentController@methods')->name('wiretransfer');
+   Route::get('/wire-transfer', 'TransactionController@methods')->name('wiretransfer');
 
 
 });
@@ -145,7 +145,18 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
 
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
-  Route::get('/dashboard','dashboardController@index')->name('dashboard');
+
+  // Route::group(['middleware' => ['auth.admin'] ], function(){
+    Route::post('searchByOrderId','OrderSearchController@searchByOrderID')->name('search.byid');
+  Route::post('searchByInvoice','OrderSearchController@searchByInvoice')->name('search.byid');
+
+
+  Route::post('get-order-details','OrderSearchController@orderDetails')->name('order.detail');
+    Route::get('order/preview/{id}','OrderSearchController@orderDetails')->name('order.detail');
+    Route::get('item/preview/{id}','OrderController@itemPreview')->name('item.preview');
+    Route::get('orders/get/{id}','OrderController@refine')->name('order.refine');
+      Route::post('order/status/update','OrderController@updateStatus')->name('order.status.update');
+    Route::get('/dashboard','dashboardController@index')->name('dashboard');
   Route::get('/','dashboardController@index')->name('home');
     Route::get('/users','dashboardController@usersList')->name('user.list');
     Route::get('/store','dashboardController@storeList')->name('store.list');
@@ -168,7 +179,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
 
        // Edit item
-   });
+      });
 
         Route::prefix('/CMS')->name('CMS.')->group(function(){
 
@@ -180,6 +191,9 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
           Route::post('footer', 'CMSController@updateFooter')->name('footer.update');
           Route::post('header', 'CMSController@updateHeader')->name('header.update');
          });
+    // });
+
+  
   //Auth
   /**
  * Login Route(s)
@@ -209,15 +223,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
   Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
-  Route::post('searchByOrderId','OrderSearchController@searchByOrderID')->name('search.byid');
-  Route::post('searchByInvoice','OrderSearchController@searchByInvoice')->name('search.byid');
-
-
-  Route::post('get-order-details','OrderSearchController@orderDetails')->name('order.detail');
-    Route::get('order/preview/{id}','OrderSearchController@orderDetails')->name('order.detail');
-    Route::get('item/preview/{id}','OrderController@itemPreview')->name('item.preview');
-    Route::get('orders/get/{id}','OrderController@refine')->name('order.refine');
-      Route::post('order/status/update','OrderController@updateStatus')->name('order.status.update');
+  
 
 
 });

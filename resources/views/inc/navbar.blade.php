@@ -193,7 +193,7 @@
 
                             @foreach(App\Category::where('parent_id', '=', 1)->get() as $category)
 
-                            <li class="">
+                            <li class="block-minicart">
                                 <a href="/products/cat/{{ $category->id }}">{{$category->title}}</a>
                                  @if(count($category->childs))
                                     <ul class="submenu parent-megamenu">

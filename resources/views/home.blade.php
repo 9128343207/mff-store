@@ -9,10 +9,10 @@
         <div class="owl-carousel nav-style1" data-nav="true" data-autoplay="false" data-dots="true" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"600":{"items":1},"1000":{"items":1}}'>
 
             @foreach ($products->Top3 as $product )
-                <div class="item-slide item-slide-1">
+                <div class="item-slide item-slide-1" style="background-image: url('{{asset('files/slide-1.jpg')}}');">
                     <div class="slide-desc slide-desc-1">
-                    <div class="p-primary">{{ $product->name}}</div>
-                        <p>{{ $product->s_desc}}</p>
+                    <div class="p-primary"  style="color:white;">{{ $product->name}}</div>
+                        <p style="color:white;">{{ $product->s_desc}}</p>
                         <a href="{{ url('product/'.$product->id)}}" class="btn-shop-now">Shop Now</a>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
         </div>
     </div>
 </div>
-@if ($products->WeeklyDeals) {
+@if ($products->WeeklyDeals) 
 <div class="block-daily-deals style1">
     <div class="container">
         <div class="title-of-section">Weekly deals</div>
