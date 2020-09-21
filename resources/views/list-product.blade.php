@@ -87,6 +87,7 @@
                                                     <span class="label-stock">Avability:</span> {{ ($item->in_stock != 0) ? 'In stock' : 'Unavailable'}}
                                                 </div>
                                             </div>
+                                            @if ($item->price_status == 1)
                                             <span class="price">
                                                     @if (!$item->discount_price)
                                                     <ins>${{ $item->price}}</ins>
@@ -96,13 +97,19 @@
                                                      {{-- // TODO add calculation for persantage --}}
                                                 @endif
                                             </span>
+                                            
+                                            @endif
                                             <div class="single-add-to-cart">
-                                                <form method="POST" onsubmit="event.preventDefault(); addToCart(this);" action="#" id="cart">
-                                                    @csrf
-                                                    <input type="hidden"  name="productId" value="{{ $item->id}}">
-                                                    <input type="submit" data-btn-id-add="{{ $item->id}}" class="btn-add-to-cart" value="Add To Cart">
-                                                    <button class="btn-added" data-btn-id-added="{{ $item->id}}"  style="display:none" class="btn-add-to-cart" value="Added">Added</button>
-                                                </form>
+                                                @if ($item->price_status == 1)
+                                                    <form method="POST" onsubmit="event.preventDefault(); addToCart(this);" action="#" id="cart">
+                                                        @csrf
+                                                        <input type="hidden"  name="productId" value="{{ $item->id}}">
+                                                        <input type="submit" data-btn-id-add="{{ $item->id}}" class="btn-add-to-cart" value="Add To Cart">
+                                                        <button class="btn-added" data-btn-id-added="{{ $item->id}}"  style="display:none" class="btn-add-to-cart" value="Added">Added</button>
+                                                    </form>
+                                                @else
+                                                    <a href="{{ route('quotes', ['pid' => $item->id])}}"><button>Get Quotes</button></a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

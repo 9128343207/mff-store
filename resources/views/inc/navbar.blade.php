@@ -67,7 +67,7 @@
                 <div class="col-md-2 nav-left">
                     <!-- logo -->
                     <strong class="logo">
-                        <a href=""><img src="images/home1/logo.jpg" alt="logo"></a>
+                        <a href="{{ route('home')}}"><img src="{{asset('files/logo.png')}}" alt="logo"></a>
                     </strong><!-- logo -->
                 </div>
                 <div class="col-md-8 nav-mind">

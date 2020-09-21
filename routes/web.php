@@ -45,6 +45,9 @@ Route::post('/add-shipaddress', 'ShippingController@addAddress');
 
 Route::post('/products/sort', 'HomeController2@sort');
 
+Route::get('/request-qoutes/{pid}', 'QuotesController@index')->name('quotes');
+Route::post('/request-qoutes', 'QuotesController@createRequest')->name('quotes.submit');
+
 Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 Route::post('/checkout', 'CheckoutController@PlaceOrder')->name('checkout');
 
@@ -117,6 +120,17 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
        Route::post('/add', 'PaymentController@add')->name('methods.add');
 
        Route::post('/attributes', 'PaymentController@methodAttributes');
+
+
+       // Edit item
+   });
+
+     Route::prefix('/qoutes')->name('quotes.')->group(function(){
+        //  Product Listing
+       Route::get('/all', 'quotesQueryController@index')->name('all');
+       Route::get('/view/{id}', 'quotesQueryController@view')->name('view');
+
+      
 
 
        // Edit item

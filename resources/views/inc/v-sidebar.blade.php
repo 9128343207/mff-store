@@ -44,6 +44,17 @@
                         <li class="">
                             <a class="has-arrow" href="index.html">
                                    <span class="educate-icon educate-home icon-wrap"></span>
+                                   <span class="mini-click-non">Qoutes Request</span>
+                                </a>
+                            <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Dashboard v.1" href="{{ Route('vendor.quotes.all')}}"><span class="mini-sub-pro">All Requests</span></a></li>
+                           
+
+                            </ul>
+                        </li>
+                        <!-- <li class="">
+                            <a class="has-arrow" href="index.html">
+                                   <span class="educate-icon educate-home icon-wrap"></span>
                                    <span class="mini-click-non">Shipment</span>
                                 </a>
                             <ul class="submenu-angle" aria-expanded="true">
@@ -51,7 +62,7 @@
                             <li><a title="Dashboard v.2" href="{{ Route('vendor.payment.methods') }}"><span class="mini-sub-pro">Methods</span></a></li>
 
                             </ul>
-                        </li>
+                        </li> -->
                         <!-- <li class="">
                             <a class="has-arrow" href="index.html">
                                    <span class="educate-icon educate-home icon-wrap"></span>

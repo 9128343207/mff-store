@@ -32,7 +32,8 @@ class CreateProductsTable extends Migration
             $table->integer('in_stock');
             $table->string('stock_measurement')->nullable();
             $table->text('product_category_id')->nullable();
-            $table->string('price');
+            $table->string('price')->nullable();
+            $table->string('price_status')->nullable();
             $table->string('discount_price')->nullable();
             $table->string('currency')->nullable();
             $table->integer('review_id')->nullable();

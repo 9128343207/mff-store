@@ -92,8 +92,8 @@
                             $footer = App\Footer::where('status', 1)->first();
 
                         @endphp
-                    <div class="col-md-6 col-sm-6 equal-elem">
-                        <h3 class="title-of-section" style="color: white;">About Us</h3>
+                    {{--<div class="col-md-6 col-sm-6 equal-elem">
+                       <h3 class="title-of-section" style="color: white;">About Us</h3>
                         <div class="contacts">
                             <p class="contacts-info">{{ $footer->about}}</p>
                             <span class="contacts-info info-address ">{{ $footer->address}}</span>
@@ -108,7 +108,7 @@
                                 <a href="" class="social"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                     <div class="col-md-4 col-sm-6 equal-elem">
                         <div class="links">
                         <h3 class="title-of-section" style="color: white;">My account</h3>
@@ -117,7 +117,7 @@
                             <li><a href="{{route('cart.view')}}">View Cart</a></li>
                             {{-- <li><a href="">Terms & Conditions</a></li> --}}
                             {{-- <li><a href="">Contact us</a></li> --}}
-                            <li><a href="{{ route('ticket.create')}}">support</a></li>
+                            <!-- <li><a href="{{ route('ticket.create')}}">support</a></li> -->
                             <li><a href="{{route('myorders')}}">Track My Order</a></li>
                             <li><a href="{{ route('start-selling') }}">Start Selling</a></li>
                             {{-- <li><a href="">Help</a></li> --}}
@@ -138,24 +138,16 @@
                         </ul>
                         </div>
                     </div> --}}
-                    {{-- <div class="col-md-4 col-sm-6 equal-elem">
+                   <div class="col-md-4 col-sm-6 equal-elem">
                         <div class="links links-ins">
-                            <h3 class="title-of-section">Instagram</h3>
+                            <h3 class="title-of-section" style="color:white;">Contact Mail</h3>
                             <div class="content-ins">
-                                <a href=""><img src="images/detail/ins1.jpg" alt="ins1"></a>
-                                <a href=""><img src="images/detail/ins2.jpg" alt="ins2"></a>
-                                <a href=""><img src="images/detail/ins3.jpg" alt="ins3"></a>
-                                <a href=""><img src="images/detail/ins4.jpg" alt="ins4"></a>
-                                <a href=""><img src="images/detail/ins5.jpg" alt="ins5"></a>
-                                <a href=""><img src="images/detail/ins6.jpg" alt="ins6"></a>
-                                <a href=""><img src="images/detail/ins7.jpg" alt="ins7"></a>
-                                <a href=""><img src="images/detail/ins8.jpg" alt="ins8"></a>
-                                <a href=""><img src="images/detail/ins9.jpg" alt="ins9"></a>
-                                <a href=""><img src="images/detail/ins10.jpg" alt="ins10"></a>
+                                <a style="color:white;" href="mailto:support@industrialsupplycart.com">support@industrialsupplycart.com</a>
+                               
                             </div>
-                            <a href="" class="view-more">View More<!-- <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> --></a>
+                            <!-- <a href="" class="view-more">View More<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> -->
                         </div>
-                    </div> --}}
+                    </div> 
                 </div>
             </div>
         </div>
@@ -165,12 +157,12 @@
                  <div class="copyright-right">
                     © Copyright {{now()->format('Y')}}<span> <a href="https://osiltec.com">Osiltec</a></span>. All Rights Reserved.
                 </div>
-                <div class="pay-men">
+               {{-- <div class="pay-men">
                     <a href=""><img src="images/home1/pay1.jpg" alt="pay1"></a>
                     <a href=""><img src="images/home1/pay2.jpg" alt="pay2"></a>
                     <a href=""><img src="images/home1/pay3.jpg" alt="pay3"></a>
                     <a href=""><img src="images/home1/pay4.jpg" alt="pay4"></a>
-                </div>
+                </div> --}}
              </div>
         </div>
 </footer><!-- end FOOTER -->

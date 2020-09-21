@@ -35,15 +35,18 @@
                     </div>
                     <div class="product-innfo">
                         <div class="product-name"><a href="{{ url('product/'.$deal->id)}}">{{ $deal->name}}</a></div>
-                        <span class="price">
-                            @if (!$deal->discount_price)
-                                <ins>${{ $deal->price}}</ins>
-                            @else
-                                <ins>${{ $deal->discount_price}}</ins>
-                                <del>${{ $deal->price}}</del>
-                                <span class="onsale">-50%</span> {{-- // TODO add calculation for persantage --}}
-                            @endif
-                        </span>
+                        @if ($deal->price_status == 1)
+                            <span class="price">
+                                @if (!$deal->discount_price)
+                                    <ins>${{ $deal->price}}</ins>
+                                @else
+                                    <ins>${{ $deal->discount_price}}</ins>
+                                    <del>${{ $deal->price}}</del>
+                                    <span class="onsale">-50%</span> {{-- // TODO add calculation for persantage --}}
+                                @endif
+                            </span>
+                        
+                        @endif
                         <span class="star-rating">
                             <i class="fa fa-star" aria-hidden="true"></i>
                             <i class="fa fa-star" aria-hidden="true"></i>
@@ -55,12 +58,16 @@
                         <div class="product-count-down">
                             <div class="kt-countdown" data-y="2020" data-m="2" data-d="27" data-h="10" data-i="0" data-s="0"></div>
                         </div>
+                         @if ($deal->price_status == 1)
                         <form method="POST" onsubmit="event.preventDefault(); addToCart(this);" action="#" id="cart">
                                 @csrf
                             <input type="hidden"  name="productId" value="{{ $deal->id}}">
                             <input type="submit" data-btn-id-add="{{ $deal->id}}" class="btn-add-to-cart" value="Add To Cart">
                             <button class="btn-added" data-btn-id-added="{{ $deal->id}}"  style="display:none" class="btn-add-to-cart" value="Added">Added</button>
                         </form>
+                        @else 
+                                                    <a href="{{ route('quotes', ['pid' => $deal->id])}}"><button>Get Quotes</button></a>
+                                                @endif
                     </div>
                 </div>
             @endforeach
@@ -68,23 +75,7 @@
     </div>
 </div>
 @endif
-<!-- <div class="block-section-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5 col-sm-5">
-                <div class="promotion-banner style-1">
-                    <a href="" class="banner-img"><img src="images/home1/banner-1.jpg" alt="banner-1"></a>
-                </div>
-            </div>
-            <div class="col-md-7 col-sm-7">
-                <div class="promotion-banner style-1">
-                    <a href="" class="banner-img"><img src="images/home1/banner-2.jpg" alt="banner-2"></a>
-                    <a href="" class="shop-now hidden-mobile">Shop now<i class="fa fa-angle-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
+
 <div class="block-section-4">
     <div class="container">
         <div class="title-of-section">Featured Products</div>
@@ -114,6 +105,7 @@
                                                     </div>
                                                     <div class="product-innfo">
                                                         <div class="product-name"><a href="{{ url('product/'.$singleProduct->id)}}">{{$singleProduct->name}}</a></div>
+                                                        @if ($singleProduct->price_status == 1)
                                                             <span class="price">
                                                                 @if (!$singleProduct->discount_price)
                                                                     <ins>${{ $singleProduct->price}}</ins>
@@ -123,8 +115,11 @@
                                                                     <span class="onsale">-50%</span> {{-- // TODO add calculation for persantage --}}
                                                                 @endif
                                                             </span>
+                                                        
+                                                        @endif
                                                         <div class="group-btn-hover">
                                                             <div class="inner">
+                                                                 @if ($singleProduct->price_status == 1)
                                                                 {{-- <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
                                                                 <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a> --}}
                                                                 <form method="POST" onsubmit="event.preventDefault(); addToCart(this);" action="#" id="cart">
@@ -133,6 +128,9 @@
                                                                 <input type="submit" data-btn-id-add="{{ $singleProduct->id}}" class="btn-add-to-cart" value="Add To Cart">
                                                                 <button class="btn-added" data-btn-id-added="{{ $singleProduct->id}}"  style="display:none" class="btn-add-to-cart" value="Added">Added</button>
                                                             </form>
+                                                            @else
+                                                             <a href="{{ route('quotes', ['pid' => $singleProduct->id])}}"><button>Get Quotes</button></a>
+                                                        @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -182,6 +180,7 @@
                                                         </div>
                                                         <div class="product-innfo">
                                                             <div class="product-name"><a href="{{ url('product/'.$singleProduct->id)}}">{{$singleProduct->name}}</a></div>
+                                                            @if ($singleProduct->price_status)
                                                                 <span class="price">
                                                                     @if (!$singleProduct->discount_price)
                                                                         <ins>${{ $singleProduct->price}}</ins>
@@ -191,8 +190,11 @@
                                                                         <span class="onsale">-50%</span> {{-- // TODO add calculation for persantage --}}
                                                                     @endif
                                                                 </span>
+                                                            
+                                                            @endif
                                                             <div class="group-btn-hover">
                                                                 <div class="inner">
+                                                                     @if ($singleProduct->price_status == 1)
                                                                     {{-- <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
                                                                     <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a> --}}
                                                                     <form method="POST" onsubmit="event.preventDefault(); addToCart(this);" action="#" id="cart">
@@ -201,6 +203,9 @@
                                                                     <input type="submit" data-btn-id-add="{{ $singleProduct->id}}" class="btn-add-to-cart" value="Add To Cart">
                                                                     <button class="btn-added" data-btn-id-added="{{ $singleProduct->id}}"  style="display:none" class="btn-add-to-cart" value="Added">Added</button>
                                                                 </form>
+                                                                @else
+                                                                     <a href="{{ route('quotes', ['pid' => $singleProduct->id])}}"><button>Get Quotes</button></a>
+                                                                @endif
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -395,7 +400,7 @@
         </div>
     </div>
 </div> -->
-<div class="block-section-brand">
+<!-- <div class="block-section-brand">
     <div class="container">
         <div class="section-brand style1">
             <div class="owl-carousel nav-style3" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="2" data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":4},"1000":{"items":6}}'>
@@ -408,5 +413,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 @endsection

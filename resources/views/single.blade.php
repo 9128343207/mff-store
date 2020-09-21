@@ -79,7 +79,7 @@
                             <span>item with Free Delivery</span>
                         </div> --}}
 
-                            <span class="price">
+                            <!-- <span class="price">
                                 @if (!$item->discount_price)
                                     <ins>${{ $item->price}}</ins>
                                 @else
@@ -87,9 +87,9 @@
                                     <del>${{ $item->price}}</del>
                                     {{-- <span class="onsale">-50%</span> // TODO add calculation for persantage --}}
                                 @endif
-                            </span>
+                            </span> -->
                         <div class="quantity">
-                                <form method="POST" onsubmit="event.preventDefault(); addToCart(this);" action="#" id="cart">
+                                <!-- <form method="POST" onsubmit="event.preventDefault(); addToCart(this);" action="#" id="cart">
                                         @csrf
                             <h6 class="quantity-title">Quantity:</h6>
                             <div class="buttons-added">
@@ -102,7 +102,8 @@
                                 <input type="hidden"  name="productId" value="{{ $item->id}}">
                                 <input type="submit" data-btn-id-add="{{ $item->id}}" class="btn-add-to-cart" value="Add To Cart">
                                 <button class="btn-added" data-btn-id-added="{{ $item->id}}"  style="display:none" class="btn-add-to-cart" value="Added">Added</button>
-                            </form>
+                            </form> -->
+                             <a href="{{ route('quotes', ['pid' => $item->id])}}"><button>Get Quotes</button></a>
                             {{-- <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
                             <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a> --}}
                         </div>
@@ -208,7 +209,7 @@
             </div>
         </div>
     </div>
-    <div class="block-section-brand">
+    <!-- <div class="block-section-brand">
         <div class="container">
             <div class="section-brand style1">
                 <div class="owl-carousel nav-style3" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="2" data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":4},"1000":{"items":6}}'>
@@ -222,5 +223,5 @@
             </div>
         </div>
     </div>
-
+ -->
 @endsection

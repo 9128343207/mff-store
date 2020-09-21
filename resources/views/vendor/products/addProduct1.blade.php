@@ -96,6 +96,16 @@
                                                                 </span>
                                                                 @enderror
                                                             </div>
+                                                            <div class="form-group">
+                                                                
+                                                                <input type="checkbox" placeholder="Price (in USD)" value="{{{ isset($product->price_status) ? $product->price_status : '' }}}" class="form-control" id="taskTitle" style="width: 50px;height: 20px;"  name="price_status">
+                                                                <lable>Hide price </lable>
+                                                                @error('price')
+                                                                <span class="alert-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                @enderror
+                                                            </div>
                                                             <input type="hidden" name="currency" value="USD">
                                                             <!-- <div class="form-group">
                                                                 <select class="form-control" name="currency">

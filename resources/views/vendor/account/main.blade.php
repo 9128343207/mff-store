@@ -1,6 +1,6 @@
 @extends('layouts.vendor')
 @section('title')
-    Home
+    Account
 @endsection
 @section('header')
     @include('inc.v-sidebar')
