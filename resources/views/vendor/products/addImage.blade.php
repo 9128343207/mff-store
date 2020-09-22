@@ -12,7 +12,7 @@
     {{-- <hr>{{ dd($product)}} --}}
     @if($productImages)
      @foreach ($productImages as $image )
-     <img height="300px" width="300px" src="{{ asset('files/',$image)}}">
+     <img height="300px" width="300px" src="{{  url('storage/products/img/',$image)}}">
     @endforeach
     @endif
 

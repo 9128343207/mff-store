@@ -60,6 +60,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        $product = new Product();
         $product = $request->session()->get('product');
         if ($product->id) {
             $existProduct = Product::find($product->id);

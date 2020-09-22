@@ -41,7 +41,7 @@
         <tr>
         @foreach ($productImages as $image)
             <td>
-                <img height="400px" width="300px" src="{{ asset('files/'.$image)}}">
+                <img height="400px" width="300px" src="{{  url('storage/products/img/'.$image)}}">
             </td>
         @endforeach
         </tr>
