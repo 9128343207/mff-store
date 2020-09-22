@@ -1,6 +1,6 @@
 @extends('layouts.vendor')
 @section('title')
-    Home
+        Add Products
 @endsection
 @section('header')
     @include('inc.v-sidebar')
@@ -31,8 +31,14 @@
                                                     @endforeach
                                             </div>
                                         @endif
+                                       
                                             <form action="/vendor/products/create-step1" method="post" enctype="multipart/form-data">
                                                 {{ csrf_field() }}
+
+                                                @if(isset($product->id))
+                                                    <input type="hidden" name="id" value="{{$product->id}}">
+                                                @endif
+                                                <input type="hidden" name="type" value="{{$type}}">
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                         <div class="form-group">
@@ -126,7 +132,7 @@
                                                                 @enderror
                                                             </div>
                                                     </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm <select class="form-control" name="currency">
+                                                    <div class="col-lg-6 col-md-6 col-sm" ><select class="form-control" name="currency"></select>
 
 
                                                         <div class="form-group">

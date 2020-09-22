@@ -26,9 +26,9 @@ class ProductController extends Controller
 
     public function createStep1(Request $request)
     {
-        $product = $request->session()->get('product');
+        // $product = $request->session()->get('product');
         $allCategories = Category::where('parent_id', '=', 1)->get();
-        return view('vendor.products.addProduct1')->with(['product' => $product, 'allCategories' => $allCategories]);
+        return view('vendor.products.addProduct1')->with([ 'allCategories' => $allCategories, 'type' => 'new']);
     }
 
     public function postCreateStep1(ProductListingRequest $request)
@@ -61,13 +61,26 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = $request->session()->get('product');
-        $product->store_id = $this->loggedinUser->store->id;
-        $product->status = 'new';
-        $product->save();
+        if ($product->id) {
+            $existProduct = Product::find($product->id);
+            $existProduct = $product;
+            $existProduct->save();
+            $product_id = $existProduct->id;
+
+        } else {
+            
+            $product->store_id = $this->loggedinUser->store->id;
+            $product->status = 'new';
+            $product->save();
+            $product_id = $product->id;
+        }
+ 
+
+        
         foreach ($request->session()->get('productImages') as  $image) {
             $productImages = new ProductsPhoto();
             $productImages->filename = $image;
-            $productImages->product_id = $product->id;
+            $productImages->product_id = $product_id;
             $productImages->save();
         }
         $request->session()->forget('productImages');
@@ -93,7 +106,7 @@ class ProductController extends Controller
                         'productImages' => $product->productPhoto
                     ]);
         $allCategories = Category::where('parent_id', '=', 1)->get();
-        return view('vendor.products.addProduct1')->with(['product' => $product, 'allCategories' => $allCategories]);
+        return view('vendor.products.addProduct1')->with(['product' => $product, 'allCategories' => $allCategories, 'type' => 'edit']);
     }
 
     public function SingleProduct(int $id)
