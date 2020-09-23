@@ -109,7 +109,7 @@
                             </div>
                         </div>
                     </div>--}}
-                    <div class="col-md-4 col-sm-6 equal-elem">
+                    <div class="col-md-3 col-sm-6 equal-elem">
                         <div class="links">
                         <h3 class="title-of-section" style="color: white;">My account</h3>
                         <ul>
@@ -124,21 +124,16 @@
                         </ul>
                         </div>
                     </div>
-                    {{-- <div class="col-md-2 col-sm-6 equal-elem">
+                     <div class="col-md-6 col-sm-6 equal-elem">
                         <div class="links">
-                        <h3 class="title-of-section">Information</h3>
-                        <ul>
-                            <li><a href="">Specials</a></li>
-                            <li><a href="">New products</a></li>
-                            <li><a href="">Best sellers</a></li>
-                            <li><a href="">Our stores</a></li>
-                            <li><a href="">Contact us</a></li>
-                            <li><a href="">Sitemap</a></li>
-                            <li><a href="">Blog</a></li>
-                        </ul>
-                        </div>
-                    </div> --}}
-                   <div class="col-md-4 col-sm-6 equal-elem">
+                        <h3 class="title-of-section" style="color: white;">Disclaimer: </h3>
+                        <div class="content-ins" style="font-size: 12px">
+All brands mentioned on this website we do not hold any trademark rights. This is platform for buying and selling.
+Please verify the credentials of sellers and buyer before doing any transactions. 
+By agreeing to use our platform you will do due diligence for every transaction and Industrialsupplycart cannot be held responsible and you agree to fully indemnify is from any loss or issues arising from any transactions or communications.</div>
+                        </div><br><br>
+                    </div> 
+                   <div class="col-md-3 col-sm-6 equal-elem">
                         <div class="links links-ins">
                             <h3 class="title-of-section" style="color:white;">Contact Mail</h3>
                             <div class="content-ins">
@@ -154,9 +149,9 @@
         <input type="hidden" value='' id="cartData">
         <div class="copyright full-width">
              <div class="container">
-                 <div class="copyright-right">
+                 <!-- <div class="copyright-right">
                     © Copyright {{now()->format('Y')}}<span> <a href="https://osiltec.com">Osiltec</a></span>. All Rights Reserved.
-                </div>
+                </div> -->
                {{-- <div class="pay-men">
                     <a href=""><img src="images/home1/pay1.jpg" alt="pay1"></a>
                     <a href=""><img src="images/home1/pay2.jpg" alt="pay2"></a>
