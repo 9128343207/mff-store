@@ -97,6 +97,9 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
         Route::get('/edit/{item}', 'ProductController@EditItem')->name('product.edit');
                 Route::post('/edit', 'ProductController@EditItem')->name('product.edit.submit');
 
+        Route::get('/delete/{item}', 'ProductController@DeleteItem')->name('product.delete');
+
+
     });
 
     Route::prefix('/support')->group(function(){

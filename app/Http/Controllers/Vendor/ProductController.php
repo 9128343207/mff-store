@@ -127,5 +127,12 @@ class ProductController extends Controller
                     ->get();
     }
 
+    public function DeleteItem($item)
+    {
+        $product = Product::find($item);
+        $product->delete();
+        return redirect()->back()->with('status', 'Product deleted successfully.');   
+    }
+
 
 }
