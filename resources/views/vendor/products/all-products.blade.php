@@ -54,7 +54,7 @@
                                         <!-- <td>{{ $product->manufacturer }}</td> -->
                                         <td>{{ $product->in_stock }}</td>
                                         <td>{{ $product->price }}</td>
-                                        <td><a href="{{ Route('vendor.product.edit', ['item' => $product->id]) }}">Edit</a>&nbsp;<a href="{{ Route('vendor.product.delete', ['item' => $product->id]) }}">Delete</a></td>
+                                        <td><!-- <a href="{{ Route('vendor.product.edit', ['item' => $product->id]) }}">Edit</a> -->&nbsp;<a href="{{ Route('vendor.product.delete', ['item' => $product->id]) }}">Delete</a></td>
                                         </tr>
                                             @php $count++; @endphp 
                                     @endforeach
