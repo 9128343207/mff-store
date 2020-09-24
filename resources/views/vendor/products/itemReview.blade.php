@@ -39,11 +39,20 @@
             <td><strong><img alt="Product Image" src="/storage/productimg/{{$productImages->productImg}}"/></strong></td>
         </tr> --}}
         <tr>
-        @foreach ($productImages as $image)
-            <td>
-                <img height="400px" width="300px" src="{{  url('storage/products/img/'.$image)}}">
-            </td>
-        @endforeach
+             @if(Session::has('type') == 'new')
+                @if($productImages)
+               @foreach ($productImages as $image )
+               <img height="300px" width="300px" src="{{  url('storage/products/img/',$image)}}">
+                @endforeach
+              @endif
+            @else
+              @if($productImages)
+               @foreach ($productImages as $image )
+               <img height="300px" width="300px" src="{{  url('storage/products/img/',$image->filename)}}">
+              @endforeach
+              @endif
+            @endif
+       
         </tr>
     </table>
     <a type="button" href="{{ Route('vendor.product.listing') }}" class="btn btn-warning">Back to Products details</a>

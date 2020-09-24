@@ -53,7 +53,7 @@
                                                         <div class="form-group res-mg-t-15">
 
                                                             {{-- <label for="description">Product Category</label> --}}
-                                                           <select name="p-category" class="form-control">
+                                                           <select name="category_id" class="form-control">
                                                                <option>Choose category</option>
                                                                @foreach ($allCategories as $category)
                                                                 <option value="{{ $category['id'] }}">{{  $category['title'] }}</option>

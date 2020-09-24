@@ -9,21 +9,33 @@
 
 @section('content')
     <h1>Add products images - </h1>
-    {{-- <hr>{{ dd($product)}} --}}
-    @if($productImages)
-     @foreach ($productImages as $image )
-     <img height="300px" width="300px" src="{{  url('storage/products/img/',$image)}}">
-    @endforeach
+    <hr>
+
+    @if(Session::has('type') == 'new')
+        @if($productImages)
+       @foreach ($productImages as $image )
+       <img height="300px" width="300px" src="{{  url('storage/products/img/',$image)}}">
+        @endforeach
+      @endif
+    @else
+      @if($productImages)
+       @foreach ($productImages as $image )
+       <img height="300px" width="300px" src="{{  url('storage/products/img/',$image->filename)}}">
+      @endforeach
+      @endif
     @endif
+
 
     <form action="/vendor/upload" enctype="multipart/form-data" method="post">
         {{ csrf_field() }}
         <div class="input-group control-group increment" >
+          
                 <input type="file" name="filename[]" class="form-control">
                 <div class="input-group-btn">
                   <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                 </div>
               </div>
+
               <div class="clone hide">
                 <div class="control-group input-group" style="margin-top:10px">
                   <input type="file" name="filename[]" class="form-control">

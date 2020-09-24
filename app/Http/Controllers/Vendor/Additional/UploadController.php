@@ -23,20 +23,22 @@ class UploadController extends Controller
     {
         // dd($request);
         $rules = array(
-            'filename' => 'required | max:2000', // TODO validate file for filetypes
+            'filename' => 'max:2000', // TODO validate file for filetypes
         );
+
+       
 
         $validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) {
-            return Redirect::back()
-                ->withErrors($validator)
-                ->withInput();
-        }
+        // if ($validator->fails()) {
+        //     return Redirect::back()
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
 
-        if ($validator->fails()) {
-            return view('vendor.products.addImage');
-        }
+        // if ($validator->fails()) {
+        //     return view('vendor.products.addImage');
+        // }
         if($request->hasfile('filename'))
          {
             foreach($request->file('filename') as $file)
@@ -51,20 +53,26 @@ class UploadController extends Controller
                 $img->stream();
                  Storage::disk('local')->put('public/products'.'/img/'.$name,  $img, 'public');
                 $data[] = $name;
+                $request->session()->put('isnewimages', 1);
             }
          }
-        if(empty($request->session()->get('productImages'))){
-            $request->session()->put('productImages', $data);
-        }else{
-            $product = $request->session()->get('productImages');
-            $request->session()->put('productImages', $data);
+         if (isset($data)) {
+            if(empty($request->session()->get('productImages'))){
+                $request->session()->put('productImages', $data);
+            }else{
+                    $product = $request->session()->get('productImages');
+                    $request->session()->put('productImages', $data);
+            }
+        } else {
+            $request->session()->put('isnewimages', 0);
         }
+            $product = $request->session()->get('product');
+            $productImages = $request->session()->get('productImages');
+            $type = $request->session()->get('isnewimages');
 
-        $product = $request->session()->get('product');
-        $productImages = $request->session()->get('productImages');
-        return view('vendor.products.itemReview',compact('productImages','product'));
-        // dd($request->session());
-               // dd($request->files);
+       
+        return view('vendor.products.itemReview',compact('productImages','product', 'type'));
+        
 
     }
 }

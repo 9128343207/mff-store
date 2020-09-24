@@ -28,15 +28,25 @@ class ProductController extends Controller
     {
         // $product = $request->session()->get('product');
         $allCategories = Category::where('parent_id', '=', 1)->get();
+        $request->session()->forget('product');
         return view('vendor.products.addProduct1')->with([ 'allCategories' => $allCategories, 'type' => 'new']);
     }
 
     public function postCreateStep1(ProductListingRequest $request)
     {
-        if(empty($request->session()->get('product'))){
+        if(empty($request->session()->get('product')) && $request->type == 'new'){
             $product = new Product();
             $product->fill($request->all());
             $request->session()->put('product', $product);
+            $request->session()->put('type', 'new');
+            $type = 'new';
+            
+        } elseif ($request->type == 'edit' && isset($request->id))  {
+            $product = Product::find($request->id);
+            $product->fill($request->all());
+            $request->session()->put('product', $product);
+            $request->session()->put('type', 'edit');
+            $type = 'edit';
         } else {
             $product = $request->session()->get('product');
             $product->fill($request->all());
@@ -60,33 +70,40 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $product = new Product();
+       
         $product = $request->session()->get('product');
-        if ($product->id) {
-            $existProduct = Product::find($product->id);
-            $existProduct = $product;
-            $existProduct->save();
-            $product_id = $existProduct->id;
-
-        } else {
+        
             
+            $product = $request->session()->get('product');
             $product->store_id = $this->loggedinUser->store->id;
             $product->status = 'new';
             $product->save();
             $product_id = $product->id;
-        }
+       switch ($request->session()->get('type')) {
+           case 'new':
+              $msg = 'New product added successfully.';
+               break;
+            case 'edit':
+               $msg = 'Product edited successfully.';
+                break;
+           
+           default:
+               $msg = 'Product Altered';
+               break;
+       }
  
-
-        
-        foreach ($request->session()->get('productImages') as  $image) {
+        if ($request->session()->get('isnewimages') == 1) {
+           foreach ($request->session()->get('productImages') as  $image) {
             $productImages = new ProductsPhoto();
             $productImages->filename = $image;
             $productImages->product_id = $product_id;
             $productImages->save();
         }
+        }
+        
         $request->session()->forget('productImages');
         $request->session()->forget('product');
-        return redirect('vendor/products/all')->with('status', 'New product added!');
+        return redirect('vendor/products/all')->with('status', $msg);
     }
 
     public function all()
