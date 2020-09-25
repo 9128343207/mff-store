@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'store_id', 'name', 'bname', 'manufacturer', 's_desc', 'item_weight', 'weight_measure_unit',
+        'store_id', 'name', 'category_id' 'bname', 'manufacturer', 's_desc', 'item_weight', 'weight_measure_unit',
         'volume', 'volume_measure_unit', 'warranty_desc', 'status', 'description', 'description2', 'description3',
         'price', 'currency', 'in_stock',
 
@@ -24,7 +24,7 @@ class Product extends Model
 
     public function scopeCategory($query, $key)
     {
-        return $query->where('product_category_id', $key);
+        return $query->where('category_id', $key);
     }
 
     public function scopePrice($query, $min, $max)
