@@ -1,1 +1,0 @@
-<h2>phpmyadmin panel</h2>
