@@ -27,7 +27,8 @@ class ProductController extends Controller
     public function createStep1(Request $request)
     {
         // $product = $request->session()->get('product');
-        $allCategories = Category::where('parent_id', '=', 1)->get();
+        $allCategories = Category::where('type', '=', 'products')->get();
+        // dd($allCategories);
         $request->session()->forget('product');
         return view('vendor.products.addProduct1')->with([ 'allCategories' => $allCategories, 'type' => 'new']);
     }
@@ -123,7 +124,7 @@ class ProductController extends Controller
                         'product' => $product,
                         'productImages' => $product->productPhoto
                     ]);
-        $allCategories = Category::where('parent_id', '=', 1)->get();
+        $allCategories = Category::where('type', '=', 'products')->get();
         return view('vendor.products.addProduct1')->with(['product' => $product, 'allCategories' => $allCategories, 'type' => 'edit']);
     }
 

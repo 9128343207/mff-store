@@ -80,7 +80,7 @@
                             <div class="categori-search  ">
                                 <select data-placeholder="All Categories" class="chosen-select categori-search-option" name="cat">
                                     <option value="">All Categories</option>
-                                     @foreach (App\Category::where('parent_id', 1)->get() as $category)
+                                     @foreach (App\Category::where('type', '=', 'products')->get() as $category)
                                                 <option value="{{$category->id}}">{{$category->title}}</option>
                                             @endforeach
                                 </select>
