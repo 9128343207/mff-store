@@ -24,15 +24,20 @@ class quotesQueryController extends Controller
     public function index(){
     	// $product = Product::find();
     	// dd($this->loggedinUser->store);
-    	$store = Store::find($this->loggedinUser->store->id)->with('qoutes')->first();
-
+    	$store = Store::find($this->loggedinUser->store->id)->first();
+     //    dd($store);
+        $quotes = quotes::where('store_id', $this->loggedinUser->store->id)->get();
     	// dd($quotes);
-    	return view('vendor.Quotes.new')->with('store', $store);
+        $data = [
+            'store' => $store,
+            'quotes' => $quotes,
+        ];
+    	return view('vendor.Quotes.new')->with('data', $data);
     }
 
     public function view($id)
     {
-    	$quote = quotes::find(1);
+    	$quote = quotes::find($id);
     	$Product = Product::find($quote->product_id);
     	$user = User::find($quote->user_id);
     	$data = [

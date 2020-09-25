@@ -35,7 +35,7 @@
                                 <th>Date/Time</th>
                                 <th>Action</th>
                             </tr>
-                            @foreach($store->qoutes as $quote)
+                            @foreach($data['quotes'] as $quote)
                             <tr>
                             	
                             		<td>{{$quote->id}}</td>
