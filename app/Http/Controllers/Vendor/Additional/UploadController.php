@@ -75,4 +75,27 @@ class UploadController extends Controller
         
 
     }
+
+    public function deleteImage(Request $req)
+    {
+        // dd($req->id);
+        $image = ProductsPhoto::find($req->id);
+        
+
+        if ($image == null) {
+            $msg = 'Product image not found!';
+            $code = 0;
+        } else {
+            $image->delete(); 
+            // TODO delete from storage
+            $msg = 'Product image deleted successfully';
+            $code = 1;
+        }
+        $data = [
+            'msg' => $msg,
+            'code' => $code,
+            'id' => $req->id,
+        ];
+        echo json_encode($data);
+    }
 }

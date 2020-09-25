@@ -5456,6 +5456,13 @@ label.inline{
   .product-grid-right .breadcrumb-page {
     text-align: left;
   }
+
+  /*.product-item.style1{
+  width: 250px;
+  height: 300px;
+  margin: auto;
+  display: grid;
+}*/
   .products.products-list{
     border-top: none;
   }
@@ -5469,6 +5476,7 @@ label.inline{
     opacity: 1;
     visibility: visible;
   }
+
 }
 @media (max-width: 480px) {
   .toolbar-sort, .toolbar-per{
@@ -5491,6 +5499,9 @@ label.inline{
   clear:left;
 }
 .products-grid .product-item.style1{
+  width: 250px;
+  height: 300px;
+  margin: auto;
   display: grid;
 }
 .products-grid .product-item.style1 .product-thumb{

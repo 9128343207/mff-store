@@ -11,7 +11,7 @@
     <h1>Add products images - </h1>
     <hr>
 
-    @if(Session::has('type') == 'new')
+    @if(Session::has('type') !== 0 && session('type') == 'new')
         @if($productImages)
        @foreach ($productImages as $image )
        <img height="300px" width="300px" src="{{  url('storage/products/img/',$image)}}">
@@ -20,7 +20,10 @@
     @else
       @if($productImages)
        @foreach ($productImages as $image )
-       <img height="300px" width="300px" src="{{  url('storage/products/img/',$image->filename)}}">
+       <div id="{{$image->id}}">
+          <img height="300px" width="300px" src="{{  url('storage/products/img/',$image->filename)}}"><br><button class="btn btn-danger" onclick="deleteimage('{{$image->id}}')" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button><br>
+       </div>
+      
       @endforeach
       @endif
     @endif
@@ -61,6 +64,46 @@
           });
 
         });
+
+        function deleteimage(id) {
+          $.ajax({
+            url: "/vendor/delete",
+            type: "post",
+            headers: {'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')},
+            data: {'id': id},
+            success: function (response) {
+              // console.log(JSON.parse(response.msg));
+              var msg = JSON.parse(response);
+              var html = '';
+              // switch(response.code){
+              //   case 1:
+              //     // html = '<div class="alert alert-success">';
+              //     html += response.msg;
+              //     // html += '</div>';
+              //     break;
+
+              //   case 0:
+              //        // html = '<div class="alert alert-error">';
+              //         html += response.msg;
+              //         // html += '</div>';
+              //     break;
+
+              //   default:
+              //     // html = '<div class="alert alert-error">';
+              //         html += 'something went wrong!';
+              //         // html += '</div>';
+              // }
+              // $(document.body).append(html);
+              alert(msg.msg);
+              $('#'+msg.id).remove();
+               
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+               console.log(textStatus, errorThrown);
+            }
+        });
+
+        }
 
     </script>
 

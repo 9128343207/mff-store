@@ -159,6 +159,7 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
     // Image Upload
     Route::get('/upload', 'Additional\UploadController@uploadForm')->name('upload');
     Route::post('/upload', 'Additional\UploadController@uploadSubmit');
+    Route::post('/delete', 'Additional\UploadController@deleteImage');
 
   });
 
