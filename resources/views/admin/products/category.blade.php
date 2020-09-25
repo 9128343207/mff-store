@@ -201,6 +201,13 @@
                                     </div>
 
                                 @endif
+                                <div class="form-group ">
+                                    <select name="type">
+                                        <option>Choose...</option>
+                                        <option value="main">Main menu</option>
+                                        <option value="products">Products</option>
+                                    </select>
+                                </div>
                                 <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                                     <label>Title</label>
                                 <input type="text" name="title" class="form-control">
