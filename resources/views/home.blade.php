@@ -20,7 +20,8 @@
         </div>
     </div>
 </div>
-@if ($products->WeeklyDeals) 
+
+@if (count($products->WeeklyDeals) >= 2) 
 <div class="block-daily-deals style1">
     <div class="container">
         <div class="title-of-section">Weekly deals</div>
