@@ -5457,12 +5457,12 @@ label.inline{
     text-align: left;
   }
 
-  /*.product-item.style1{
+  .product-item.style1{
   width: 250px;
   height: 300px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
-}*/
+}
   .products.products-list{
     border-top: none;
   }
@@ -5476,6 +5476,17 @@ label.inline{
     opacity: 1;
     visibility: visible;
   }
+
+  .block-minicart:active .parent-megamenu {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+}
 
 }
 @media (max-width: 480px) {
