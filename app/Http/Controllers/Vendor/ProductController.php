@@ -113,7 +113,10 @@ class ProductController extends Controller
         // $products = Store::find($this->loggedinUser->store->id)
         //                 ->first()
         //                 ->products;
-        $products = Product::where('store_id', $this->loggedinUser->store->id)->get();
+        $products = Store::find($this->loggedinUser->store->id)
+                        ->products()
+                        ->get();
+        // $products = Product::where('store_id', $this->loggedinUser->store->id)->get();
 
                         // dd($products);
         return view('vendor.products.all-products', compact('products', $products));

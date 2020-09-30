@@ -21,7 +21,7 @@ class Store extends Model
     }
     public function products()
     {
-        return $this->hasMany('App\Product', 'store_id');
+        return $this->hasMany('App\Product');
     }
 
     public function payAccounts()
