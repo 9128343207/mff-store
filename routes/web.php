@@ -58,6 +58,9 @@ Route::get('/proposal/success', 'CheckoutController@proposalview')->name('propos
 
 Route::get('/ticket/create', 'TicketController@index')->name('ticket.create');
 
+Route::get('/contact-us', 'ContactUsController@index')->name('contactus.index');
+Route::post('/contact-us', 'ContactUsController@submit')->name('contactus.submit');
+
 Route::prefix('/payment')->name('payment.')->group(function(){
 //     Route::get('/get', '')->name('get');
 

@@ -17,6 +17,11 @@
                         <span>Shop</span>
                     </a>
                 </li>
+                <li class="">
+                    <a href="{{ route('contactus.index') }}" >
+                        <span>Contact Us</span>
+                    </a>
+                </li>
 
             </ul><!-- hotline -->
 
