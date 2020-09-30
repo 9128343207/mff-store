@@ -1,8 +1,8 @@
 <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
-            <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
-                <strong><a href="index.html"><img src="img/logo/logosn.png" alt="" /></a></strong>
+            <div class="sidebar-header" style="margin-top: 20px;">
+                <a href="{{asset('files/logo.png')}}"><img width="140" class="main-logo" src="{{asset('files/logo.png')}}" alt="" /></a>
+                <strong><a href="{{ Route('vendor.dashboard') }}"><img src="{{asset('files/logo.png')}}" alt="industrialsupplycart" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
