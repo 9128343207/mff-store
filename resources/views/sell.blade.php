@@ -1,9 +1,9 @@
-@extends('layouts.app-min')
+@extends('layouts.app')
 @section('title')
 Start Selling
 @endsection
 @section('header')
-    @include('inc.navbar-min')
+    @include('inc.navbar')
 @endsection
 @section('cotent')
 <div class="container">
@@ -84,7 +84,7 @@ Start Selling
 @section('content')
 <div class="container">
     <ol class="breadcrumb-page">
-        <li><a href="#">Home </a></li>
+        <li><a href="{{ route('home') }}">Home </a></li>
         <li class="active"><a href="#">Start Selling</a></li>
     </ol>
 </div>
