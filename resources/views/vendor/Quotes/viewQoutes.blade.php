@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="product-status-wrap">
-                    <h4>Qoute Summary</h4>
+                    <h4>Quotes Summary</h4>
                     <h5>Product Details</h5>
                     <table>
 

@@ -44,7 +44,7 @@
                         <li class="">
                             <a class="has-arrow" href="index.html">
                                    <span class="educate-icon educate-data-table icon-wrap"></span>
-                                   <span class="mini-click-non">Qoutes Request</span>
+                                   <span class="mini-click-non">Quotes Request</span>
                                 </a>
                             <ul class="submenu-angle" aria-expanded="true">
                             <li><a title="Dashboard v.1" href="{{ Route('vendor.quotes.all')}}"><span class="mini-sub-pro">All Requests</span></a></li>
