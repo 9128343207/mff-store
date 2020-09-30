@@ -181,37 +181,42 @@
                 </div>
             </div>
         </div>
-    </div><!-- header-content -->
-    <!-- header-menu-bar -->
-    <div class="header-menu-bar header-sticky">
-        <div class="header-menu-nav menu-style-1">
-            <div class="container">
-                <div class="header-menu-nav-inner ">
-                    <div class="header-menu header-menu-resize">
-                        <ul class="header-nav krystal-nav">
+    </div>
 
-
-                            @foreach(App\Category::where('parent_id', '=', 1)->get() as $category)
-
-                            <li class="block-minicart">
-                                <a href="/products/cat/{{ $category->id }}">{{$category->title}}</a>
-                                 @if(count($category->childs))
-                                    <ul class="submenu parent-megamenu">
-                                        @foreach($category->childs as $child)
-                                            <li class="switcher-option">
-                                                <a href="/products/cat/{{ $child->id }}" class="switcher-flag icon">{{$child->title}}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </li>
-                            @endforeach
-                        </ul>
+            <div class="header-menu-bar header-sticky">
+                <div class="header-menu-nav menu-style-1">
+                    <div class="container">
+                        <div class="header-menu-nav-inner ">
+                            <div class="header-menu header-menu-resize">
+                                <ul class="header-nav krystal-nav">
+                                    <li class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></li>
+                                   
+ 
+                                    @foreach(App\Category::where('parent_id', '=', 1)->get() as $category)
+                                        @php 
+                                            $arrow = count($category->childs) > 0 ? 'arrow' : '';
+                                        @endphp
+                                        <li class="menu-item-has-children {{$arrow}}">
+                                            <a href="/products/cat/{{ $category->id }}">{{$category->title}}</a>
+                                            <span class="toggle-submenu hidden-md"></span>
+                                             @if(count($category->childs))
+                                                <ul class="submenu parent-megamenu">
+                                                    @foreach($category->childs as $child)
+                                                        <li class="menu-item">
+                                                            <a href="/products/cat/{{ $child->id }}" class="switcher-flag icon">{{$child->title}}</a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                    
+                                </ul>
+                            </div>
+                            
+                        </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-    </div>
-</header><!-- end HEADER -->
+        </header><!-- end HEADER -->    
 
