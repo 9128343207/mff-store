@@ -9,10 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
         <!-- Bootstrap CSS
             ============================================ -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendor/css/bootstrap.min.css')  }}">
     <link rel="stylesheet" href="{{ asset('vendor/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/css/owl.carousel.css') }}">
@@ -42,7 +41,7 @@
             </main>
 
     <div class="text-center login-footer">
-        <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+        <!-- <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p> -->
     </div>
 </div>
 </div>

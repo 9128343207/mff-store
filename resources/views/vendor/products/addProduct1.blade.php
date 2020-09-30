@@ -132,7 +132,7 @@
                                                                 @enderror
                                                             </div>
                                                     </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm" ><select class="form-control" name="currency"></select>
+                                                    <div class="col-lg-6 col-md-6 col-sm" ><!-- <select class="form-control" name="currency"></select> -->
 
 
                                                         <div class="form-group">

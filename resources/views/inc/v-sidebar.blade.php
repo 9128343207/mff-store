@@ -20,7 +20,7 @@
                         </li>
                         <li class="">
                             <a class="has-arrow" href="index.html">
-								   <span class="educate-icon educate-home icon-wrap"></span>
+								   <span class="educate-icon educate-interface icon-wrap"></span>
 								   <span class="mini-click-non">Payments</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
@@ -31,7 +31,7 @@
                         </li>
                         <li class="">
                             <a class="has-arrow" href="index.html">
-                                   <span class="educate-icon educate-home icon-wrap"></span>
+                                   <span class="educate-icon educate-form icon-wrap"></span>
                                    <span class="mini-click-non">Orders</span>
                                 </a>
                             <ul class="submenu-angle" aria-expanded="true">
@@ -43,7 +43,7 @@
                         </li>
                         <li class="">
                             <a class="has-arrow" href="index.html">
-                                   <span class="educate-icon educate-home icon-wrap"></span>
+                                   <span class="educate-icon educate-data-table icon-wrap"></span>
                                    <span class="mini-click-non">Qoutes Request</span>
                                 </a>
                             <ul class="submenu-angle" aria-expanded="true">
