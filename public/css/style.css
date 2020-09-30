@@ -7337,7 +7337,7 @@ input[type=password]{
 .menu-item-has-children .parent-megamenu{
   margin: 0;
   border-radius: 0;
-  min-width: 122px;
+  min-width: 280px;
   border: none;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
