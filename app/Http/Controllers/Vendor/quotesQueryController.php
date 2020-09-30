@@ -37,7 +37,10 @@ class quotesQueryController extends Controller
 
     public function view($id)
     {
+
     	$quote = quotes::find($id);
+        $quote->status = 'VIEWED';
+        $quote->save();
     	$Product = Product::find($quote->product_id);
     	$user = User::find($quote->user_id);
     	$data = [

@@ -1,6 +1,6 @@
 @extends('layouts.vendor')
 @section('title')
-    Qoutes Request
+    Quotes Request
 @endsection
 @section('header')
     @include('inc.v-sidebar')
