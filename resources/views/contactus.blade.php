@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Contact U
+    Contact Us
 @endsection
 @section('header')
     @include('inc.navbar')

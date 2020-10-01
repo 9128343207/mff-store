@@ -27,8 +27,8 @@ class ContactUsController extends Controller
         $objDemo = new \stdClass();
         $objDemo->name = $data->name;
         $objDemo->mobile = $data->mobile;
-         $objDemo->email = $data->email;
-         $objDemo->comments = $data->comments;
+        $objDemo->email = $data->email;
+        $objDemo->comments = $data->comments;
         $objDemo->sender = 'no-reply@industrialsupplycart.com';
         $objDemo->receiver = 'support@industrialsupplycart.com';
  
