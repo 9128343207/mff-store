@@ -61,7 +61,17 @@
                                 @foreach ($items as $item)
                                 <div class="product-items">
                                         <div class="product-image">
-                                            <a href="{{ url('product/'.$item->id)}}"><img src="{{url('storage/products/img/'.$item->productPhoto[0]->filename)}}" alt="p1"></a>
+                                            <a href="{{ url('product/'.$item->id)}}">
+
+                                                
+                                                 @if(isset($item->productPhoto[0]->filename))
+                                                                        <img height="200" width="200" src="{{ url('storage/products/img/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
+                                                                    @else 
+                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$item->name}}">
+                                                                    @endif
+
+
+                                            </a>
                                             @if (isset($item->discount_price) )
                                             <span class="onsale">-{{ $item->discount_price }}%</span>
                                             @endif

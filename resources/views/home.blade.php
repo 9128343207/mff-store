@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Home
+@endsection
+
 @section('header')
     @include('inc.navbar')
 @endsection
@@ -31,7 +35,17 @@
                 <div class="deal-of-day equal-elem">
                     <div class="product-thumb style1">
                         <div class="thumb-inner">
-                        <a href="{{ url('product/'.$deal->id)}}"><img height="200" width="200" src="{{ url('storage/products/img/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}"></a>
+                        <a href="{{ url('product/'.$deal->id)}}">
+
+                            <img height="200" width="200" src="{{ url('storage/products/img/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}"></a>
+
+
+                            @if(isset($deal->productPhoto[0]->filename))
+                                                                        <img height="200" width="200" src="{{ url('storage/products/img/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}">
+                                                                    @else 
+                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$deal->name}}">
+                                                                    @endif
+
                         </div>
                     </div>
                     <div class="product-innfo">
@@ -99,7 +113,18 @@
                                                 <div class="product-inner equal-elem">
                                                     <div class="product-thumb">
                                                         <div class="thumb-inner">
-                                                            <a href="{{ url('product/'.$singleProduct->id)}}"><img height="200" width="200"src="{{ url('storage/products/img/'.$singleProduct->productPhoto[0]->filename)}}" alt="{{$singleProduct->name}}"></a>
+                                                            <a href="{{ url('product/'.$singleProduct->id)}}">
+
+
+                                                                
+                                                                @if(isset($singleProduct->productPhoto[0]->filename))
+                                                                        <img height="200" width="200" src="{{ url('storage/products/img/'.$singleProduct->productPhoto[0]->filename)}}" alt="{{$singleProduct->name}}">
+                                                                    @else 
+                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$singleProduct->name}}">
+                                                                    @endif
+
+
+                                                            </a>
                                                         </div>
 
                                                         <a href="" class="quick-view">Quick View</a>
@@ -174,7 +199,16 @@
                                                     <div class="product-inner equal-elem">
                                                         <div class="product-thumb">
                                                             <div class="thumb-inner">
-                                                                <a href="{{ url('product/'.$singleProduct->id)}}"><img height="200" width="200" src="{{ url('storage/products/img/'.$singleProduct->productPhoto[0]->filename)}}" alt="{{$singleProduct->name}}"></a>
+                                                                <a href="{{ url('product/'.$singleProduct->id)}}">
+
+                                                                    @if(isset($singleProduct->productPhoto[0]->filename))
+                                                                        <img height="200" width="200" src="{{ url('storage/products/img/'.$singleProduct->productPhoto[0]->filename)}}" alt="{{$singleProduct->name}}">
+                                                                    @else 
+                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$singleProduct->name}}">
+                                                                    @endif
+
+
+                                                                </a>
                                                             </div>
 
                                                             <a href="" class="quick-view">Quick View</a>

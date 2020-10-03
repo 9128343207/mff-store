@@ -23,7 +23,7 @@ class UploadController extends Controller
     {
         // dd($request);
         $rules = array(
-            'filename' => 'max:2000', // TODO validate file for filetypes
+            'filename' => 'image|mimes:jpeg,bmp,png|size:2048', // TODO validate file for filetypes
         );
 
        
