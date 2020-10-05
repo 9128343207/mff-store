@@ -40,7 +40,7 @@
 
                             <ul>
                                 <li class="menu-item"><a href="{{ route('cart.view')}}">View Cart</a></li>
-                                <li class="menu-item"> <a href="{{route('home')}}" class=" dropdown-item">Dashboard</a>
+                                <!-- <li class="menu-item"> <a href="{{route('home')}}" class=" dropdown-item">Dashboard</a> -->
                                     </li>
                                     <li class="menu-item"><a class=" dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#logout-form').submit();">
                                         Logout
