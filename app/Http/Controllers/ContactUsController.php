@@ -32,7 +32,7 @@ class ContactUsController extends Controller
         $objDemo->sender = 'no-reply@industrialsupplycart.com';
         $objDemo->receiver = 'support@industrialsupplycart.com';
  
-        Mail::to("shamsh2609@gmail.com")->send(new Conatactus($objDemo));
+        Mail::to("support@industrialsupplycart.com")->send(new Conatactus($objDemo));
         	
 
         if(count(Mail::failures()) > 0){

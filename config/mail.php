@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'agoussec@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'no-reply@industrialsupplycart.com'),
+        'name' => env('MAIL_FROM_NAME', 'industrialsupplycart Support'),
     ],
 
     /*
