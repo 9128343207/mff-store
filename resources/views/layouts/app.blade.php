@@ -139,7 +139,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             {{-- <li><a href="">Terms & Conditions</a></li> --}}
                             {{-- <li><a href="">Contact us</a></li> --}}
                             <!-- <li><a href="{{ route('ticket.create')}}">support</a></li> -->
-                            <li><a href="{{route('myorders')}}">Track My Order</a></li>
+                            <!-- <li><a href="{{route('myorders')}}">Track My Order</a></li> -->
                             <li><a href="{{ route('start-selling') }}">Start Selling</a></li>
                             {{-- <li><a href="">Help</a></li> --}}
                         </ul>
