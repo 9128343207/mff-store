@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'mailtrap.io'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -132,5 +132,7 @@ return [
     */
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
+
+    'pretend' => false,
 
 ];
