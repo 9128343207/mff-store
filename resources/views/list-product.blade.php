@@ -153,9 +153,11 @@
                                     @csrf
                                 <div class="filter-options-item filter-categori">
                                     <div class="filter-options-title">Categories</div>
-                                    <div class="filter-options-content">
+                                    <div class="filter-options-content" style="width: 100%;height: 400px;overflow: auto;">
                                         <ul>
-                                            @foreach (App\Category::where('parent_id', 1)->get() as $category)
+                                           
+
+                                            @foreach (App\Category::where('type', '=', 'products')->get() as $category)
                                                 <li><label class="inline" ><input type="checkbox" name="category[]" value="{{ $category->id}}"><span class="input"></span>{{ $category->title}}</label></li>
                                             @endforeach
                                         </ul>
