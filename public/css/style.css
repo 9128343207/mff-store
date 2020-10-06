@@ -7747,7 +7747,7 @@ input[type=password]{
 }
 .header-menu-nav.menu-style-1 {
     margin-top: -5px;
-    background-color: gainsboro;
+    background-color: #31629f;
 
 }
 .header-nav > li,
@@ -7769,12 +7769,21 @@ input[type=password]{
   font-weight: bold;
   text-transform: uppercase;
   font-size: 13px;
+  color: white;
+}
+.header-nav > li a,
+.header-nav .menu-item-has-children a:hover{
+  font-weight: bold;
+  /*text-transform: uppercase;*/
+  font-size: 13px;
+  color: #e82f2f;
 }
 .menu-item-has-children.arrow > a:after {
   content: "\f107";
   display: inline-block;
   font-family: 'FontAwesome';
   margin-left: 6px;
+  color: white;
 }
 .box-vertical-megamenus .menu-item-has-children.arrow > a:after{
   content: "\f105";
@@ -9942,7 +9951,7 @@ color: white;
   color: white;
 }
 .links li a:hover{
-  color: #31629f;
+  color: white;
 }
 .footer-bottom .links{
   border-top: 1px solid #e6e6e6;
