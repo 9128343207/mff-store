@@ -151,6 +151,7 @@
                             <div class="block-content">
                                 <form action="{{route('products.more.submit')}}" method="POST">
                                     @csrf
+                                    <input type="hidden" name="type" value="filter">
                                 <div class="filter-options-item filter-categori">
                                     <div class="filter-options-title">Categories</div>
                                     <div class="filter-options-content" style="width: 100%;height: 400px;overflow: auto;">
@@ -165,7 +166,7 @@
                                     </div>
                                 </div>
 
-                                <div class="filter-options-item filter-price">
+                                <!-- <div class="filter-options-item filter-price">
                                     <div class="filter-options-title">Price</div>
                                     <div class="filter-options-content">
                                         <div class="price_slider_wrapper">
@@ -181,7 +182,7 @@
                                                 <input type="hidden" name="to" class="to">
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 {{-- <div class="filter-options-item filter-size">
                                     <div class="filter-options-title">Size</div>
                                     <div class="filter-options-content">

@@ -22,8 +22,8 @@ class Product extends Model
         ];
     }
 
-    public function scopeCategory($query, $key)
-    {
+    public  function scopeCategory($query, $key)
+    {   
         return $query->where('category_id', $key);
     }
 

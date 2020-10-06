@@ -19,6 +19,7 @@ class HomeController2 extends Controller
 
     public function index(Request $request)
     {
+         // dd($request);
         $data =  [
             'items' => (object) $this->getItems($request),
         ];
@@ -99,16 +100,22 @@ class HomeController2 extends Controller
                         ->with('category')
                         ->Paginate($this->perPage);
 
-                        $serchresult->withPath(route('product.search'));
+                        // $serchresult->withPath(route('product.search'));
                         return $serchresult;
     }
 
     public function filter($request)
     {
-        return Product::Category($request->category)
-                    ->Price($request->min, $request->max)
+        $filterResult = Product::where(function ($query) use ($request) {
+                    foreach ($request->category as $key => $value) {
+                       $query->orWhere('category_id', '=', $value);
+                    }
+                       
+                    })
                     ->with('ProductPhoto')
                     ->with('category')
-                    ->simplePagination($this->perPage);
+                    ->Paginate($this->perPage);
+                    // dd($filterResult);
+                    return $filterResult;
     }
 }
