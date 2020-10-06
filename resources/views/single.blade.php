@@ -65,12 +65,23 @@
                         <div class="product-infomation">
                             {{ $item->s_desc}}
                         </div>
-                        <div class="group-btn-share">
+                        <!-- <div class="group-btn-share">
                             <a href="#"><img src="images/detail/btn1.png" alt="btn1"></a>
                             <a href="#"><img src="images/detail/btn2.png" alt="btn1"></a>
                             <a href="#"><img src="images/detail/btn3.png" alt="btn1"></a>
                             <a href="#"><img src="images/detail/btn4.png" alt="btn1"></a>
-                        </div>
+                        </div> -->
+                        @if(isset($item->item_weight))
+                            <table>
+                                <tr>
+                                    <td>weight -</td>
+                                    <td>{{$item->item_weight}}&nbsp;</td>
+                                    @if(isset($item->weight_measure_unit))
+                                    <td>{{$item->weight_measure_unit}}</td>
+                                    @endif
+                                </tr>
+                            </table>
+                        @endif
                         {{-- <div class="product-description">
                             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 making it over 2000 years old.
                         </div> --}}
