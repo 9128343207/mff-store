@@ -37,11 +37,11 @@
                         <div class="thumb-inner">
                         <a href="{{ url('product/'.$deal->id)}}">
 
-                            <img height="200" width="200" src="{{ url('storage/products/img/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}"></a>
-
+                            <!-- <img height="200" width="200" src="{{ url('storage/products/img/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}"></a>
+ -->
 
                             @if(isset($deal->productPhoto[0]->filename))
-                                                                        <img height="200" width="200" src="{{ url('storage/products/img/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}">
+                                    <img height="200" width="200" src="{{ url('storage/products/img/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}">
                                                                     @else 
                                                                         <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$deal->name}}">
                                                                     @endif
