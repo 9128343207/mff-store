@@ -21,7 +21,8 @@ Route::post('/start-selling', 'Vendor\StoreController@create');
 
 Route::get('/products/more', 'HomeController2@index')->name('products.more');
 Route::get('/products/cat/{id}', 'HomeController2@productByCategory');
-Route::post('/product/search', 'HomeController2@ProductSearch')->name('product.search');
+Route::get('/products/search', 'HomeController2@ProductSearch')->name('product.search');
+Route::post('/products/search', 'HomeController2@ProductSearch')->name('product.search');
 
 Route::get('/product/{id}', 'Vendor\ProductController@SingleProduct')->name('product.view');
 

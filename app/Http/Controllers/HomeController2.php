@@ -94,10 +94,13 @@ class HomeController2 extends Controller
 
     public function search($request)
     {
-        return Product::search($request->keyword)
-                ->with('productPhoto')
-                ->with('category')
-                ->Paginate($this->perPage);
+        $serchresult =  Product::search($request->keyword)
+                        ->with('productPhoto')
+                        ->with('category')
+                        ->Paginate($this->perPage);
+
+                        $serchresult->withPath(route('product.search'));
+                        return $serchresult;
     }
 
     public function filter($request)
