@@ -38,10 +38,10 @@
                                         @csrf
                                         <input type="hidden" name="type" value="perpage">
                                         <select name="value" onchange="this.form.submit()" class="chosen-select limiter-options form-control" >
-                                            <option selected="selected" value="6">20 per page</option>
-                                            <option value="10">10</option>
-                                            <option value="20">20</option>
-                                            <option value="30">30</option>
+                                            <!-- <option selected="selected" value="6">20 per page</option> -->
+                                            <option  @if (Cookie::get('perpage') == 10) selected="selected" @endif  value="10">10 per page</option>
+                                            <option @if (Cookie::get('perpage') == 20) selected="selected" @endif  value="20">20 per page</option>
+                                            <option  @if (Cookie::get('perpage') == 30) selected="selected" @endif value="30">30 per page</option>
                                         </select>
                                     </form>
                                 </div>
@@ -149,7 +149,8 @@
                         <div class="filter-options">
                             <div class="block-title">Shop by</div>
                             <div class="block-content">
-                                <form action="" method="POST">
+                                <form action="{{route('products.more.submit')}}" method="POST">
+                                    @csrf
                                 <div class="filter-options-item filter-categori">
                                     <div class="filter-options-title">Categories</div>
                                     <div class="filter-options-content">

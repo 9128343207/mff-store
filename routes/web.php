@@ -20,6 +20,7 @@ Route::get('/start-selling', 'Vendor\StoreController@register')->name('start-sel
 Route::post('/start-selling', 'Vendor\StoreController@create');
 
 Route::get('/products/more', 'HomeController2@index')->name('products.more');
+Route::post('/products/more', 'HomeController2@index')->name('products.more.submit');
 Route::get('/products/cat/{id}', 'HomeController2@productByCategory');
 Route::get('/products/search', 'HomeController2@ProductSearch')->name('product.search');
 Route::post('/products/search', 'HomeController2@ProductSearch')->name('product.search');
@@ -45,6 +46,7 @@ Route::post('/add-billaddress', 'BillingController@addAddress');
 Route::post('/add-shipaddress', 'ShippingController@addAddress');
 
 Route::post('/products/sort', 'HomeController2@sort');
+// Route::post('/products/filter', 'HomeController2@filter')->name('products.filter');
 
 Route::get('/request-qoutes/{pid}', 'QuotesController@index')->name('quotes');
 Route::post('/request-qoutes', 'QuotesController@createRequest')->name('quotes.submit');
