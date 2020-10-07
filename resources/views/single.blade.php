@@ -29,10 +29,14 @@
                            
 
                              @if(isset($item->productPhoto[0]->filename))
-                                                                        <img height="200" width="200" id="img_zoom" data-zoom-image="{{ url('storage/products/img/'.$item->productPhoto[0]->filename)}}" src="{{ url('storage/products/img/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
-                                                                    @else 
-                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$item->name}}">
+                                                                    @if(file_exists(url('storage/products/200/'.$item->productPhoto[0]->filename)))
+                                                                        <img height="200" width="200" src="{{ url('storage/products/200/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
+                                                                    @else
+                                                                        <img height="200" width="200" src="{{ url('storage/products/img/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
                                                                     @endif
+                                                                @else 
+                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$item->name}}">
+                                                                @endif
 
                             <a href="#" class="btn-zoom open_qv"><i class="fa fa-search" aria-hidden="true"></i></a>
                         </div>
@@ -41,7 +45,7 @@
                                 @if(isset($item->productPhoto[0]->filename))
                                     @foreach ($item->productPhoto as $image )
                                         <a href="#" data-image="images/detail/thick-box-1.jpg" data-zoom-image="{{ url('storage/products/img/'.$image->filename)}}">
-                                            <img src="{{ url('storage/products/img/'.$image->filename)}}" alt="{{$item->name}}" data-large-image="{{ url('storage/products/img/'.$image->filename)}}" alt="{{$item->name}}">
+                                            <img src="{{ url('storage/products/69/'.$image->filename)}}" alt="{{$item->name}}" data-large-image="{{ url('storage/products/img/'.$image->filename)}}" alt="{{$item->name}}">
                                         </a>
                                     @endforeach
                                 @endif
@@ -195,10 +199,15 @@
 
                                     
                                     @if(isset($similar->productPhoto[0]->filename))
-                                                                        <img height="200" width="200" id="img_zoom" data-zoom-image="{{ url('storage/products/img/'.$similar->productPhoto[0]->filename)}}" src="{{ url('storage/products/img/'.$similar->productPhoto[0]->filename)}}" alt="{{$similar->name}}">
-                                                                    @else 
-                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$similar->name}}">
+                                                                    @if(file_exists(url('storage/products/200/'.$similar->productPhoto[0]->filename)))
+                                                                        <img height="200" width="200" src="{{ url('storage/products/200/'.$similar->productPhoto[0]->filename)}}" alt="{{$similar->name}}">
+                                                                    @else
+                                                                        <img height="200" width="200" src="{{ url('storage/products/img/'.$similar->productPhoto[0]->filename)}}" alt="{{$similar->name}}">
                                                                     @endif
+                                                                @else 
+                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$similar->name}}">
+                                                                @endif
+
 
                                 </a>
                             </div>

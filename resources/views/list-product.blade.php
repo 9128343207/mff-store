@@ -65,10 +65,14 @@
 
                                                 
                                                  @if(isset($item->productPhoto[0]->filename))
+                                                                    @if(file_exists(url('storage/products/200/'.$item->productPhoto[0]->filename)))
+                                                                        <img height="200" width="200" src="{{ url('storage/products/200/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
+                                                                    @else
                                                                         <img height="200" width="200" src="{{ url('storage/products/img/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
-                                                                    @else 
-                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$item->name}}">
                                                                     @endif
+                                                                @else 
+                                                                        <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$item->name}}">
+                                                                @endif
 
 
                                             </a>
