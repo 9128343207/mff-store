@@ -45,7 +45,13 @@
                                         <td>{{  $count }}</td>
                                         <td>
                                             @foreach ($product->productPhoto as $photos )
-                                                <img height="60px" width="60px" src="{{ url('storage/products/img/'.$photos->filename)}}">
+                                                
+
+                                                @if(file_exists(url('storage/products/60/'.$photos->filename)))
+                                                                        <img height="60px" width="60px" src="{{ url('storage/products/60/'.$photos->filename)}}">
+                                                                    @else
+                                                                        <img height="60px" width="60px" src="{{ url('storage/products/img/'.$photos->filename)}}">
+                                                                    @endif
                                             @endforeach
                                         </td>
                                         <td>{{ $product->name }}</td>
