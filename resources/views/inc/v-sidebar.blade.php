@@ -18,7 +18,7 @@
                                 
                             </ul>
                         </li>
-                        <li class="">
+                        <!-- <li class="">
                             <a class="has-arrow" href="index.html">
 								   <span class="educate-icon educate-interface icon-wrap"></span>
 								   <span class="mini-click-non">Payments</span>
@@ -28,7 +28,7 @@
                             <li><a title="Dashboard v.2" href="{{ Route('vendor.payment.methods') }}"><span class="mini-sub-pro">Methods</span></a></li>
 
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="">
                             <a class="has-arrow" href="index.html">
                                    <span class="educate-icon educate-form icon-wrap"></span>

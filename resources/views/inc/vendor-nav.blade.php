@@ -526,14 +526,14 @@
                                             </ul>
                                         </li>
                                         <!-- <li><a href="events.html">Event</a></li> -->
-                                        <li><a data-toggle="collapse" data-target="#demoevent" href="#">Payments <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                        <!-- <li><a data-toggle="collapse" data-target="#demoevent" href="#">Payments <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                             <ul id="demoevent" class="collapse dropdown-header-top">
                                                 <li><a href="{{ Route('vendor.product.all')}}">All </a>
                                                 </li>
                                                 <li><a href="{{ Route('vendor.payment.methods') }}">Methods</a>
                                                 </li>
                                             </ul>
-                                        </li>
+                                        </li> -->
                                         <li><a data-toggle="collapse" data-target="#demopro" href="#">Orders <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                             <ul id="demopro" class="collapse dropdown-header-top">
                                                 <li><a href="{{ Route('vendor.order.all')}}">All Orders</a>

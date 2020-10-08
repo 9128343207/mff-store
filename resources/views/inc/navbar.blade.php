@@ -29,9 +29,9 @@
             <ul class="nav-top-right krystal-nav">
 
                 @if(Auth::guard('web')->check())
-                @if(Auth::guard('web')->user()->is_seller)
-                    <li><a class='nav-link' href="{{ Route('vendor.dashboard') }}"> Vendor Dashboard</a></li>
-                @endif
+                    @if(Auth::guard('web')->user()->is_seller)
+                        <li><a class='nav-link' href="{{ Route('vendor.dashboard') }}"> Vendor Dashboard</a></li>
+                    @endif
                     <li class="menu-item-has-children arrow">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::guard('web')->user()->name }}

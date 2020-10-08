@@ -40,7 +40,7 @@
                                                 @endif
                                                 <input type="hidden" name="type" value="{{$type}}">
                                                 <div class="row">
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="col-lg-6 col-md-6">
                                                         <div class="form-group">
                                                             <input type="text" value="{{{ isset($product->name) ? $product->name : '' }}}" class="form-control" id="taskTitle"  name="name" placeholder="Item Name">
                                                             @error('name')
@@ -67,21 +67,24 @@
                                                                 <span class="alert-danger" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
-                                                            @enderror                                                        </div>
+                                                            @enderror
+                                                        </div>
                                                         <div class="form-group">
                                                             <input type="text" placeholder="Manufacturer" value="{{{ isset($product->manufacturer) ? $product->manufacturer : '' }}}" class="form-control" id="taskTitle"  name="manufacturer">
                                                             @error('manufacturer')
                                                                 <span class="alert-danger" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
-                                                            @enderror                                                        </div>
+                                                            @enderror
+                                                        </div>
                                                         <div class="form-group">
                                                             <textarea type="text"  class="form-control" id="taskDescription" name="s_desc">{{{ isset($product->s_desc) ? $product->s_desc : 'Write Short Description...' }}}</textarea>
                                                             @error('s_desc')
                                                                 <span class="alert-danger" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
-                                                            @enderror                                                        </div>
+                                                            @enderror
+                                                        </div>
                                                         <div class="form-group alert-up-pd">
                                                             <input type="text" placeholder="Item Weight" value="{{{ isset($product->item_weight) ? $product->item_weight : '' }}}" class="form-control" id="taskTitle"  name="item_weight">
                                                         </div>
@@ -132,8 +135,7 @@
                                                                 @enderror
                                                             </div>
                                                     </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm" ><!-- <select class="form-control" name="currency"></select> -->
-
+                                                    <div class="col-lg-6 col-md-6 col-sm" >
 
                                                         <div class="form-group">
                                                             <textarea type="text"  class="form-control" id="taskDescription" name="warranty_desc">{{{ isset($product->warranty_desc) ? $product->warranty_desc : 'Warranty Description...' }}}</textarea>
