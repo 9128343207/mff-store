@@ -3344,6 +3344,7 @@ color: white;
     display: inline-block;
     position: relative;
     z-index: 222;
+    color:black;
   }
   .header-nav .menu-item-has-children .dropdown-toggle > span {
     margin-right: 1px;
@@ -10079,6 +10080,7 @@ color: white;
     display: inline-block;
     position: relative;
     z-index: 222;
+    color: black;
   }
   .header-nav .menu-item-has-children .dropdown-toggle > span {
     margin-right: 1px;

@@ -17,7 +17,7 @@
                     <div class="slide-desc slide-desc-1">
                     <div class="p-primary"  style="color:white;">{{ $product->name}}</div>
                         <p style="color:white;">{{ $product->s_desc}}</p>
-                        <a href="{{ url('product/'.$product->id)}}" class="btn-shop-now">Shop Now</a>
+                        <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $product->name)])}}" class="btn-shop-now">Shop Now</a>
                     </div>
                 </div>
             @endforeach
@@ -35,7 +35,7 @@
                 <div class="deal-of-day equal-elem">
                     <div class="product-thumb style1">
                         <div class="thumb-inner">
-                        <a href="{{ url('product/'.$deal->id)}}">
+                        <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $deal->name)])}}">
 
                             <!-- <img height="200" width="200" src="{{ url('storage/products/img/'.$deal->productPhoto[0]->filename)}}" alt="{{$deal->name}}"></a>
  -->
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="product-innfo">
-                        <div class="product-name"><a href="{{ url('product/'.$deal->id)}}">{{ $deal->name}}</a></div>
+                        <div class="product-name"><a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $deal->name)])}}">{{ $deal->name}}</a></div>
                         @if ($deal->price_status == 1)
                             <span class="price">
                                 @if (!$deal->discount_price)
@@ -117,7 +117,7 @@
                                                 <div class="product-inner equal-elem">
                                                     <div class="product-thumb">
                                                         <div class="thumb-inner">
-                                                            <a href="{{ url('product/'.$singleProduct->id)}}">
+                                                            <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $singleProduct->name)])}}">
 
 
                                                                 
@@ -138,7 +138,7 @@
                                                         <a href="" class="quick-view">Quick View</a>
                                                     </div>
                                                     <div class="product-innfo">
-                                                        <div class="product-name"><a href="{{ url('product/'.$singleProduct->id)}}">{{$singleProduct->name}}</a></div>
+                                                        <div class="product-name"><a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $singleProduct->name)])}}">{{$singleProduct->name}}</a></div>
                                                         @if ($singleProduct->price_status == 1)
                                                             <span class="price">
                                                                 @if (!$singleProduct->discount_price)
@@ -207,7 +207,7 @@
                                                     <div class="product-inner equal-elem">
                                                         <div class="product-thumb">
                                                             <div class="thumb-inner">
-                                                                <a href="{{ url('product/'.$singleProduct->id)}}">
+                                                                <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $singleProduct->name)])}}">
 
                                                                     @if(isset($singleProduct->productPhoto[0]->filename))
                                                                     @if(file_exists(url('storage/products/200/'.$singleProduct->productPhoto[0]->filename)))
@@ -226,7 +226,7 @@
                                                             <a href="" class="quick-view">Quick View</a>
                                                         </div>
                                                         <div class="product-innfo">
-                                                            <div class="product-name"><a href="{{ url('product/'.$singleProduct->id)}}">{{$singleProduct->name}}</a></div>
+                                                            <div class="product-name"><a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $singleProduct->name)])}}">{{$singleProduct->name}}</a></div>
                                                             @if ($singleProduct->price_status)
                                                                 <span class="price">
                                                                     @if (!$singleProduct->discount_price)

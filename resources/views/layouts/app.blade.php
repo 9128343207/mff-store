@@ -138,7 +138,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="links">
                         <h3 class="title-of-section" style="color: white;">My account</h3>
                         <ul>
-                            <li><a href="{{url('login')}}">Sign In</a></li>
+                            @if(!Auth::guard('web')->check())
+                                <li><a href="{{route('login')}}">Sign In</a></li>
+                            @endif
                             <li><a href="{{route('cart.view')}}">View Cart</a></li>
                             {{-- <li><a href="">Terms & Conditions</a></li> --}}
                             {{-- <li><a href="">Contact us</a></li> --}}

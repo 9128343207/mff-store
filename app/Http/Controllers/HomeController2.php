@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\{Product, Category};
 use Illuminate\Http\Request;
 use Cookie;
 
@@ -117,5 +117,18 @@ class HomeController2 extends Controller
                     ->Paginate($this->perPage);
                     // dd($filterResult);
                     return $filterResult;
+    }
+
+    public function productByNamedCategory($name)
+    {
+
+        $cat =  Category::where('title', str_replace('-', ' ', $name))->first();
+       $data = [
+            'items' => Product::where('category_id', $cat->id)->with('productPhoto')->with('category')->paginate($this->perPage),
+        ];
+        // dd($data['items'][0]->id);
+
+        
+        return view('list-product')->with($data);
     }
 }

@@ -145,6 +145,17 @@ class ProductController extends Controller
         return view('single')->with($data);
     }
 
+    public function SingleProductNamed($id)
+    {
+       // $item = Product::findOrFail($id);
+        $item =Product::where('name', str_replace('-', ' ', $id))->first();
+        $data = [
+            'item'      => $item,
+            'similars'   => self::SimilarProducts($item)
+        ];
+        return view('single')->with($data);
+    }
+
     public static function SimilarProducts($product)
     {
         return Product::Similar($product)

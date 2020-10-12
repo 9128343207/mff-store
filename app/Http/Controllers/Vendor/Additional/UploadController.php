@@ -55,14 +55,14 @@ class UploadController extends Controller
                     $img->stream();
                      Storage::disk('local')->put('public/products'.'/img/'.$name,  $img, 'public');
 
-                     $img->resize(385, 200, function ($constraint) {
+                     $img->resize(400, 400, function ($constraint) {
                             $constraint->aspectRatio(); 
                             // $constraint->upsize();                
                         });
                         // $resized200 = $img->response();
                         $img->stream();
 
-                        Storage::disk('local')->put('public/products'.'/385/'.$name,  $img, 'public');
+                        Storage::disk('local')->put('public/products'.'/400/'.$name,  $img, 'public');
 
                         $img->resize(200, 200, function ($constraint) {
                             $constraint->aspectRatio(); 
@@ -74,14 +74,14 @@ class UploadController extends Controller
                         Storage::disk('local')->put('public/products'.'/200/'.$name,  $img, 'public');
 
 
-                         $img->resize(69, 50, function ($constraint) {
+                         $img->resize(72, 72, function ($constraint) {
                             $constraint->aspectRatio(); 
                             // $constraint->upsize();                      
                         });
                          // $resized69 = $img->response();
                         $img->stream();
 
-                        Storage::disk('local')->put('public/products'.'/69/'.$name,  $img, 'public');
+                        Storage::disk('local')->put('public/products'.'/72/'.$name,  $img, 'public');
 
                         $img->resize(60, 60, function ($constraint) {
                             $constraint->aspectRatio(); 

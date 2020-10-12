@@ -27,6 +27,9 @@ Route::post('/products/search', 'HomeController2@ProductSearch')->name('product.
 
 Route::get('/product/{id}', 'Vendor\ProductController@SingleProduct')->name('product.view');
 
+Route::get('/p/{name}', 'Vendor\ProductController@SingleProductNamed')->name('product.named.view'); // for single product
+Route::get('/c/{cat}', 'HomeController2@productByNamedCategory')->name('product.by.category'); // category based
+
 
 //  Cart
 Route::post('/add-to-cart', 'CartMController@add');
@@ -224,9 +227,9 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
   /**
  * Login Route(s)
  */
-    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-    Route::post('login', 'Auth\LoginController@login');
-    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::get('admin/login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('admin/login', 'Auth\LoginController@login');
+    Route::post('admin/logout', 'Auth\LoginController@logout')->name('logout');
 
     /**
      * Register Route(s)

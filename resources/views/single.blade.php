@@ -29,10 +29,10 @@
                            
 
                              @if(isset($item->productPhoto[0]->filename))
-                                                                    @if(file_exists(url('storage/products/200/'.$item->productPhoto[0]->filename)))
-                                                                        <img height="200" width="200" src="{{ url('storage/products/200/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
+                                                                    @if(file_exists(url('storage/products/400/'.$item->productPhoto[0]->filename)))
+                                                                        <img height="400" width="400" src="{{ url('storage/products/400/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
                                                                     @else
-                                                                        <img height="200" width="200" src="{{ url('storage/products/img/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
+                                                                        <img height="400" width="400" src="{{ url('storage/products/img/'.$item->productPhoto[0]->filename)}}" alt="{{$item->name}}">
                                                                     @endif
                                                                 @else 
                                                                         <img height="200" width="200" src="{{ url('files/v-17-512.png')}}" alt="{{$item->name}}">
@@ -44,9 +44,15 @@
                             <div id="thumbnails" class="thumbnails_carousel owl-carousel nav-style4" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="10" data-responsive='{"0":{"items":3},"480":{"items":5},"600":{"items":5},"1000":{"items":5}}'>
                                 @if(isset($item->productPhoto[0]->filename))
                                     @foreach ($item->productPhoto as $image )
-                                        <a href="#" data-image="images/detail/thick-box-1.jpg" data-zoom-image="{{ url('storage/products/img/'.$image->filename)}}">
-                                            <img src="{{ url('storage/products/69/'.$image->filename)}}" alt="{{$item->name}}" data-large-image="{{ url('storage/products/img/'.$image->filename)}}" alt="{{$item->name}}">
-                                        </a>
+                                        @if(file_exists(url('storage/products/72/'.$item->productPhoto[0]->filename)))
+                                            <a href="#" data-image="{{ url('storage/products/72/'.$image->filename)}}" data-zoom-image="{{ url('storage/products/img/'.$image->filename)}}">
+                                                <img src="{{ url('storage/products/72/'.$image->filename)}}" alt="{{$item->name}}" data-large-image="{{ url('storage/products/img/'.$image->filename)}}" alt="{{$item->name}}">
+                                            </a>
+                                        @else
+                                            <a href="#" data-image="{{ url('storage/products/img/'.$image->filename)}}" data-zoom-image="{{ url('storage/products/img/'.$image->filename)}}">
+                                                <img src="{{ url('storage/products/img/'.$image->filename)}}" alt="{{$item->name}}" data-large-image="{{ url('storage/products/img/'.$image->filename)}}" alt="{{$item->name}}">
+                                            </a>
+                                        @endif
                                     @endforeach
                                 @endif
                             </div>
