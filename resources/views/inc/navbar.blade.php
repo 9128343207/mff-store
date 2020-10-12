@@ -208,7 +208,7 @@
                                                 <ul class="submenu parent-megamenu">
                                                     @foreach($category->childs as $child)
                                                         <li class="menu-item">
-                                                            <a href="{{ route('product.by.category', [str_replace(' ', '-', $child->title)])}}" class="switcher-flag icon">{{$child->title}}</a>
+                                                            <a href="{{ route('product.by.category', [str_replace(' ', '_', $child->title)])}}" class="switcher-flag icon">{{$child->title}}</a>
                                                         </li>
                                                     @endforeach
                                                 </ul>

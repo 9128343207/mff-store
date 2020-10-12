@@ -122,7 +122,7 @@ class HomeController2 extends Controller
     public function productByNamedCategory($name)
     {
 
-        $cat =  Category::where('title', str_replace('-', ' ', $name))->first();
+        $cat =  Category::where('title', str_replace('_', ' ', $name))->first();
        $data = [
             'items' => Product::where('category_id', $cat->id)->with('productPhoto')->with('category')->paginate($this->perPage),
         ];
