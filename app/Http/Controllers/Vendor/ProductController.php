@@ -148,7 +148,7 @@ class ProductController extends Controller
     public function SingleProductNamed($id)
     {
        // $item = Product::findOrFail($id);
-        $item =Product::where('name', str_replace('-', ' ', $id))->first();
+        $item =Product::where('name', str_replace('_', ' ', $id))->first();
         $data = [
             'item'      => $item,
             'similars'   => self::SimilarProducts($item)

@@ -201,7 +201,7 @@
                     <div class="product-inner equal-elem">
                         <div class="product-thumb">
                             <div class="thumb-inner">
-                                <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $similar->name)])}}">
+                                <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '_', $similar->name)])}}">
 
                                     
                                     @if(isset($similar->productPhoto[0]->filename))
@@ -221,7 +221,7 @@
                             <a href="" class="quick-view">Quick View</a>
                         </div>
                         <div class="product-innfo">
-                            <div class="product-name"><a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $similar->name)])}}">{{ $similar->name }}</a>
+                            <div class="product-name"><a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '_', $similar->name)])}}">{{ $similar->name }}</a>
                             </div>
                             <div class="group-btn-hover">
                                                                 <div class="inner">

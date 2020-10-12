@@ -42,7 +42,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" value="{{{ isset($product->name) ? $product->name : '' }}}" class="form-control" id="taskTitle"  name="name" placeholder="Item Name">
+                                                            <input type="text" value="{{{ isset($product->name) ? $product->name : '' }}}" class="form-control" id="productname"  name="name" placeholder="Item Name">
                                                             @error('name')
                                                                 <span class="alert-danger" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -226,3 +226,21 @@
     </div>
 </div>
 @endsection
+@section('script')
+        
+        <script type="text/javascript">
+            
+            const $input = document.querySelector("#productname");
+            const DISALLOW_CHAR = [''];
+            $input.addEventListener("keypress", event => {
+                
+              if (event.which == 95) {
+                event.preventDefault();
+                alert('This key is not allowed!');
+              }
+            });
+        </script>
+
+@endsection
+
+

@@ -210,7 +210,7 @@
                                 </div>
                                 <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                                     <label>Title</label>
-                                <input type="text" name="title" class="form-control">
+                                <input type="text" name="title" id="title" class="form-control">
                                 <span class="text-danger">{{ $errors->first('title') }}</span>
 
                                 <div class="form-group {{ $errors->has('parent_id') ? 'has-error' : '' }}">
@@ -374,4 +374,19 @@
 
 $('#tree1').treed();
     </script>
+
+
+        <script type="text/javascript">
+            
+            const $input = document.querySelector("#title");
+            const DISALLOW_CHAR = [''];
+            $input.addEventListener("keypress", event => {
+                
+              if (event.which == 95) {
+                event.preventDefault();
+                alert('This key is not allowed!');
+              }
+            });
+        </script>
+
 @endsection

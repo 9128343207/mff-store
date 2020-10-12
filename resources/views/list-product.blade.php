@@ -62,7 +62,7 @@
                                 <div class="product-items">
                                     
                                         <div class="product-image">
-                                            <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $item->name)])}}">
+                                            <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '_', $item->name)])}}">
 
                                                 
                                                  @if(isset($item->productPhoto[0]->filename))
@@ -83,7 +83,7 @@
                                             <a href="" class="quick-view">Quick View</a>
                                         </div>
                                         <div class="product-info">
-                                            <div class="product-name"><a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $item->name)])}}">{{ $item->name}}</a></div>
+                                            <div class="product-name"><a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '_', $item->name)])}}">{{ $item->name}}</a></div>
                                             {{-- <span class="star-rating">
                                                 <i class="fa fa-star" aria-hidden="true"></i>
                                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -93,7 +93,7 @@
                                                 <span class="review">5 Review(s)</span>
                                             </span> --}}
                                             <div class="product-infomation">
-                                            {{ substr($item->description2, 0, 350)}}<a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $item->name)])}}">...more</a>
+                                            {{ substr($item->description2, 0, 350)}}<a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '_', $item->name)])}}">...more</a>
                                             </div>
                                         </div>
                                         <div class="product-info-price">
