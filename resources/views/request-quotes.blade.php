@@ -41,7 +41,7 @@
                                             {{-- //TODO LOOP THIS IN JAVASCRIPT --}}
                                             <tr class="">
                                     <td></td>
-                                    <td class="tb-product"><div class="product-name"><a href="{{ route('product.view', ['id' => $product->id])}}">{{ $product->name}}</a></div></td>
+                                    <td class="tb-product"><div class="product-name"><a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $product->name)])}}">{{ $product->name}}</a></div></td>
                                     <input type="hidden" name="productid" value="{{$product->id}}">
                                     <td class="tb-qty"><div class="quantity"><div class="buttons-added"><input type="text" value="2" data-item="{{$product->id}}" id="qty" title="Qty" name="qty" class="input-text qty text" size="1"><a href="#" class="sign plus"><i class="fa fa-plus"></i></a><a href="#" class="sign minus"><i class="fa fa-minus"></i></a></div></div></td>
                                 </tbody>

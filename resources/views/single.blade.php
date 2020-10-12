@@ -201,7 +201,7 @@
                     <div class="product-inner equal-elem">
                         <div class="product-thumb">
                             <div class="thumb-inner">
-                                <a href="{{ $similar->id}}">
+                                <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $similar->name)])}}">
 
                                     
                                     @if(isset($similar->productPhoto[0]->filename))
@@ -221,8 +221,25 @@
                             <a href="" class="quick-view">Quick View</a>
                         </div>
                         <div class="product-innfo">
-                            <div class="product-name"><a href="{{ $similar->id }}">{{ $similar->name }}</a></div>
-                            <span class="price">
+                            <div class="product-name"><a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '-', $similar->name)])}}">{{ $similar->name }}</a>
+                            </div>
+                            <div class="group-btn-hover">
+                                                                <div class="inner">
+                                                                     @if ($similar->price_status == 1)
+                                                                    {{-- <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
+                                                                    <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a> --}}
+                                                                    <form method="POST" onsubmit="event.preventDefault(); addToCart(this);" action="#" id="cart">
+                                                                        @csrf
+                                                                    <input type="hidden"  name="productId" value="{{ $similar->id}}">
+                                                                    <input type="submit" data-btn-id-add="{{ $similar->id}}" class="btn-add-to-cart" value="Add To Cart">
+                                                                    <button class="btn-added" data-btn-id-added="{{ $similar->id}}"  style="display:none" class="btn-add-to-cart" value="Added">Added</button>
+                                                                </form>
+                                                                @else
+                                                                     <a href="{{ route('quotes', ['pid' => $similar->id])}}"><button>Get Quotes</button></a>
+                                                                @endif
+                                                                </div>
+                                                            </div>
+                          <!--   <span class="price">
                                 @if (!$similar->discount_price)
                                     <ins>${{ $similar->price }}</ins>
                                 @else
@@ -230,20 +247,20 @@
                                     <del>${{ $similar->price }}</del>
                                     <span class="onsale">-50%</span> {{-- // TODO add calculation for persantage --}}
                                 @endif
-                            </span>
-                            <span class="star-rating">
+                            </span> -->
+                            <!-- <span class="star-rating">
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <span class="review">5 Review(s)</span>
-                            </span>
-                            <div class="group-btn-hover style2">
+                            </span> -->
+                            <!-- <div class="group-btn-hover style2">
                                 <a href="" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
                                 <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
                                 <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
