@@ -12,15 +12,22 @@
     <div class="main-slide slide-opt-1 full-width">
         <div class="owl-carousel nav-style1" data-nav="true" data-autoplay="false" data-dots="true" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"600":{"items":1},"1000":{"items":1}}'>
 
-            @foreach ($products->Top3 as $product )
-                <div class="item-slide item-slide-1" style="background-image: url('{{asset('files/slide-1.jpg')}}');">
-                    <div class="slide-desc slide-desc-1">
-                    <div class="p-primary"  style="color:white;">{{ $product->name}}</div>
+           {{--  @foreach ($products->Top3 as $product ) --}}
+                <div class="item-slide item-slide-1" style="background-image: url('{{asset('files/banner02.png')}}');">
+                   {{--   <div class="slide-desc slide-desc-1">
+                   <div class="p-primary"  style="color:white;">{{ $product->name}}</div>
                         <p style="color:white;">{{ $product->s_desc}}</p>
                         <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '_', $product->name)])}}" class="btn-shop-now">Shop Now</a>
-                    </div>
+                    </div> --}}
                 </div>
-            @endforeach
+                <div class="item-slide item-slide-1" style="background-image: url('{{asset('files/banner01.png')}}');">
+                    {{--<div class="slide-desc slide-desc-1">
+                     <div class="p-primary"  style="color:white;">{{ $product->name}}</div>
+                        <p style="color:white;">{{ $product->s_desc}}</p>
+                        <a href="{{ route('product.named.view', [ 'id' => str_replace(' ', '_', $product->name)])}}" class="btn-shop-now">Shop Now</a>
+                    </div> --}}
+                </div>
+            {{-- @endforeach --}}
         </div>
     </div>
 </div>
