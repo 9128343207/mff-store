@@ -134,7 +134,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </div>
                         </div>
                     </div>--}}
-                    <div class="col-md-3 col-sm-6 equal-elem">
+                    <div class="col-md-4 col-sm-4 equal-elem">
                         <div class="links">
                         <h3 class="title-of-section" style="color: white;">My account</h3>
                         <ul>
@@ -151,25 +151,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </ul>
                         </div>
                     </div>
-                     <div class="col-md-6 col-sm-6 equal-elem">
+                     <div class="col-md-4 col-sm-4 equal-elem">
                         <div class="links">
-                        <h3 class="title-of-section" style="color: white;">Disclaimer: </h3>
-                        <div class="content-ins" style="font-size: 12px">
-All brands mentioned on this website we do not hold any trademark rights. This is platform for buying and selling.
-Please verify the credentials of sellers and buyer before doing any transactions. 
-By agreeing to use our platform you will do due diligence for every transaction and Industrialsupplycart cannot be held responsible and you agree to fully indemnify is from any loss or issues arising from any transactions or communications.</div>
-                        </div><br><br>
+                                <h3 class="title-of-section" style="color: white;">Information</h3>
+                                <ul>
+                                    <!-- <li><a href="">Delivery information</a></li> -->
+                                    <li><a href="{{route('general.privacy')}}">Privacy Policy</a></li>
+                                    <li><a href="{{route('general.terms')}}">Terms & Conditions</a></li>
+                                    <li><a href="{{route('general.disc')}}">Disclaimer</a></li>
+                                    <li><a href="{{route('contactus.index')}}">Contact us</a></li>
+                                    <!-- <li><a href="">Sitemap</a></li> -->
+                                </ul>
+                                </div>
                     </div> 
-                   <div class="col-md-3 col-sm-6 equal-elem">
+                   <div class="col-md-4 col-sm-4 equal-elem">
                         <div class="links links-ins">
-                            <h3 class="title-of-section" style="color:white;">Contact Mail</h3>
+                            <h3 class="title-of-section" style="color:white;">Contact :</h3>
                             <div class="content-ins">
-                                <a style="color:white;" href="mailto:support@industrialsupplycart.com">support@industrialsupplycart.com</a>
+                                
+                                <p><b>Managed by PT Energi Adidaya Nusantara (for indonesia)</b></p>
+                                <p>Wisma KDS, Unit 202, Jl. Warung Jati Barat No.6B, Jakarta 12740, Indonesia Tel (62) 21 799 5734 Fax (62) 21 791 98044</p>
+                                <a style="color:white;" href="mailto:support@energi-adidaya.com">support@energi-adidaya.com</a>
                                
                             </div>
+                            
                             <!-- <a href="" class="view-more">View More<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> -->
                         </div>
                     </div> 
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="links">
+                                    <h3 class="title-of-section" style="color: white;">Disclaimer: </h3>
+                                    <div class="content-ins" style="font-size: 12px">
+            All brands mentioned on this website we do not hold any trademark rights. This is platform for buying and selling. Please verify the credentials of sellers and buyer before doing any transactions. By agreeing to use our platform you will do due diligence for every transaction and Industrialsupplycart cannot be held responsible and you agree to fully indemnify is from any loss or issues arising from any transactions or communications.</div>
+                                    </div><br><br>
+                    </div>
                 </div>
             </div>
         </div>

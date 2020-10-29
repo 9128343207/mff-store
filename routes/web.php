@@ -67,6 +67,12 @@ Route::get('/ticket/create', 'TicketController@index')->name('ticket.create');
 Route::get('/contact-us', 'ContactUsController@index')->name('contactus.index');
 Route::post('/contact-us', 'ContactUsController@submit')->name('contactus.submit');
 
+Route::get('/privacy', 'GenralController@privacy')->name('general.privacy');
+
+Route::get('/terms', 'GenralController@terms')->name('general.terms');
+
+Route::get('/disclaimer', 'GenralController@disc')->name('general.disc');
+
 Route::prefix('/payment')->name('payment.')->group(function(){
 //     Route::get('/get', '')->name('get');
 
