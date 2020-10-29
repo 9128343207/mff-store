@@ -38,11 +38,11 @@
 
 <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
 
-<p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in industrialsupplycart. This policy is not applicable to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the <a href="https://www.privacypolicygenerator.info">Privacy Policy Generator</a> and the <a href="https://www.generateprivacypolicy.com/">Free Privacy Policy Generator</a>.</p>
+<p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in industrialsupplycart. This policy is not applicable to any information collected offline or via channels other than this website.</p>
 
 <h2>Consent</h2>
 
-<p>By using our website, you hereby consent to our Privacy Policy and agree to its terms. For our Terms and Conditions, please visit the <a href="https://www.privacypolicyonline.com/terms-conditions-generator/">Terms & Conditions Generator</a>.</p>
+<!-- <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms. For our Terms and Conditions, please visit the <a href="https://www.privacypolicyonline.com/terms-conditions-generator/">Terms & Conditions Generator</a>.</p> -->
 
 <h2>Information we collect</h2>
 
@@ -72,7 +72,7 @@
 
 <p>Like any other website, industrialsupplycart uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
 
-<p>For more general information on cookies, please read <a href="https://www.privacypolicies.com/blog/cookies/">"What Are Cookies"</a>.</p>
+<!-- <p>For more general information on cookies, please read <a href="https://www.privacypolicies.com/blog/cookies/">"What Are Cookies"</a>.</p> -->
 
 
 
