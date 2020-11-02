@@ -166,19 +166,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div> 
                    <div class="col-md-4 col-sm-4 equal-elem">
                         <div class="links links-ins">
-                            <h3 class="title-of-section" style="color:white;">Contact :</h3>
+                            <h3 class="title-of-section" style="color:white;">Created and Owned by </h3>
                             <div class="content-ins">
                                 
-                                <p><b>Managed by PT Energi Adidaya Nusantara (for indonesia)</b></p>
-                                <p>Wisma KDS, Unit 202, Jl. Warung Jati Barat No.6B, Jakarta 12740, Indonesia Tel (62) 21 799 5734 Fax (62) 21 791 98044</p>
-                                <a style="color:white;" href="mailto:support@energi-adidaya.com">support@energi-adidaya.com</a>
+                                <p><b>MFF International Pte Ltd., </b></p>
+                                <p>1 Bukit Batok Crescent, #06-18 WCEGA Plaza, </p>
+                                <p>Singapore 658064 </p>
+                                <p>Tel: +6566941572</p>
+                                <a style="color:white;" href="https://mff-intl.com">mff-intl.com</a>
+                                <!-- <a style="color:white;" href="mailto:support@energi-adidaya.com">support@energi-adidaya.com</a> -->
                                
                             </div>
                             
                             <!-- <a href="" class="view-more">View More<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> -->
                         </div>
                     </div> 
-                </div>
+                </div><hr><br>
+                <div class="row">
+                    <h3 class="title-of-section" style="color: white;">Managed by </h3>
+                    <div class="col-sm-3 col-lg-3">
+                        <p><b>In Indonesia</b></p>
+                        <p>PT Energi Adidaya Nusantara</p>
+                        <p>WISM KDS,2nd Floor, Unit #202,JI Warung Jatibarat No 6b Jakarata</p>
+                        <p>Selatan 12740,Indonesia.</p>
+                        <p>Tel: +62217995734</p>
+                        <p>Mail: sales@energi-adidaya.com</p>
+                        <a style="color:white;" href="https://energi-adidaya.com">energi-adidaya.com</a>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        <p><b>In India</b></p>
+                        <p>Osiltec Consulting Private Ltd </p>
+                        <p>6-3-652/D/20 Dhruvatara Complex Somajiguda Main Of Panjagutta,Near Errum Manzil Metro Station,</p>
+                        <p>Hyderabad, 500082, Telangana, India</p>
+                        <p>Tel: +914048555141(India)</p>
+                        <p>Mail: info@osiltec.com</p>
+                        <a style="color:white;" href="https://osiltec.com">osiltec.com</a>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        <p><b>In UAE</b></p>
+                        <p>VMV Solutions LLC </p>
+                        <p>Sharjah Media City, Sharajah, UAE.</p>
+                        <p>Tel:  +(971) 55 8853939</p>
+                        <p>Mail:  Sales@vmv-Solutions.com</p>
+                        <a style="color:white;" href="https://vmv-solutions.com">vmv-solutions.com</a>
+                    </div>
+                    <div class="col-sm-3 col-lg-3">
+                        <p><b>Rest of the World </b></p>
+                        <p>MFF International Pte Ltd </p>
+                        <p>1 BUKIT BATOK CRESCENT, #06-18 WCEGA PLAZA SINGAPORE 658064</p>
+                        <p>Tel: +6566941572</p>
+                        <p>Mail: info@mff-intl.com</p>
+                        <a style="color:white;" href="https://mff-intl.com">mff-intl.com</a>
+                    </div>
+                </div><hr><br>
                 <div class="row">
                     <div class="col">
                         <div class="links">

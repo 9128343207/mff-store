@@ -18,7 +18,7 @@
         </div>
 
         <div class="container">
-                <div class="row">
+                <div class="row" style="margin: 20px 120px">
                     <!-- <div class="contact-map full-width">
                         <a href=""><img src="images/map.jpg" alt="map"></a>
                     </div> -->
