@@ -55,7 +55,7 @@
                             <p class="form-row form-row-wide form-text">
                                 <label>Comments<span class="required"></span></label>
                                 <textarea aria-invalid="false" name="comments" class="textarea-control" rows="5" cols="40" name="message"></textarea>
-           -+                </p>
+                           </p>
                             <p class="form-row">
                                 <input type="submit" value="Submit" name="Submit" class="button-submit">
                             </p>
@@ -66,17 +66,17 @@
                         <div class="contacts-info ">
                             <div class="contact-icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                             <h4 class="title-info">Email</h4>
-                            <div class="info-detail"> support@energi-adidaya.com</div>
+                            <div class="info-detail"> support@industrialsupplycart.com</div>
                         </div>
                         <div class="contacts-info ">
                             <div class="contact-icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
                             <h4 class="title-info">Phone</h4>
-                            <div class="info-detail">(62) 21 799 5734</div>
+                            <div class="info-detail">+6566941572</div>
                         </div>
                         <div class="contacts-info ">
                             <div class="contact-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
                             <h4 class="title-info">Mail Office</h4>
-                            <div class="info-detail">Wisma KDS, Unit 202, Jl. Warung Jati Barat No.6B, Jakarta 12740, Indonesia Tel (62) 21 799 5734 Fax (62) 21 791 98044</div>
+                            <div class="info-detail">1 BUKIT BATOK CRESCENT, #06-18 WCEGA PLAZA SINGAPORE 658064</div>
                         </div>
                     </div>
                 </div>
