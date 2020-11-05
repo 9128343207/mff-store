@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class StoreCreated extends Notification
+class ProductAdded extends Notification
 {
     use Queueable;
 
@@ -41,9 +41,9 @@ class StoreCreated extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('You have successfully created store in industrialcartsupplycart.com.')
-                    ->action('Visit Your Store dashboard', url('/vendor/dashboard'))
-                    ->line('Thank you for using industrialcartsupplycart.');
+                    ->line($this->msg)
+                    ->action('checkout product', url('/p/'. str_replace(' ', '_', $this->product->name)))
+                    ->line('Thank you for using our industrialcartsupplycart.!');
     }
 
     /**
