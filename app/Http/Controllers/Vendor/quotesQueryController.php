@@ -25,7 +25,7 @@ class quotesQueryController extends Controller
     	// $product = Product::find();
     	// dd($this->loggedinUser->store);
     	$store = Store::find($this->loggedinUser->store->id)->first();
-     //    dd($store);
+        //    dd($store);
         $quotes = quotes::where('store_id', $this->loggedinUser->store->id)->get();
     	// dd($quotes);
         $data = [

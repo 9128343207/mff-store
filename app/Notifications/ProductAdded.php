@@ -59,3 +59,4 @@ class ProductAdded extends Notification
         ];
     }
 }
+
