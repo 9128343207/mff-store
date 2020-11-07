@@ -1,7 +1,7 @@
 <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header" style="margin-top: 20px;">
-                <a href="{{asset('files/logo.png')}}"><img width="140" class="main-logo" src="{{asset('files/logo.png')}}" alt="" /></a>
+                <a href="{{ Route('vendor.dashboard') }}"><img width="140" class="main-logo" src="{{asset('files/logo.png')}}" alt="" /></a>
                 <strong><a href="{{ Route('vendor.dashboard') }}"><img src="{{asset('files/logo.png')}}" alt="industrialsupplycart" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
