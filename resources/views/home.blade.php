@@ -8,6 +8,7 @@
     @include('inc.navbar')
 @endsection
 @section('content')
+
 <div class="block-section-1">
     <div class="main-slide slide-opt-1 full-width">
         <div class="owl-carousel nav-style1" data-nav="true" data-autoplay="false" data-dots="true" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"600":{"items":1},"1000":{"items":1}}'>

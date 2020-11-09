@@ -513,11 +513,9 @@ jQuery(document).ready(function ($) {
     if( $('.chosen-select').length > 0 ){
         $('.chosen-select').chosen();
     }
-    if($('#popup-newsletter').length >0){
-        $('#popup-newsletter').modal({
-            keyboard: false
-        })
-    }
+    // if($('#popup-newsletter').length >0){
+    //     $('#popup-newsletter').modal('hide');
+    // }
     slider_ranger_price();
     woocommerce_quantity();
     click_function();

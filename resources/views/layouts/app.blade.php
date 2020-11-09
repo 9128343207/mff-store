@@ -65,7 +65,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-overflow:ellipsis;
             /* display: table-caption; */
         }
+
+       /* #popup-newsletter {
+            display: none;
+        }*/
     </style>
+    <script type="text/javascript">
+         // $('#popup-newsletter').modal('hide');
+    </script>
 
     <title>@yield('title')</title>
     @yield('style')
@@ -82,6 +89,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         @yield('header')
         <main class="site-main site-login">
+            <div class="modal" id="popup-newsletter" tabindex="-1" role="dialog" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span></button>
+                        <div class="block-newletter-popup">
+                            <div class="block-content">
+                                <div id="msg"></div>
+                                <p class="text-popup-primary">Get New Products <br>In your inbox</p>
+                                <p class="text-des">Sign Up for newsletter</p>
+                                <!-- <p class="text-italic">minimum purchase $100.00 (Without Tax)</p> -->
+                                <p class="text-your-email">Enter your email below</p>
+                                <div class="newsletter-form">
+                                    <form id="newsletter-validate-detail" class="form subscribe">
+                                        @csrf
+                                        <div class="control">
+                                            <input type="email" id="newsletter" placeholder="Enter your email address..." name="email" class="input-subscribe">
+                                            <button type="submit" title="Subscribe" class="btn subscribe">
+                                                <span>Subscribes</span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="checkbox-popup">
+                            <li><label class="inline" ><input type="checkbox"><span class="input"></span>Don’t show this popup again</label></li>
+                        </ul>                   
+                    </div>
+                </div>
+            </div>
             @yield('content')
         </main>
     </div>
@@ -325,6 +362,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     }
                 });
             });
+
+
+            $("#newsletter-validate-detail").submit(function(e){
+                e.preventDefault();
+                // alert('submitted');
+                $.ajax({
+                    type: "POST",
+                    url: '/add-to-newleter',
+                    data: $('#newsletter-validate-detail').serialize(), // serializes the form's elements.
+                    success: function(data)
+                    {
+                        
+                        var msg = '<div class="alert alert-success" role="alert">';
+                            msg += 'Your email is registered with us!';
+                            msg += '</div>';
+                        $('#msg').html(msg);
+                        
+                    }
+                });
+            });
         });
         $(document).ready(function(){
             setTimeout(function(){
@@ -441,8 +498,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             html += '<td class="tb-remove"><a href="cart/remove/'+item.itemDetail.id+'" data-id="" class="action-remove"><span><i class="fa fa-times" aria-hidden="true"></i></span></a></td>';
                 $('#cart-item').append(html);
         }
+
+
     </script>
 
     @yield('script')
+    <style type="text/css">
+        
+    </style>
+    <script type="text/javascript">
+
+       
+        
+        function setCookie(cname, cvalue, exdays) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays*24*60*60*1000));
+          var expires = "expires="+d.toUTCString();
+          document.cookie = cname + "=" + cvalue + "; " + expires;
+        }
+
+        function getCookie(cname) {
+          var name = cname + "=";
+          var ca = document.cookie.split(';');
+          for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+          }
+          return "";
+        }
+
+        var cookie = getCookie('shown');
+        // alert(cookie);
+        if (!cookie) {
+          showPopup();
+        }
+
+        function showPopup() {
+          setCookie('shown', 'true', 365);
+          $('#popup-newsletter').modal('show');
+        }
+    </script>
 </body>
 </html>
