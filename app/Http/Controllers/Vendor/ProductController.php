@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         $this->middleware(function ($request, $next) {
             $this->loggedinUser = Auth::user();
             return $next($request);

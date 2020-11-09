@@ -11,6 +11,7 @@
 <link rel="manifest" href="/site.webmanifest">
     {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/cookiealert.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/pe-icon-7-stroke.css') }}">
@@ -245,6 +246,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              </div>
         </div>
 </footer><!-- end FOOTER -->
+
+
+<div class=" text-center cookiealert" role="">
+    <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <!-- <a href="https://cookiesandyou.com/" target="_blank">Learn more</a> -->
+
+    <button type="button" class="btn btn-primary btn-sm acceptcookies">
+        I agree
+    </button>
+</div>
+
+
     <script src="{{asset('js/app.js')}}"></script>
 
     {{-- Success Alert --}}
@@ -287,6 +299,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      <script type="text/javascript" src="{{ asset('js/jquery.plugin.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery.countdown.js') }}"></script>
      <script type="text/javascript" src="{{ asset('js/jquery.shop.js') }}"></script>
+     <script type="text/javascript" src="{{ asset('js/cookiealert.js') }}"></script>
      <script>
 
         $(document).ready(function(){
