@@ -39,7 +39,7 @@
             <td><strong><img alt="Product Image" src="/storage/productimg/{{$productImages->productImg}}"/></strong></td>
         </tr> --}}
         <tr>
-             @if(Session::has('type') == 'new')
+             @if(Session::has('type') !== 0 && session('type') == 'new')
                 @if($productImages)
                @foreach ($productImages as $image )
                <img height="300px" width="300px" src="{{  url('storage/products/img/',$image)}}">
