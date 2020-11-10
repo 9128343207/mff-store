@@ -99,7 +99,7 @@
                                         <div class="product-info-price">
                                             <div class="product-info-stock-sku">
                                                 <div class="stock available">
-                                                    <span class="label-stock">Avability:</span> {{ ($item->in_stock != 0) ? 'In stock' : 'Unavailable'}}
+                                                    <span class="label-stock">Availability:</span> {{ ($item->in_stock != 0) ? 'In stock' : 'Unavailable'}}
                                                 </div>
                                             </div>
                                             @if ($item->price_status == 1)
