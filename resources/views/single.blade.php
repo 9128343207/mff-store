@@ -84,7 +84,7 @@
                         @if(isset($item->item_weight))
                             <table>
                                 <tr>
-                                    <td>weight -</td>
+                                    <td><b>Weight: &nbsp;&nbsp;</b></td>
                                     <td>{{$item->item_weight}}&nbsp;</td>
                                     @if(isset($item->weight_measure_unit))
                                     <td>{{$item->weight_measure_unit}}</td>
