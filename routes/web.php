@@ -27,8 +27,8 @@ Route::post('/products/search', 'HomeController2@ProductSearch')->name('product.
 
 Route::get('/product/{id}', 'Vendor\ProductController@SingleProduct')->name('product.view');
 
-Route::get('/p/{name}', 'Vendor\ProductController@SingleProductNamed')->name('product.named.view'); // for single product
-Route::get('/c/{cat}', 'HomeController2@productByNamedCategory')->name('product.by.category'); // category based
+Route::get('/p/{name?}', 'Vendor\ProductController@SingleProductNamed')->name('product.named.view')->where('name', '(.*)'); // for single product
+Route::get('/c/{cat?}', 'HomeController2@productByNamedCategory')->name('product.by.category')->where('cat', '(.*)'); // category based
 // newleter
 
 Route::post('/add-to-newleter', 'NewsleterController@add');
