@@ -92,15 +92,16 @@ Route::prefix('/payment')->name('payment.')->group(function(){
 //          VENDOR TOUTES 
 //____________________________________________________________________
 
-Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function(){
+Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group( function(){
     //All the vendor routes will be defined here...
+  Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard','HomeController@index')->name('dashboard');
     Route::get('/','HomeController@index')->name('home');
 
 
 
     //
-    Route::prefix('/products')->group(function(){
+    Route::prefix('/products')->group( function(){
          //  Product Listing
         Route::get('/all', 'ProductController@all')->name('product.all');
 
@@ -179,6 +180,7 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group(function()
     Route::post('/delete', 'Additional\UploadController@deleteImage');
 
   });
+ });
 
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
