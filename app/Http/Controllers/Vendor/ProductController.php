@@ -153,10 +153,15 @@ class ProductController extends Controller
     {
        // $item = Product::findOrFail($id);
         $item =Product::where('name', str_replace('_', ' ', $id))->first();
+         if ($item == null) {
+           return view('pro-not-found');
+        }
         $data = [
             'item'      => $item,
             'similars'   => self::SimilarProducts($item)
         ];
+        // dd($item);
+       
         return view('single')->with($data);
     }
 
