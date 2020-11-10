@@ -10,7 +10,7 @@ use App\Product;
 use App\ProductsPhoto;
 use App\Store;
 use Illuminate\Support\Facades\Auth;
-use App\Notifications\ProductAdded;
+// use App\Notifications\ProductAdded;
 
 class ProductController extends Controller
 {
@@ -104,7 +104,7 @@ class ProductController extends Controller
         }
         }
          $added = Product::find($product_id);
-        $user->notify(new ProductAdded($added, $msg));
+        // $user->notify(new ProductAdded($added, $msg));
         
         $request->session()->forget('productImages');
         $request->session()->forget('product');
