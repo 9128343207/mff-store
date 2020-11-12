@@ -1,6 +1,6 @@
 @extends('layouts.vendor')
 @section('title')
-    Qoutes Request
+    Quotes Request
 @endsection
 @section('header')
     @include('inc.v-sidebar')
@@ -23,6 +23,7 @@
                     <!-- <a href="{{ Route('vendor.product.listing') }}">Add Product</a> -->
                     </div>
                     <div class="asset-inner">
+                       
                         <table>
                             <tr>
                                 <th>No</th>
@@ -35,6 +36,7 @@
                                 <th>Date/Time</th>
                                 <th>Action</th>
                             </tr>
+                            @if(count($data['quotes']) != 0)
                             @foreach($data['quotes'] as $quote)
                             <tr>
                             	
@@ -47,6 +49,9 @@
                                 
                             </tr>
                             @endforeach
+                            @else
+                            <tr><td>No Quotes available!</td></tr>
+                            @endif
 
                         </table>
                     </div>
