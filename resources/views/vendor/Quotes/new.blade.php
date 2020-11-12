@@ -30,22 +30,29 @@
                                 <!-- <th>Image</th> -->
                                 <th>Product Name</th>
                                 <th>Status</th>
-                                <!-- <th>Department</th> -->
-                                <!-- <th>In Stock</th> -->
-                                <!-- <th>Price</th> -->
+                                
                                 <th>Date/Time</th>
                                 <th>Action</th>
                             </tr>
                             @if(count($data['quotes']) != 0)
+                            @php $count = 1; @endphp
                             @foreach($data['quotes'] as $quote)
                             <tr>
                             	
-                            		<td>{{$quote->id}}</td>
-                            		<td>{{App\Product::find($quote->product_id)->name}}</td>
-                            		<td>{{$quote->status}}</td>
-                            		<td>{{$quote->created_at}}</td>
-                            		<td><a href="{{route('vendor.quotes.view', ['id' => $quote->id])}}">view</a></td>
+                                
+                                    @if(App\Product::find($quote->product_id) != null)
+                                    <td>{{$count}}</td>
+                                    <td>{{App\Product::find($quote->product_id)->name}}</td>
+                                    <td>{{$quote->status}}</td>
+                                    <td>{{$quote->created_at}}</td>
+                                    <td><a href="{{route('vendor.quotes.view', ['id' => $quote->id])}}">view</a></td>
+                                @else 
+                                <td style="color: red;">{{$count}}</td>
+                                <td style="color: red;">Product have been removed!</td>
+                                @endif
+                               
                             		
+                            	@php $count = $count + 1;	@endphp
                                 
                             </tr>
                             @endforeach
