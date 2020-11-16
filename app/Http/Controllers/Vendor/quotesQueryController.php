@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class quotesQueryController extends Controller
 {
-     public $loggedinUser = [];
+    public $loggedinUser = [];
 
     public function __construct()
     {

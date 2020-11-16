@@ -7,21 +7,19 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ProductAdded extends Notification
+class QuoteRecieved extends Notification
 {
     use Queueable;
 
-    protected $product;
-    protected $msg;
+    protected $Quote;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(array $data)
+    public function __construct(object $quote)
     {
-        $this->product = $data['product'];
-        $this->msg = $data['msg'];
+        $this->Quote = $quote;
     }
 
     /**
@@ -43,10 +41,11 @@ class ProductAdded extends Notification
      */
     public function toMail($notifiable)
     {
+        // dd($this->Quote);
         return (new MailMessage)
-                    ->line($this->msg)
-                    ->action('checkout product', url('/p/'. str_replace(' ', '_', $this->product->name)))
-                    ->line('Thank you for using our industrialcartsupplycart.!');
+                    ->line('You have recieved a quote request.')
+                    ->action('View Details', url('/vendor/qoutes/view/'.$this->Quote->id))
+                    ->line('Thank you for using IndustrialSupplyCart!');
     }
 
     /**
@@ -62,4 +61,3 @@ class ProductAdded extends Notification
         ];
     }
 }
-

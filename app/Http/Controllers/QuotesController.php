@@ -7,6 +7,7 @@ use App\User;
 use App\Product;
 use App\quotes;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\QuoteRecieved;
 
 
 class QuotesController extends Controller
@@ -35,6 +36,8 @@ class QuotesController extends Controller
                     'summary' =>  $req->summary,
                     'status' => 'NEW', // TODO Add attribute function
                 ]);
+       $store->user->notify(new QuoteRecieved($quote));
+        // dd($store->user->email);
     	return view('checkoutSuccess');
     }
 }

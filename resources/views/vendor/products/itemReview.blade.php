@@ -42,13 +42,23 @@
              @if(Session::has('type') !== 0 && session('type') == 'new')
                 @if($productImages)
                @foreach ($productImages as $image )
-               <img height="300px" width="300px" src="{{  url('storage/products/img/',$image)}}">
+                  @if($image)
+                    <td><img height="300px" width="300px" src="{{  url('storage/products/img/',$image)}}"></td>
+                @else
+                    <span style="color: red">Image not added! Please try again.</span>
+                    <script type="text/javascript">$('#final-submit').prop('disabled', true); </script>
+                @endif
                 @endforeach
               @endif
             @else
               @if($productImages)
                @foreach ($productImages as $image )
-               <img height="300px" width="300px" src="{{  url('storage/products/img/',$image->filename)}}">
+                @if($image->filename)
+                  <td><img height="300px" width="300px" src="{{  url('storage/products/img/',$image->filename)}}"></td>
+                @else
+                <span style="color: red">Image not added! Please try again.</span>
+                <script type="text/javascript">$('#final-submit').prop('disabled', true); </script>
+                @endif
               @endforeach
               @endif
             @endif
@@ -57,6 +67,6 @@
     </table>
     <a type="button" href="{{ Route('vendor.product.listing') }}" class="btn btn-warning">Back to Products details</a>
     <!-- <a type="button" href="/products/create-step2" class="btn btn-warning">Back to Step 2</a> -->
-    <button type="submit" class="btn btn-primary">Create Product</button>
+    <button id="final-submit" type="submit" class="btn btn-primary">Create Product</button>
 </form>
 @endsection
