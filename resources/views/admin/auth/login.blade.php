@@ -15,14 +15,13 @@ Login
         <div class="content-error">
             <div class="hpanel">
                 <div class="panel-body">
-                    <form method="POST" action="{{ route('admin.login') }}" id="loginForm">
+                    <form method="POST" action="{{ route('admin.login.submit') }}" id="loginForm">
                         @csrf
                         <div class="form-group">
                             <label class="control-label" for="username">{{ __('E-Mail Address') }}</label>
                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
                                 @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback " style="color: red;" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
@@ -32,7 +31,7 @@ Login
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" style="color: red;" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif

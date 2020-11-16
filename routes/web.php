@@ -191,7 +191,7 @@ Route::prefix('/vendor')->name('vendor.')->namespace('Vendor')->group( function(
 
 Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
 
-  // Route::group(['middleware' => ['auth.admin'] ], function(){
+  Route::group(['middleware' => ['auth.admin'] ], function(){
     Route::post('searchByOrderId','OrderSearchController@searchByOrderID')->name('search.byid');
   Route::post('searchByInvoice','OrderSearchController@searchByInvoice')->name('search.byid');
 
@@ -201,6 +201,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
     Route::get('item/preview/{id}','OrderController@itemPreview')->name('item.preview');
     Route::get('orders/get/{id}','OrderController@refine')->name('order.refine');
       Route::post('order/status/update','OrderController@updateStatus')->name('order.status.update');
+
     Route::get('/dashboard','dashboardController@index')->name('dashboard');
   Route::get('/','dashboardController@index')->name('home');
     Route::get('/users','dashboardController@usersList')->name('user.list');
@@ -236,16 +237,16 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
           Route::post('footer', 'CMSController@updateFooter')->name('footer.update');
           Route::post('header', 'CMSController@updateHeader')->name('header.update');
          });
-    // });
+    });
 
   
   //Auth
   /**
  * Login Route(s)
  */
-    Route::get('admin/login', 'Auth\LoginController@showLoginForm')->name('login');
-    Route::post('admin/login', 'Auth\LoginController@login');
-    Route::post('admin/logout', 'Auth\LoginController@logout')->name('logout');
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@Login')->name('login.submit');
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
     /**
      * Register Route(s)
@@ -269,6 +270,5 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function(){
   Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
   
-
 
 });

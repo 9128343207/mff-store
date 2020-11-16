@@ -4,7 +4,7 @@
 @endsection
 @section('header')
     @include('inc.ad-sidebar')
-    @include('inc.vendor-nav')
+     @include('inc.ad-nav') 
 @endsection
 @section('content')
 <div class="container">
